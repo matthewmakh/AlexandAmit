@@ -204,3 +204,23 @@ textarea:focus-visible {
   font: 400 15px/1.6 Assistant, sans-serif;
 }
 .form-error ul { margin: 0; padding-inline-start: 20px; }
+
+/* Gallery masonry — two columns as designed, a third once there is room for it */
+.gallery {
+  max-width: 1080px;
+  margin: 0 auto;
+  column-count: 2;
+  column-gap: 16px;
+}
+@media (min-width: 900px) {
+  .gallery { column-count: 3; }
+}
+.gallery img {
+  width: 100%;
+  /* height:auto is required — without it the height attribute on each img
+     wins over the CSS width and the photographs render stretched. */
+  height: auto;
+  display: block;
+  margin-bottom: 16px;
+  break-inside: avoid;
+}

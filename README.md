@@ -11,7 +11,7 @@ Built from the Claude Design project in `Phase 1 wedding site proposal/`. Those 
 | `/` | Home — hero, live countdown, invitation, section cards |
 | `/events` | Events — the wedding weekend schedule |
 | `/travel` | Travel & Stay — arrival, transfers, and the three hotels |
-| `/gallery` | Gallery — engagement photographs |
+| `/gallery` | Gallery — 21 engagement photographs |
 | `/newlywed-fund` | Newlywed Fund — Zelle details with copy-to-clipboard |
 | `/rsvp` | RSVP — the reply form (`noindex`) |
 | `/sitemap.xml`, `/robots.txt` | Generated from the request host, so they are correct on any domain |
@@ -56,7 +56,7 @@ Fields, per the design brief, in order: name, email, accept/decline, number atte
 
 Photographs ship in two formats. `server.js` checks the browser's `Accept` header and serves the `.webp` twin when supported, falling back to the `.jpg`/`.png` the markup names — so the HTML stays simple and every visitor gets the smallest file their browser understands. Every `<img>` carries intrinsic `width`/`height` to prevent layout shift, and everything below the first screen is lazy-loaded.
 
-The originals live in `Phase 1 wedding site proposal/`; `public/assets/` holds the resized and re-encoded versions (7.9 MB of sources → 2.9 MB shipped, both formats included).
+The originals live in `Phase 1 wedding site proposal/`; `public/assets/` holds the resized and re-encoded versions, both formats included.
 
 ## Structure
 
