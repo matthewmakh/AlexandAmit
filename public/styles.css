@@ -1,6 +1,20 @@
-html, body { margin: 0; background: #F7F3EC; -webkit-font-smoothing: antialiased; }
+:root {
+  --ivory: #F7F3EC;
+  --sand: #EFE8DD;
+  --border: #DCD2C4;
+  --ink: #2A2622;
+  --taupe: #5D5548;
+  --muted: #6F6455;
+  --gold: #A4885E;
+  --gold-deep: #7A5F32;
+  --sea: #2A7388;
+}
+
+html, body { margin: 0; background: var(--ivory); -webkit-font-smoothing: antialiased; }
 * { box-sizing: border-box; }
-a { color: #7A5F32; text-decoration: none; }
+/* Beats the inline display:grid on elements toggled via the hidden attribute */
+[hidden] { display: none !important; }
+a { color: var(--gold-deep); text-decoration: none; }
 a:hover { color: #423C34; }
 
 /* Rounded pill button (RSVP, copy-to-clipboard) — colors live here so :hover can flip them */
@@ -20,4 +34,173 @@ a:hover { color: #423C34; }
   cursor: pointer;
   transition: background .18s ease, color .18s ease;
 }
-.pill:hover { background: #2A2622; color: #F7F3EC; }
+.pill:hover { background: var(--ink); color: var(--ivory); }
+
+/* RSVP pill sitting over the hero photo — lighter ground, softer border */
+.pill-light {
+  background: rgba(247, 243, 236, .4);
+  border-color: rgba(42, 38, 34, .45);
+}
+
+/* Countdown (home) */
+@keyframes countFadeUp { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes goldPulse { 0%, 100% { box-shadow: 0 0 0 rgba(164, 136, 94, 0); } 50% { box-shadow: 0 0 16px rgba(164, 136, 94, .3); } }
+
+.countdown {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 22px);
+  margin-top: 24px;
+}
+.count-unit { display: grid; gap: 10px; justify-items: center; }
+.count-box {
+  min-width: 96px;
+  padding: 18px 14px;
+  border-radius: 24px;
+  border: 1px solid rgba(164, 136, 94, .5);
+  background: linear-gradient(180deg, rgba(164, 136, 94, .1), rgba(164, 136, 94, .02));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: goldPulse 3.4s ease-in-out infinite;
+}
+.count-unit:nth-child(3) .count-box { animation-delay: .2s; }
+.count-unit:nth-child(5) .count-box { animation-delay: .4s; }
+.count-unit:nth-child(7) .count-box { animation-delay: .6s; }
+.count-num {
+  font: 500 clamp(32px, 5vw, 42px)/1 'EB Garamond', Georgia, serif;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.2ch;
+  display: inline-block;
+}
+.count-num.tick { animation: countFadeUp 350ms ease-out; }
+.count-label {
+  font: 500 10px/1 Assistant, sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #8A7A5E;
+}
+.count-sep {
+  align-self: center;
+  color: var(--gold);
+  font: 400 22px/1 'EB Garamond', Georgia, serif;
+  padding-top: 6px;
+}
+
+/* The four-across row needs ~510px to fit; phones get a 2x2 grid instead. */
+@media (max-width: 559px) {
+  .countdown { display: grid; grid-template-columns: repeat(2, auto); gap: 22px 28px; justify-content: center; }
+  .count-sep { display: none; }
+  .count-box { min-width: 88px; padding: 16px 12px; border-radius: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .count-box { animation: none; }
+  .count-num.tick { animation: none; }
+}
+
+/* Visible focus everywhere — bronze, per the design system's focus-ring colour */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 3px;
+}
+
+/* Touch devices get comfortable hit areas on the small text links. The type
+   stays exactly where it sits on a mouse-driven screen — only the box grows. */
+@media (pointer: coarse) {
+  header nav a,
+  footer nav a,
+  header a[aria-label],
+  footer a[href^="https://wa.me"] {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  header nav,
+  footer nav { row-gap: 0; }
+}
+
+/* RSVP form */
+.field { display: grid; gap: 8px; }
+.field > label,
+.fieldset-label {
+  font: 500 11px/1.4 Assistant, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.field-hint { font: 400 14px/1.5 Assistant, sans-serif; color: var(--muted); }
+
+.field input[type="text"],
+.field input[type="email"],
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  color: var(--ink);
+  font: 400 17px/1.5 Assistant, sans-serif;
+  transition: border-color .18s ease;
+}
+.field textarea { min-height: 120px; resize: vertical; }
+.field input:hover,
+.field select:hover,
+.field textarea:hover { border-color: #C4B6A2; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus { border-color: var(--gold); }
+
+/* Accept / decline — native radios, generous rows */
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  background: var(--ivory);
+  cursor: pointer;
+  font: 400 17px/1.4 Assistant, sans-serif;
+  color: var(--ink);
+  transition: border-color .18s ease, background .18s ease;
+}
+.choice:hover { border-color: #C4B6A2; }
+.choice input { accent-color: var(--gold-deep); width: 18px; height: 18px; margin: 0; }
+.choice:has(input:checked) { border-color: var(--gold); background: rgba(164, 136, 94, .07); }
+
+/* Squared outline submit — fills with ink on hover */
+.btn-outline {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 34px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font: 500 13px/1 Assistant, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+.btn-outline:hover { background: var(--ink); color: var(--ivory); }
+.btn-outline[disabled] { opacity: .55; cursor: progress; }
+
+.form-error {
+  border: 1px solid #8A3A2E;
+  background: rgba(138, 58, 46, .06);
+  color: #8A3A2E;
+  padding: 14px 16px;
+  font: 400 15px/1.6 Assistant, sans-serif;
+}
+.form-error ul { margin: 0; padding-inline-start: 20px; }

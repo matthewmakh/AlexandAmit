@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 *.log
+
+# RSVP replies written by server.js when no volume is mounted
+data/
