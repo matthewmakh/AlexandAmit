@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: oklch(0.977 0.006 85); -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: oklch(0.52 0.078 220); text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { color: oklch(0.18 0.004 60); }
+  code { font-family: ui-monospace,Menlo,monospace; background: oklch(0.932 0.008 80); padding: 2px 5px; font-size: 0.9em; }
+  pre { font-family: ui-monospace,Menlo,monospace; font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; background: oklch(0.18 0.004 60); color: oklch(0.977 0.006 85); padding: 26px 28px; margin: 0; }
+</style>
+</helmet>
+<div style="background:oklch(0.977 0.006 85);min-height:100vh;padding:0 0 140px;color:oklch(0.18 0.004 60)">
+<div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
+
+<header style="padding:clamp(48px,7vw,84px) 0 0">
+  <div style="display:flex;flex-wrap:wrap;gap:12px 28px;font:400 11px/1 Jost,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:oklch(0.62 0.017 65)">
+    <span>Phase 2</span><span style="color:oklch(0.66 0.048 78)">Build spec — real files</span><span>31 July 2026</span>
+  </div>
+  <h1 style="font:400 clamp(36px,5.5vw,60px)/1.05 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;margin:24px 0 0">Every approved item, file by file.</h1>
+  <p style="font:300 16px/1.7 Jost,sans-serif;color:oklch(0.32 0.006 60);margin:16px 0 0;max-width:74ch">Grounded in <code>timeless-vows-web</code> at <code>main</code>. No conceptual mockups below — file, current behaviour, exact change, what to reuse, what to check, how to verify. I still cannot commit; section 5 is the prompt to paste into Lovable, which can.</p>
+</header>
+
+<section style="margin-top:52px;border-top:1px solid oklch(0.885 0.011 80);padding-top:32px">
+  <h2 style="font:400 26px/1.2 'Cormorant Garamond',Georgia,serif;margin:0 0 16px">1 · Six corrections from Phase 1</h2>
+  <div style="display:grid;gap:0;font:300 14.5px/1.6 Jost,sans-serif;color:oklch(0.32 0.006 60)">
+    <p style="margin:0 0 10px"><strong>Header transparency already exists</strong> — <code>Nav.tsx</code>'s <code>overHero</code> already renders no background on the home hero, blurred ivory once scrolled.</p>
+    <p style="margin:0 0 10px"><strong>"A AAA" wasn't a real a11y bug</strong> — the monogram's parent <code>&lt;Link&gt;</code> carries its own <code>aria-label</code>; a screen reader never sees "A AAA". Text-fetch artifact, retracted. Replacing the mark still stands on its own merits.</p>
+    <p style="margin:0 0 10px"><strong>Hebrew is real and complete-looking</strong> — full <code>const he: Copy</code> in <code>copy.ts</code>, RTL font-swap and logical-property rules in <code>styles.css</code>.</p>
+    <p style="margin:0 0 10px"><strong>HeartButton beats a pill</strong> — a hand-drawn heart outline that draws itself on scroll already exists as the site's RSVP mark. Reused below instead of inventing a pill.</p>
+    <p style="margin:0 0 10px"><strong>The "stray bullet" on RSVP wasn't real either</strong> — <code>rsvp.tsx</code>'s guest-count field is a clean native <code>&lt;select&gt;</code>. Retracted.</p>
+    <p style="margin:0">Six of your <strong>seven</strong> "engagement photos" across Our Story and Gallery are Lovable-generated placeholders (<code>*.asset.json</code> stand-ins, never your real photography). Section 4 replaces them with your real uploads.</p>
+  </div>
+</section>
+
+<section style="margin-top:52px;border-top:1px solid oklch(0.885 0.011 80);padding-top:32px">
+  <h2 style="font:400 26px/1.2 'Cormorant Garamond',Georgia,serif;margin:0 0 20px">2 · File-by-file</h2>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">01 · Monogram artwork</strong> — <code>src/components/site/Monogram.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> inline SVG, two "A" text glyphs + hand-drawn swash paths, <code>fill="currentColor"</code>, used by 6 call sites.</div>
+      <div><strong>Change:</strong> replace the SVG body with an <code>&lt;img&gt;</code> pointing at one of two new PNGs, chosen by a new <code>tone?: "gold" | "charcoal"</code> prop (default <code>"charcoal"</code>). Keep <code>className</code>/sizing props identical so no call site's layout breaks. Add explicit <code>width</code>/<code>height</code> matching the asset's 634:378 ratio to avoid layout shift.</div>
+      <div><strong>Reuse:</strong> every existing call site (<code>Nav</code>, <code>Footer</code>, <code>DetailCard</code>, home <code>Hero</code>, home RSVP section, <code>rsvp.tsx</code> success state) — only add the <code>tone</code> prop where gold is wanted; charcoal is the default so hero/nav/rsvp-success (all over-photo or on-ink contexts) need no prop change.</div>
+      <div><strong>Set <code>tone="gold"</code> at:</strong> <code>Footer.tsx</code>, <code>DetailCard.tsx</code>, home page's bottom RSVP section — all ivory/card backgrounds.</div>
+      <div><strong>Trade-off to accept:</strong> the SVG's <code>currentColor</code> flexibility is gone — recolouring later means regenerating a PNG, not changing a class.</div>
+      <div><strong>Verify:</strong> both PNGs render at every one of the 6 call sites at their existing size; no layout shift (check with dimensions set); <code>alt</code> text unchanged; gold reads clearly on ivory, charcoal reads clearly over the hero photo at both light and dark patches of sky.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">02 · One RSVP in the nav, HeartButton not a pill</strong> — <code>src/components/site/Nav.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> RSVP renders as a plain <code>&lt;Link&gt;</code> styled identically to the other nav items (desktop row and the <code>xl:hidden</code> mobile row), just with <code>ms-6</code> spacing.</div>
+      <div><strong>Change:</strong> both places, replace <code>&lt;Link to="/rsvp" class:"link-underline …"&gt;{t.nav.rsvp}&lt;/Link&gt;</code> (React prop: className) with <code>&lt;HeartButton to="/rsvp" label={t.nav.rsvp} size="mini" tone={overHero ? "ivory" : "ink"} /&gt;</code>. Import <code>HeartButton</code> at the top of <code>Nav.tsx</code>.</div>
+      <div><strong>Reuse:</strong> <code>HeartButton</code> as-is — no new component.</div>
+      <div><strong>Mobile/a11y:</strong> <code>size="mini"</code> is 34×40px, under the 44px minimum — bump the mini box to at least 44×50px (edit the <code>box</code> map in <code>HeartButton.tsx</code>, mini case only) before using it as a real tap target here; it was previously decorative-only.</div>
+      <div><strong>Verify:</strong> nav RSVP still routes to <code>/rsvp</code>; visible and tappable ≥44px at 360/390/430/768/1024; heart outline draw-in animation still fires on first view; tone flips ivory→ink correctly when <code>overHero</code> goes false.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">03 · Art-directed hero source, desktop vs mobile</strong> — <code>src/components/site/SiteBackdrop.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> one fixed, global backdrop behind <em>every</em> route (mounted once in <code>__root.tsx</code>) — a single <code>&lt;img src={heroAsset.url}&gt;</code> (<code>hero-horses.png</code>), <code>object-cover object-center</code>, with a scroll-driven scrim.</div>
+      <div><strong>Change:</strong> swap the single <code>&lt;img&gt;</code> for a <code>&lt;picture&gt;</code>: a <code>&lt;source media="(min-width: 768px)" src-set:{heroDesktop}&gt;</code> (React prop: srcSet) pointing at the outpainted wide crop, falling back to <code>&lt;img src={heroMobile}&gt;</code> (your original portrait, <code>Alex-11.jpg</code>) for anything narrower. Keep every existing class (<code>slow-zoom</code>, <code>object-cover object-center</code>, <code>saturate-[0.95] contrast-[1.02]</code>) on the <code>&lt;img&gt;</code> fallback tag so the zoom/scrim behaviour is untouched.</div>
+      <div><strong>Scope check:</strong> this file is global, not homepage-only — the art-direction swap is safe everywhere since it's the same photo either way, but confirm you're fine with the desktop crop showing (faintly, behind the blur) on inner pages too, exactly as the current single photo does today.</div>
+      <div><strong>Reuse:</strong> the existing scrim <code>motion.div</code>, gradient overlay, and <code>slow-zoom</code> keyframe — none of that changes.</div>
+      <div><strong>Verify:</strong> no layout shift switching between breakpoints; the 768px art-direction breakpoint doesn't fight Tailwind's own <code>md:</code> (768px) elsewhere on the page; slow-zoom still runs 32s on both images; reduced-motion still disables it (existing media query, untouched).</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">04 · Ampersand, not "and"</strong> — <code>src/routes/index.tsx</code> (Hero), <code>src/content/copy.ts</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> Hero renders <code>[site.brideFirst, t.hero.and, site.groomFirst]</code> — <code>t.hero.and</code> is the translated word "and" ("ו" in Hebrew). <code>Footer.tsx</code> already renders a literal <code>&amp;</code> in <code>sea-deep</code>, inconsistently.</div>
+      <div><strong>Change:</strong> in <code>Hero()</code>, replace the middle array item with the literal string <code>"&amp;"</code> (drop <code>t.hero.and</code> entirely from the render — it's language-agnostic, no <code>copy.ts</code> edit needed). Keep its existing span classes (<code>my-1 font-serif text-2xl font-light italic opacity-70 md:text-3xl</code>) so size/position don't change, just the glyph.</div>
+      <div><strong>Hebrew:</strong> an ampersand is not a Hebrew-script character — confirm it still reads correctly right-to-left between two Hebrew names (it should, ampersands don't mirror), but eyeball it in the <code>he</code> locale before shipping.</div>
+      <div><strong>Verify:</strong> hero shows "Amit & Alex" in both languages; <code>t.hero.and</code> string can be deleted from <code>copy.ts</code> if nothing else references it (grep first).</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">05 · No new tokens</strong> — <code>src/styles.css</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> a complete oklch token set already exists (<code>--ivory --champagne --sand --taupe --ink --gold --sea --sea-deep</code>), with an RTL font-swap block.</div>
+      <div><strong>Change:</strong> none — supersedes Phase 1's proposed palette entirely. The only real follow-up is <code>.lovable/plan.md</code>'s own unfinished item: confirm no route still references <code>rule-gold</code> / <code>text-gold</code> / <code>border-gold</code> as a decorative accent (its plan said to retire those in favour of <code>rule-sea</code> everywhere except the focus ring). A repo-wide search for <code>-gold</code> classes across <code>src/routes/*.tsx</code> and <code>src/components/site/*.tsx</code> is the whole task.</div>
+      <div><strong>Verify:</strong> <code>grep -rn "gold" src/routes src/components/site</code> returns only <code>--ring: var(--gold)</code> and the two new Monogram tone references from item 01.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">06 · No new button style</strong> — no file change</div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div>Real CTA language is already exactly two shapes: <code>HeartButton</code> (navigate to RSVP) and a plain outlined full-width/inline button (<code>border border-foreground/80 … hover:bg-foreground hover:text-background</code>, used for form submit in <code>rsvp.tsx</code> and hotel booking in <code>hotels.tsx</code>). Both are distinctive and consistent. Recommend adding nothing.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">07 · Body text floor</strong> — <code>src/styles.css</code>, <code>.body-lux</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> <code>font-size: clamp(0.95rem, 1.05vw, 1.0625rem)</code> — bottoms out at 15.2px on phones narrower than ~423px viewport width.</div>
+      <div><strong>Change:</strong> <code>clamp(1.0625rem, 1.05vw, 1.0625rem)</code> — i.e. stop clamping down at all below the current max, pinning body text to a flat 17px and letting it grow slightly on wider screens as before.</div>
+      <div><strong>Verify:</strong> computed font-size of any <code>.body-lux</code> element is ≥17px at 360px viewport width.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">08 · Tap targets</strong> — <code>src/components/site/HeartButton.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div>Covered by item 02's HeartButton mini-size fix — no separate change needed elsewhere; Nav's other links and the mobile menu's <code>py-2</code> rows already clear 44px in practice given their font size and line-height (spot-check, don't assume).</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">09/19 · Merge the duplicate "You are invited"</strong> — <code>src/routes/index.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> two sections both render <code>t.home.inviteEyebrow</code> / <code>inviteTitle</code> — first is <code>&lt;section id="invitation"&gt;</code> with plain prose (<code>t.home.inviteBody</code>); second is the <code>band-sea</code> section using <code>&lt;InvitationCard/&gt;</code>, further down past the Countdown.</div>
+      <div><strong>Change:</strong> delete the first <code>&lt;section id="invitation"&gt;…&lt;/section&gt;</code> block entirely. <strong>Move <code>id="invitation"</code> onto the surviving <code>band-sea</code> section</strong> — the Hero's "Enter Website" link (<code>href="#invitation"</code>) targets this id; if you don't move it, that scroll cue silently breaks.</div>
+      <div><strong>Verify:</strong> clicking/tapping the hero's scroll cue lands on the letterpress <code>InvitationCard</code>, not a dead anchor; only one "You are invited" appears on the page; Countdown section (now directly under Hero) still renders correctly with its own spacing.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">10 · Dress code section</strong> — <code>src/content/copy.ts</code>, <code>src/routes/index.tsx</code> or new section</div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> "Black tie" appears as a bare value in <code>t.home.details</code> (DetailCard rows) and again in <code>t.faq.items</code>'s dress-code answer, which holds the real guidance (floor-length/tuxedo/dark suit, outdoor stone-and-grass, block heels, indoor dinner).</div>
+      <div><strong>Change:</strong> add a <code>note</code> to the "Dress code" row passed into the homepage's <code>DetailCard</code> — <code>DetailCard</code>'s row type already supports <code>note?: string</code> (see <code>DetailRow</code>) and renders it right under the value. Reuse the FAQ's exact wording for that <code>note</code> rather than writing new copy.</div>
+      <div><strong>Verify:</strong> the dress-code row on the homepage details card now shows the practical guidance without opening FAQ; FAQ's own answer is untouched (still the source of truth).</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">11/23 · Transportation &amp; hotel rate — mark TBD</strong> — <code>src/content/copy.ts</code> (<code>travel.sections</code>, <code>hotels.primary</code>)</div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> <code>travel.sections</code> is an array of <code>title</code> + <code>items: [{label, value}]</code> — no time field exists for the Namos bus or wedding-day shuttle; <code>hotels.primary.facts</code> is a flat <code>string[]</code> with no dedicated rate field.</div>
+      <div><strong>Change:</strong> in <code>copy.ts</code>, for both <code>en</code> and <code>he</code>: wherever a transfer is mentioned in <code>travel.sections</code>, set its <code>value</code> to end with "— departure time to be confirmed" (or the Hebrew equivalent already used elsewhere for TBD language, for consistency — check if one exists before inventing a new phrase). In <code>hotels.primary.facts</code>, the rate line becomes "Group rate — to be announced."</div>
+      <div><strong>Do not:</strong> invent a rate, a code, or a time. This is a content-only edit, both languages, no component change.</div>
+      <div><strong>Verify:</strong> every transfer mention and the hotel rate line reads as pending in both <code>en</code> and <code>he</code>, phrased identically to each other.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">12 · Hotel block as key–value</strong> — <code>src/routes/hotels.tsx</code>, <code>src/content/copy.ts</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> <code>primary.facts: string[]</code> rendered as a plain <code>&lt;ul&gt;</code> of eyebrow-styled lines.</div>
+      <div><strong>Change:</strong> change the <code>hotels.primary</code> shape in <code>copy.ts</code> (both languages) from <code>facts: string[]</code> to an array of <code>{label, value, note?}</code> rows, and in <code>hotels.tsx</code> swap the <code>&lt;ul&gt;</code> for <code>&lt;DetailCard rows={primary.rows} footer={bookingLink} monogram={false} /&gt;</code> in place of the current right-column text block (keep the left-column photo as-is). This reuses the exact engraved pattern already proven on Wedding Details and the Weekend itinerary.</div>
+      <div><strong>Verify:</strong> booking CTA still opens <code>site.hotel.bookingUrl</code> in a new tab; photo column untouched; alternative-hotel cards below (currently plain, no links) are a separate, smaller edit — see item 23 note below.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">13 · Footer: deadline + phone</strong> — <code>src/components/site/Footer.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> Footer shows monogram, "Amit & Alex", <code>t.common.dateShort</code>, the nav list, and <code>t.footer.tagline</code> — no RSVP deadline, no phone number, though both already exist in config (<code>site.rsvpDeadlineISO</code>, <code>site.contact</code>).</div>
+      <div><strong>Change:</strong> add one line between the nav <code>&lt;ul&gt;</code> and the tagline: a formatted deadline ("Kindly reply by 15 September 2026") plus <code>&lt;a href={site.contact.phoneHref}&gt;{site.contact.phone}&lt;/a&gt;</code>, styled as <code>eyebrow</code> to match the tagline.</div>
+      <div><strong>Verify:</strong> date formats correctly in Hebrew locale too (use the same date-formatting utility <code>Countdown.tsx</code> already uses, not a hand-written string, so both languages stay correct automatically).</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">14 · FAQ answers in markup</strong> — <code>src/routes/faq.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> <code>expanded && (…)</code> as a conditional mount — collapsed answers are unmounted, not just hidden; a crawler or no-JS visitor only ever sees whichever one defaults open.</div>
+      <div><strong>Change:</strong> always render <code>&lt;motion.div&gt;</code>'s children; replace the conditional mount with a height/opacity animation driven by <code>expanded</code> alone (Motion supports animating to a computed height without unmounting — e.g. keep the <code>AnimatePresence</code> removed and animate to <code>height: expanded ? "auto" : 0</code> directly on a permanently-mounted wrapper). Keep <code>aria-expanded</code> as-is (already correct).</div>
+      <div><strong>Verify:</strong> view page source (or disable JS) and confirm all 11 answers are present in the initial HTML; visual open/close animation is unchanged.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">15 · Image optimisation</strong> — no action</div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">Lovable's own asset pipeline (the <code>r2.dev</code> CDN + <code>.asset.json</code> indirection) is already serving the placeholder images through it; the real <code>.jpg</code> files (<code>hotel-1/2.jpg</code>, <code>gallery-2.jpg</code>) already carry explicit <code>width</code>/<code>height</code> and <code>loading="lazy"</code>. Nothing to change once item 04's photo swap goes through the same import pattern.</div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">16 · RSVP form</strong> — no action</div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">Retracted per section 1 — the guest-count field is already a clean <code>&lt;select&gt;</code>, no stray bullet exists in source.</div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">17 · Mobile menu: Escape + aria-expanded</strong> — <code>src/components/site/Nav.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> full-height opaque panel, body-scroll lock, and staggered reveal already work. Missing: no <code>keydown</code> listener for Escape, no <code>aria-expanded</code>/<code>aria-controls</code> on the hamburger <code>&lt;button&gt;</code>.</div>
+      <div><strong>Change:</strong> add a <code>useEffect</code> that, while <code>open</code>, listens for <code>Escape</code> and calls <code>setOpen(false)</code> — <code>gallery.tsx</code>'s lightbox already has this exact pattern; copy it. Add <code>aria-expanded={open}</code> and <code>aria-controls="mobile-menu"</code> to the hamburger button, and <code>id="mobile-menu"</code> on the panel.</div>
+      <div><strong>Verify:</strong> Escape closes the menu from anywhere; a screen reader announces the hamburger's expanded/collapsed state.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">18 · Remove Lovable badge</strong> — Lovable project settings, not code</div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">20 · Countdown</strong> — keep, no change</div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">21 · Delete the "guide" 9-grid</strong> — <code>src/routes/index.tsx</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Change:</strong> delete the "Guide" section (the code comment marks it) and the <code>GUIDE</code> const at the bottom of the file. Every destination it links to must remain reachable — confirmed true once item 22's 5-item nav is in place.</div>
+      <div><strong>Sequencing:</strong> do this <em>after</em> item 22, not before, or all 9 destinations briefly lose one of their two access points.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">22 · Nine pages → five nav destinations</strong> — <code>Nav.tsx</code> (<code>navItems</code>), route files, <code>sitemap[.]xml.ts</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> <code>navItems</code> in <code>Nav.tsx</code> is imported by <code>Footer.tsx</code> too — one array, two render sites, already DRY. Ten routes exist as separate files.</div>
+      <div><strong>Change:</strong> merge <code>hotels.tsx</code>'s content into <code>travel.tsx</code> as a second section (or vice versa) under one route; fold <code>registry.tsx</code>, <code>faq.tsx</code>, <code>contact.tsx</code> into one new <code>questions.tsx</code> route with three in-page sections and anchor links. Update <code>navItems</code> to 5 entries + RSVP. Add redirects: <code>/hotels → /travel#hotels</code>, <code>/registry → /questions#registry</code>, <code>/faq → /questions#faq</code>, <code>/contact → /questions#contact</code> (TanStack Router supports route-level redirects — check current version's API before writing them). Update the route list in <code>sitemap[.]xml.ts</code> to the new 5 + RSVP + our-story + gallery paths.</div>
+      <div><strong>Hebrew/RTL:</strong> anchor-link scrolling and any hash-based section jump must be re-verified in <code>dir="rtl"</code> — nothing about anchors is inherently RTL-aware, but centered/RTL layouts can shift scroll targets vertically if section heights differ per language. Check after merging, not before.</div>
+      <div><strong>This is the one item I'd hand to a developer or Lovable directly</strong> rather than execute from a pasted brief — real multi-file restructuring with routing consequences.</div>
+      <div><strong>Verify:</strong> every one of the 4 old URLs 301s (or client-redirects) to its new location; nav renders identically on Footer and Nav from the same array; sitemap has no dead entries; RTL anchor scroll lands on the right section.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0;margin-bottom:2px">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">23 · Link the alternative hotels</strong> — <code>src/routes/hotels.tsx</code>, <code>src/content/site.ts</code></div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div><strong>Now:</strong> the three alternatives (<code>others</code> array) render as plain <code>&lt;h3&gt;</code> text — no <code>&lt;a&gt;</code>, no URL anywhere in config.</div>
+      <div><strong>Blocked on you, not code:</strong> I have no URLs for Ramada Netanya, Elma Zichron Ya'akov, or the apartment listings. Once you have them, add an optional <code>url</code> field to each <code>others</code> entry in <code>copy.ts</code> and wrap the <code>&lt;h3&gt;</code> in an <code>&lt;a&gt;</code> when present — don't block the rest of Phase 2 on this.</div>
+    </div>
+  </div>
+
+  <div style="border:1px solid oklch(0.885 0.011 80);border-top:0">
+    <div style="padding:16px 20px;background:oklch(0.932 0.008 80)"><strong style="font:500 14px/1.3 Jost,sans-serif">24 · Hebrew/RTL verification pass</strong> — every route file, read not yet re-verified per-route</div>
+    <div style="padding:16px 20px;display:grid;gap:8px;font:300 14.5px/1.65 Jost,sans-serif">
+      <div>Confirmed real and complete-<em>looking</em>: full <code>he</code> copy object, RTL logical-property CSS, font-swap. Not yet confirmed: whether <code>.lovable/plan.md</code>'s centered-layout-and-sea-colour pass reached every route in both directions. Concretely: load <code>/our-story</code>, <code>/travel</code>, <code>/hotels</code>, <code>/faq</code>, <code>/registry</code>, <code>/gallery</code>, <code>/wedding-weekend</code> with <code>lang=he</code> set and screenshot each — that screenshot pass is the actual item 24 deliverable, and it's the one thing on this list I have not done.</div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top:52px;border-top:1px solid oklch(0.885 0.011 80);padding-top:32px">
+  <h2 style="font:400 26px/1.2 'Cormorant Garamond',Georgia,serif;margin:0 0 8px">3 · Monogram asset paths</h2>
+  <p style="font:300 15px/1.7 Jost,sans-serif;color:oklch(0.32 0.006 60);margin:0 0 16px">Generated from your uploaded reference, cropped and cut to transparent PNG, two colourways. Store both at:</p>
+  <div style="font:400 14px/1.9 ui-monospace,Menlo,monospace;background:oklch(0.932 0.008 80);padding:16px 20px">
+    src/assets/monogram-gold.png<br>
+    src/assets/monogram-charcoal.png
+  </div>
+  <p style="font:300 15px/1.7 Jost,sans-serif;color:oklch(0.32 0.006 60);margin:16px 0 0">Same folder as <code>hotel-1.jpg</code> / <code>gallery-2.jpg</code> — real files, imported directly (<code>import monogramGold from "@/assets/monogram-gold.png"</code>), not through the <code>.asset.json</code> placeholder pattern. Reference: <code>Monogram.tsx</code>, section 2, item 01.</p>
+</section>
+
+<section style="margin-top:52px;border-top:1px solid oklch(0.885 0.011 80);padding-top:32px">
+  <h2 style="font:400 26px/1.2 'Cormorant Garamond',Georgia,serif;margin:0 0 8px">4 · Photography — real placements</h2>
+  <p style="font:300 15px/1.7 Jost,sans-serif;color:oklch(0.32 0.006 60);margin:0 0 20px">All 20 uploaded files viewed. Eight replace the placeholder <code>.asset.json</code> images at their existing call sites and aspect ratios; the rest are available if you want to grow the gallery beyond six images later.</p>
+  <div style="border:1px solid oklch(0.885 0.011 80)">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;background:oklch(0.932 0.008 80);font:500 11px/1.3 Jost,sans-serif;letter-spacing:.12em;text-transform:uppercase"><div>Slot</div><div>File / aspect</div><div>Replace with</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>our-story.tsx</code> storyOne</div><div>7:5 landscape — currently "Walking by the sea"</div><div><strong>Alex-15.jpg</strong> — embrace at the flower arch</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>our-story.tsx</code> storyTwo</div><div>4:5 portrait — "Hands and the ring"</div><div><strong>Alex-50.jpg</strong> — ring reveal, both faces</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>our-story.tsx</code> galleryThree</div><div>16:9 landscape — "Dancing under warm lights"</div><div><strong>Alex-32.jpg</strong> — post-proposal celebration, wide</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>gallery.tsx</code> kissDip</div><div>masonry column</div><div><strong>Alex-81.jpg</strong> — lift-and-kiss, genuinely dip-like</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>gallery.tsx</code> proposal</div><div>masonry column</div><div><strong>Alex-25.jpg</strong> — on one knee, sparklers, close</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>gallery.tsx</code> ringHands</div><div>masonry column</div><div><strong>Alex-43.jpg</strong> — hand raised, ring visible</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>gallery.tsx</code> kissSunset</div><div>masonry column</div><div><strong>Alex-68.jpg</strong> — clean kiss, golden hour</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>gallery.tsx</code> laughing</div><div>masonry column</div><div><strong>Alex-75.jpg</strong> — piggyback, joyful</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.5 Jost,sans-serif"><div><code>gallery.tsx</code> heroAsset</div><div>masonry column</div><div>keep — <strong>Alex-11.jpg</strong>, already the hero</div></div>
+  </div>
+  <p style="font:300 14px/1.65 Jost,sans-serif;color:oklch(0.62 0.017 65);margin:16px 0 0">Available, unplaced: Alex-5, Alex-18, Alex-24, Alex-33, Alex-34, Alex-42, Alex-46, Alex-56, Alex-73, Alex-79, and the second horses capture (Alex-6, three riders — not couple-only, so not recommended for a primary slot). Update each new <code>&lt;img&gt;</code>'s <code>alt</code> text to describe what's actually in the frame — several current <code>alt</code>s ("Walking by the sea", "Dancing under warm lights") describe the placeholder, not these photos.</p>
+</section>
+
+<section style="margin-top:52px;border-top:1px solid oklch(0.885 0.011 80);padding-top:32px">
+  <h2 style="font:400 26px/1.2 'Cormorant Garamond',Georgia,serif;margin:0 0 8px">5 · Consolidated Lovable prompt</h2>
+  <p style="font:300 15px/1.7 Jost,sans-serif;color:oklch(0.32 0.006 60);margin:0 0 16px">Paste as one message into Lovable's chat on this project. It has commit access; I don't.</p>
+  <pre>Implement the following approved changes to this wedding website. Work file by file as scoped below. Show me a preview when done — do not publish or deploy.
+
+MONOGRAM
+- Replace the inline-SVG mark in src/components/site/Monogram.tsx with the two uploaded artwork files at src/assets/monogram-gold.png and src/assets/monogram-charcoal.png (exact custom A&amp;A artwork — do not substitute typed characters or a redrawn mark).
+- Add a `tone?: "gold" | "charcoal"` prop, default "charcoal". Use tone="gold" at: Footer.tsx, DetailCard.tsx, and the homepage's bottom RSVP section (all ivory/card backgrounds). Leave every other call site on the charcoal default (nav, hero, RSVP success state — all over-photo or on-ink).
+- Preserve existing className/sizing props and add width/height matching the asset's real aspect ratio to prevent layout shift.
+
+HERO — DESKTOP VS MOBILE
+- In src/components/site/SiteBackdrop.tsx, replace the single &lt;img&gt; with a &lt;picture&gt;: a min-width:768px &lt;source&gt; using the approved outpainted landscape crop, falling back to the original portrait image (Alex-11.jpg) below that breakpoint. Keep it full-bleed behind the header exactly as now.
+- Keep every existing class (slow-zoom, object-cover object-center, saturate/contrast, the scroll-driven scrim) on the fallback &lt;img&gt; tag — behaviour must not change, only the source.
+- In src/routes/index.tsx Hero(), change the name rendering from [site.brideFirst, t.hero.and, site.groomFirst] to use a literal "&amp;" instead of the translated word "and", matching Footer.tsx's existing ampersand treatment. Do this in both languages.
+
+RSVP — ONE IN THE NAV, HEARTBUTTON PRESERVED
+- In src/components/site/Nav.tsx, replace the plain-text RSVP link (both the desktop row and the xl:hidden mobile row) with the existing &lt;HeartButton to="/rsvp" label={t.nav.rsvp} size="mini" tone={overHero ? "ivory" : "ink"} /&gt; component. Do not invent a new button style.
+- In HeartButton.tsx, increase the "mini" size's hit area to at least 44×50px (it's currently a decorative-only 34×40 and is now a real tap target).
+- The homepage hero itself keeps no RSVP deadline text and no RSVP button of its own — RSVP lives only in the nav on the first screen.
+- Reintroduce a second RSVP moment directly after the Wedding Details section (the DetailCard block, before the "Weekend preview" band) on the homepage, using the same HeartButton component. The reply deadline text belongs there and/or on the RSVP page itself (it already appears in rsvp.tsx's t.rsvp.deadline) — not in the hero.
+
+STRUCTURE
+- Delete the duplicate "You are invited" section in src/routes/index.tsx: remove the first plain-prose &lt;section id="invitation"&gt; block and move id="invitation" onto the surviving InvitationCard section further down, so the hero's "Enter Website" scroll link still resolves.
+- Delete the 9-item "guide" grid section and its GUIDE array at the bottom of index.tsx, but only after the nav below is restructured so all 9 destinations remain reachable.
+- Do NOT touch the Countdown component or its section — keep as-is.
+
+CONTENT — MARK AS PENDING, DO NOT INVENT
+- In src/content/copy.ts, for both en and he: mark every transfer/shuttle time mention in travel.sections as pending confirmation, and the hotel group rate in hotels.primary as "to be announced." Do not add a specific time, rate, or code anywhere.
+
+HEBREW / RTL
+- Do not modify src/lib/i18n.tsx, the RTL CSS in styles.css, or any existing Hebrew string in copy.ts except the literal ampersand change above (language-agnostic) and the TBD wording (both languages, translated consistently).
+- After all changes, verify every route renders correctly with lang set to "he" — no untranslated strings, no broken RTL alignment, no anchor-scroll regressions.
+
+GALLERY HEADING
+- On the gallery route, delete the headline text below the "Gallery" eyebrow label entirely (it read "A few of our favourites", later changed to "Moments together" — remove that line completely, in both languages). The "Gallery" eyebrow label is the only heading now; no h1/headline under it.
+
+DO NOT
+- Do not change RSVP submission logic, the Supabase schema, or anything in src/lib/rsvp.functions.ts or rsvp-email.server.ts.
+- Do not invent any wedding detail, date, rate, time, or link not already in this repo or explicitly provided.
+- Do not publish or deploy. Implement on a preview/branch and show me before anything goes live.</pre>
+</section>
+
+<section style="margin-top:52px;border-top:1px solid oklch(0.885 0.011 80);padding-top:32px">
+  <h2 style="font:400 26px/1.2 'Cormorant Garamond',Georgia,serif;margin:0 0 16px">6 · Asset checklist</h2>
+  <div style="border:1px solid oklch(0.885 0.011 80)">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:14px;padding:11px 18px;background:oklch(0.932 0.008 80);font:500 11px/1.3 Jost,sans-serif;letter-spacing:.12em;text-transform:uppercase"><div>File</div><div>Goes to</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.6 Jost,sans-serif"><div>monogram-gold.png</div><div><code>src/assets/</code> — ready now, generated this session</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.6 Jost,sans-serif"><div>monogram-charcoal.png</div><div><code>src/assets/</code> — ready now, generated this session</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.6 Jost,sans-serif"><div>Outpainted desktop hero</div><div><code>src/assets/</code> — you already produced and approved this; needed as a real file in the repo (currently only in this project's <code>uploads/</code>)</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.6 Jost,sans-serif"><div>Alex-11.jpg</div><div><code>src/assets/</code> — mobile hero source (portrait)</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:14px;padding:11px 18px;border-top:1px solid oklch(0.885 0.011 80);font:300 14px/1.6 Jost,sans-serif"><div>Alex-15, 25, 32, 43, 50, 68, 75, 81.jpg</div><div><code>src/assets/</code> — the eight our-story/gallery placeholder replacements, section 4</div></div>
+  </div>
+  <p style="font:400 13px/1.6 Jost,sans-serif;color:oklch(0.66 0.048 78);margin:16px 0 0">Everything else approved (nav merge, footer line, dress-code note, FAQ markup, Escape handler, body-text floor) needs no new asset — content and code only.</p>
+</section>
+
+</div>
+</div>
+</x-dc>
+</body>
+</html>

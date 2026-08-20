@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Assistant:wght@300;400;500;600&family=Pinyon+Script&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#F7F3EC;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}a{color:#7A5F32;text-decoration:none}a:hover{color:#423C34}@keyframes countFadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@keyframes goldPulse{0%,100%{box-shadow:0 0 0 rgba(164,136,94,0)}50%{box-shadow:0 0 16px rgba(164,136,94,.3)}}</style>
+</helmet>
+<div style="background:#F7F3EC">
+  <div style="position:relative;min-height:100vh;overflow:hidden">
+    <dc-import name="Preview Nav" variant="transparent" hint-size="100%,140px"></dc-import>
+    <picture style="position:absolute;inset:0;display:block;width:100%;height:100%">
+      <source media="(min-width:860px)" srcSet="assets/hero-desktop.png">
+      <img src="uploads/Alex-11.jpg" alt="Amit and Alex riding horses through the shallows at sunset, Caesarea" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 56%">
+    </picture>
+    <div style="position:relative;z-index:5;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:clamp(150px,24vh,230px) 24px 60px;text-align:center;gap:18px">
+      <div style="font:400 clamp(56px,7.5vw,152px)/0.97 'Pinyon Script',cursive;letter-spacing:-.01em;color:#A4885E">Amit <span style="font-style:italic;font-weight:400;font-size:.62em;color:#A4885E">&amp;</span> Alex</div>
+      <div style="width:40px;height:1px;background:#A4885E"></div>
+      <div style="font:500 clamp(13px,1vw,16px)/1.9 'Cormorant Garamond',Georgia,serif;letter-spacing:.22em;text-transform:uppercase;color:#2A2622">Sunday, 11 October 2026<br><span style="color:#5D5548">Kochav Hayam · Caesarea, Israel</span></div>
+    </div>
+    <div style="position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div style="width:1px;height:26px;background:rgba(42,38,34,.4)"></div>
+      <div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#2A2622">Scroll</div>
+    </div>
+  </div>
+
+  <section style="padding:36px clamp(20px,4vw,56px) 68px;text-align:center">
+    <div style="max-width:640px;margin:0 auto;display:grid;gap:12px;justify-items:center">
+      <div style="font:400 clamp(32px,4.5vw,44px)/1 'Pinyon Script',cursive;color:#A4885E">Seven years in the making</div>
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#6F6455">The countdown is on</div>
+
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(2,auto);gap:22px 28px;margin-top:24px;justify-content:center">
+          <div style="display:grid;gap:10px;justify-items:center">
+            <div style="min-width:88px;padding:16px 12px;border-radius:22px;border:1px solid rgba(164,136,94,.5);background:linear-gradient(180deg,rgba(164,136,94,.1),rgba(164,136,94,.02));display:flex;align-items:center;justify-content:center;animation:goldPulse 3.4s ease-in-out infinite">{{ daysEl }}</div>
+            <span style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A7A5E">Days</span>
+          </div>
+          <div style="display:grid;gap:10px;justify-items:center">
+            <div style="min-width:88px;padding:16px 12px;border-radius:22px;border:1px solid rgba(164,136,94,.5);background:linear-gradient(180deg,rgba(164,136,94,.1),rgba(164,136,94,.02));display:flex;align-items:center;justify-content:center;animation:goldPulse 3.4s ease-in-out infinite .2s">{{ hoursEl }}</div>
+            <span style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A7A5E">Hours</span>
+          </div>
+          <div style="display:grid;gap:10px;justify-items:center">
+            <div style="min-width:88px;padding:16px 12px;border-radius:22px;border:1px solid rgba(164,136,94,.5);background:linear-gradient(180deg,rgba(164,136,94,.1),rgba(164,136,94,.02));display:flex;align-items:center;justify-content:center;animation:goldPulse 3.4s ease-in-out infinite .4s">{{ minutesEl }}</div>
+            <span style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A7A5E">Minutes</span>
+          </div>
+          <div style="display:grid;gap:10px;justify-items:center">
+            <div style="min-width:88px;padding:16px 12px;border-radius:22px;border:1px solid rgba(164,136,94,.5);background:linear-gradient(180deg,rgba(164,136,94,.1),rgba(164,136,94,.02));display:flex;align-items:center;justify-content:center;animation:goldPulse 3.4s ease-in-out infinite .6s">{{ secondsEl }}</div>
+            <span style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A7A5E">Seconds</span>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:flex-start;justify-content:center;gap:clamp(10px,2vw,22px);margin-top:24px">
+          <div style="display:grid;gap:10px;justify-items:center">
+            <div style="min-width:96px;padding:18px 14px;border-radius:24px;border:1px solid rgba(164,136,94,.5);background:linear-gradient(180deg,rgba(164,136,94,.1),rgba(164,136,94,.02));display:flex;align-items:center;justify-content:center;animation:goldPulse 3.4s ease-in-out infinite">{{ daysEl }}</div>
+            <span style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A7A5E">Days</span>
+          </div>
+          <div style="align-self:center;color:#A4885E;font:400 22px/1 'EB Garamond',Georgia,serif;padding-top:6px">·</div>
+          <div style="display:grid;gap:10px;justify-items:center">
+            <div style="min-width:96px;padding:18px 14px;border-radius:24px;border:1px solid rgba(164,136,94,.5);background:linear-gradient(180deg,rgba(164,136,94,.1),rgba(164,136,94,.02));display:flex;align-items:center;justify-content:center;animation:goldPulse 3.4s ease-in-out infinite .2s">{{ hoursEl }}</div>
+            <span style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A7A5E">Hours</span>
+          </div>
+          <div style="align-self:center;color:#A4885E;font:400 22px/1 'EB Garamond',Georgia,serif;padding-top:6px">·</div>
+          <div style="display:grid;gap:10px;justify-items:center">
+            <div style="min-width:96px;padding:18px 14px;border-radius:24px;border:1px solid rgba(164,136,94,.5);background:linear-gradient(180deg,rgba(164,136,94,.1),rgba(164,136,94,.02));display:flex;align-items:center;justify-content:center;animation:goldPulse 3.4s ease-in-out infinite .4s">{{ minutesEl }}</div>
+            <span style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A7A5E">Minutes</span>
+          </div>
+          <div style="align-self:center;color:#A4885E;font:400 22px/1 'EB Garamond',Georgia,serif;padding-top:6px">·</div>
+          <div style="display:grid;gap:10px;justify-items:center">
+            <div style="min-width:96px;padding:18px 14px;border-radius:24px;border:1px solid rgba(164,136,94,.5);background:linear-gradient(180deg,rgba(164,136,94,.1),rgba(164,136,94,.02));display:flex;align-items:center;justify-content:center;animation:goldPulse 3.4s ease-in-out infinite .6s">{{ secondsEl }}</div>
+            <span style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A7A5E">Seconds</span>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="background:#EFE8DD;padding:96px clamp(20px,4vw,56px);border-top:1px solid #DCD2C4;border-bottom:1px solid #DCD2C4">
+    <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div dir="rtl" style="align-self:flex-end;font:400 15px/1 'Frank Ruhl Libre',Georgia,serif;color:oklch(0.52 0.078 220);margin-bottom:10px">בס״ד</div>
+      <img src="assets/monogram-gold.png" alt="Amit and Alex monogram" style="height:76px;width:auto;margin-bottom:28px">
+      <div style="display:grid;gap:6px;margin-bottom:24px">
+        <div style="font:400 26px/1.4 'Pinyon Script',cursive;color:#2A2622">Mr. and Mrs. Gadi and Tali Shushan</div>
+        <div style="font:400 26px/1.4 'Pinyon Script',cursive;color:#2A2622">Mr. Michael Farkas and Ms. Rebecca Brock</div>
+      </div>
+      <div style="font:italic 400 20px/1.6 'Cormorant Garamond',Georgia,serif;color:#5D5548;margin-bottom:28px">request the honour of your presence<br>at the marriage of their children</div>
+      <div style="width:60px;height:1px;background:#A4885E;margin-bottom:24px"></div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:clamp(16px,4vw,32px);margin-bottom:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="font:400 clamp(56px,9vw,88px)/1.1 'Pinyon Script',cursive;color:#A4885E">Amit</div>
+          <div dir="rtl" lang="he" style="font:400 24px/1 'Frank Ruhl Libre',Georgia,serif;color:oklch(0.52 0.078 220);margin-top:-6px">עמית</div>
+        </div>
+        <div style="font:italic 400 22px/1 'Cormorant Garamond',Georgia,serif;color:#5D5548">and</div>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="font:400 clamp(56px,9vw,88px)/1.1 'Pinyon Script',cursive;color:#A4885E">Alex</div>
+          <div dir="rtl" lang="he" style="font:400 24px/1 'Frank Ruhl Libre',Georgia,serif;color:oklch(0.52 0.078 220);margin-top:-6px">אליעזר</div>
+        </div>
+      </div>
+      <div style="display:grid;gap:6px;margin-bottom:24px">
+        <div style="font:italic 400 18px/1.5 'Cormorant Garamond',Georgia,serif;color:#2A2622">Sunday, the eleventh of October</div>
+        <div style="font:italic 400 17px/1.5 'Cormorant Garamond',Georgia,serif;color:#2A2622">Two thousand and twenty-six</div>
+        <div style="font:italic 400 17px/1.5 'Cormorant Garamond',Georgia,serif;color:#2A2622">At six o'clock</div>
+      </div>
+      <div style="display:grid;gap:4px;margin-bottom:26px">
+        <div style="font:400 clamp(30px,4.5vw,42px)/1.15 'Pinyon Script',cursive;color:#A4885E">Kochav Hayam</div>
+        <div dir="rtl" lang="he" style="font:400 16px/1 'Frank Ruhl Libre',Georgia,serif;color:oklch(0.52 0.078 220)">כוכב הים</div>
+        <div style="font:italic 400 15px/1.5 'Cormorant Garamond',Georgia,serif;color:#6F6455;margin-top:6px">Sdot Yam · Caesarea, Israel</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px">
+        <div style="width:28px;height:1px;background:#A4885E"></div>
+        <div style="font:400 26px/1 'Pinyon Script',cursive;color:#A4885E">Black Tie</div>
+        <div style="width:28px;height:1px;background:#A4885E"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:88px clamp(20px,4vw,56px);text-align:center">
+    <div style="max-width:480px;margin:0 auto;display:grid;gap:16px;justify-items:center">
+      <p style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;margin:0">We would be honoured to have you with us.</p>
+      <a href="#" style="min-height:52px;display:inline-flex;align-items:center;padding:0 40px;border-radius:999px;background:rgba(42,38,34,.05);border:1px solid #2A2622;color:#2A2622;font:600 12px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase" style-hover="background:#2A2622;color:#F7F3EC">RSVP</a>
+      <div style="font:400 13px/1.5 Assistant,sans-serif;color:#6F6455">Kindly reply by 15 September 2026</div>
+    </div>
+  </section>
+
+  <section style="padding:0 0 96px">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:#DCD2C4;border:1px solid #DCD2C4">
+        <a href="Preview Events.dc.html" style="background:#F7F3EC;padding:36px 30px;display:grid;gap:10px">
+          <div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6F6455">Events</div>
+          <div style="font:400 30px/1.2 'Pinyon Script',cursive;color:#A4885E">The weekend at a glance</div>
+          <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Thursday arrivals through Sunday's wedding day.</div>
+        </a>
+        <a href="Preview Travel and Stay.dc.html" style="background:#F7F3EC;padding:36px 30px;display:grid;gap:10px">
+          <div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6F6455">Travel &amp; Stay</div>
+          <div style="font:400 30px/1.2 'Pinyon Script',cursive;color:#A4885E">Where to stay</div>
+          <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Our host hotel, nearby alternatives, and getting here.</div>
+        </a>
+        <a href="Preview Newlywed Fund.dc.html" style="background:#F7F3EC;padding:36px 30px;display:grid;gap:10px">
+          <div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6F6455">Newlywed Fund</div>
+          <div style="font:400 30px/1.2 'Pinyon Script',cursive;color:#A4885E">Help us celebrate</div>
+          <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">A note on gifts, and how to contribute via Zelle.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#EFE8DD;border-top:1px solid #DCD2C4">
+    <div style="max-width:1240px;margin:0 auto;padding:64px clamp(20px,4vw,56px) 40px;display:grid;gap:24px;justify-items:center;text-align:center">
+      <img src="assets/monogram-gold.png" alt="" style="height:32px;width:auto">
+      <div style="font:400 22px/1 'EB Garamond',Georgia,serif;color:#2A2622">Amit &amp; Alex</div>
+      <div style="font:500 12px/1.8 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#6F6455">Sunday, 11 October 2026 · Kochav Hayam, Caesarea</div>
+      <nav style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px">
+        <a href="Preview Events.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5D5548">Events</a>
+        <a href="Preview Travel and Stay.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5D5548">Travel &amp; Stay</a>
+        <a href="Preview Newlywed Fund.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5D5548">Newlywed Fund</a>
+        <a href="Preview Gallery.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5D5548">Gallery</a>
+      </nav>
+      <div style="width:28px;height:1px;background:#A4885E"></div>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 30px;border-radius:999px;background:rgba(42,38,34,.05);border:1px solid #2A2622;color:#2A2622;font:600 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#2A2622;color:#F7F3EC">RSVP</a>
+      <div style="display:grid;gap:6px;justify-items:center">
+        <div style="font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Kindly reply by 15 September 2026</div>
+        <a href="https://wa.me/19542259115" style="font:500 13px/1.5 Assistant,sans-serif;color:#7A5F32;border-bottom:1px solid #A4885E;padding-bottom:1px">Questions? WhatsApp Eden Shushan</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { narrow: typeof window !== 'undefined' && window.innerWidth < 380 };
+  componentDidMount() {
+    this._t = setInterval(() => this.forceUpdate(), 1000);
+    this._onResize = () => this.setState({ narrow: window.innerWidth < 380 });
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() {
+    clearInterval(this._t);
+    window.removeEventListener('resize', this._onResize);
+  }
+  renderVals() {
+    const wedding = new Date('2026-10-11T17:00:00+03:00');
+    const now = new Date();
+    let diff = Math.max(0, wedding.getTime() - now.getTime());
+    const days = Math.floor(diff / 86400000);
+    diff -= days * 86400000;
+    const hours = Math.floor(diff / 3600000);
+    diff -= hours * 3600000;
+    const minutes = Math.floor(diff / 60000);
+    diff -= minutes * 60000;
+    const seconds = Math.floor(diff / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    const numStyle = { fontFamily: "'EB Garamond',Georgia,serif", fontWeight: 500, fontSize: 'clamp(32px,5vw,42px)', lineHeight: 1, color: '#A4885E', fontVariantNumeric: 'tabular-nums', minWidth: '1.2ch', display: 'inline-block', animation: 'countFadeUp 350ms ease-out' };
+    const mk = (key, text) => React.createElement('span', { key, style: numStyle }, text);
+    const daysEl = mk('d' + days, String(days));
+    const hoursEl = mk('h' + hours, pad(hours));
+    const minutesEl = mk('m' + minutes, pad(minutes));
+    const secondsEl = mk('s' + seconds, pad(seconds));
+    return {
+      daysEl, hoursEl, minutesEl, secondsEl, narrow: this.state.narrow, wide: !this.state.narrow,
+    };
+  }
+}
+</script>
+</body>
+</html>

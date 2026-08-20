@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Assistant:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#F7F3EC;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}a{color:#7A5F32;text-decoration:none}a:hover{color:#423C34}</style>
+</helmet>
+<div style="background:#F7F3EC">
+  <dc-import name="Preview Nav" variant="solid" hint-size="100%,110px"></dc-import>
+  <section style="padding:80px clamp(20px,4vw,56px) 56px;text-align:center">
+    <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#6F6455">Newlywed Fund</div>
+    <h1 style="font:400 clamp(46px,6vw,68px)/1.1 'Pinyon Script',cursive;color:#A4885E;margin:18px 0 0">A gift for our new beginning</h1>
+    <p style="font:400 18px/1.7 Assistant,sans-serif;color:#5D5548;margin:16px auto 0;max-width:56ch">Your presence at our wedding is the greatest gift of all.</p>
+  </section>
+
+  <section style="background:#EFE8DD;border-top:1px solid #DCD2C4;border-bottom:1px solid #DCD2C4;padding:72px clamp(20px,4vw,56px)">
+    <div style="max-width:760px;margin:0 auto;background:#F7F3EC;border:1px solid #DCD2C4;padding:44px clamp(24px,4vw,48px)">
+      <p style="font:400 17px/1.7 Assistant,sans-serif;color:#5D5548;margin:0 0 36px;text-align:center">For those who have kindly asked about gifts, we have created a newlywed fund as we begin this next chapter together. Any contribution will be received with love and gratitude.</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:36px">
+        <div style="flex:0 1 280px;width:100%;max-width:280px;background:#FFFFFF;padding:14px;border:1px solid #E6DED2">
+          <img src="assets/zelle-qr.jpg" alt="Zelle QR code for Amit and Alex's Newlywed Fund" style="width:100%;height:auto;display:block">
+        </div>
+        <div style="flex:1 1 220px;max-width:320px;display:grid;gap:14px;justify-items:center;text-align:center">
+          <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6F6455">Zelle</div>
+          <div style="font:400 20px/1.3 'EB Garamond',Georgia,serif;color:#2A2622;word-break:break-all">amitshushan16@gmail.com</div>
+          <button onClick="{{ copyEmail }}" style="min-height:44px;display:inline-flex;align-items:center;padding:0 26px;border-radius:999px;background:rgba(42,38,34,.05);border:1px solid #2A2622;color:#2A2622;font:600 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer" style-hover="background:#2A2622;color:#F7F3EC">Copy Zelle Email</button>
+          <div style="height:16px;display:flex;align-items:center">
+            <sc-if value="{{ copied }}" hint-placeholder-val="{{ false }}">
+              <div style="font:500 12px/1 Assistant,sans-serif;letter-spacing:.06em;color:#7A5F32">Zelle information copied.</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:32px;padding-top:28px;border-top:1px solid #E6DED2;text-align:center">
+        <p style="font:italic 400 17px/1.6 'Cormorant Garamond',Georgia,serif;color:#6F6455;margin:0">Please include your name in the payment note so we can personally thank you.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#EFE8DD;border-top:1px solid #DCD2C4">
+    <div style="max-width:1240px;margin:0 auto;padding:64px clamp(20px,4vw,56px) 40px;display:grid;gap:24px;justify-items:center;text-align:center">
+      <img src="assets/monogram-gold.png" alt="" style="height:32px;width:auto">
+      <div style="font:400 22px/1 'EB Garamond',Georgia,serif;color:#2A2622">Amit &amp; Alex</div>
+      <div style="font:500 12px/1.8 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#6F6455">Sunday, 11 October 2026 · Kochav Hayam, Caesarea</div>
+      <nav style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px">
+        <a href="Preview Events.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5D5548">Events</a>
+        <a href="Preview Travel and Stay.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5D5548">Travel &amp; Stay</a>
+        <a href="Preview Newlywed Fund.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5D5548">Newlywed Fund</a>
+        <a href="Preview Gallery.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5D5548">Gallery</a>
+      </nav>
+      <div style="width:28px;height:1px;background:#A4885E"></div>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 30px;border-radius:999px;background:rgba(42,38,34,.05);border:1px solid #2A2622;color:#2A2622;font:600 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#2A2622;color:#F7F3EC">RSVP</a>
+      <div style="display:grid;gap:6px;justify-items:center">
+        <div style="font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Kindly reply by 15 September 2026</div>
+        <a href="https://wa.me/19542259115" style="font:500 13px/1.5 Assistant,sans-serif;color:#7A5F32;border-bottom:1px solid #A4885E;padding-bottom:1px">Questions? WhatsApp Eden Shushan</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { copied: false };
+  copyEmail = () => {
+    const email = 'amitshushan16@gmail.com';
+    const done = () => {
+      this.setState({ copied: true });
+      clearTimeout(this._t);
+      this._t = setTimeout(() => this.setState({ copied: false }), 2500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(done).catch(done);
+    } else {
+      done();
+    }
+  };
+  componentWillUnmount() {
+    clearTimeout(this._t);
+  }
+  renderVals() {
+    return { copyEmail: this.copyEmail, copied: this.state.copied };
+  }
+}
+
+</script>
+</body>
+</html>

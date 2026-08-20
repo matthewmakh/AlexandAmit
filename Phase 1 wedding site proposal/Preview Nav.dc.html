@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Assistant:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>a{color:#7A5F32;text-decoration:none}a:hover{color:#423C34}</style>
+</helmet>
+<sc-if value="{{ transparent }}" hint-placeholder-val="{{ false }}">
+  <header style="position:absolute;top:0;left:0;right:0;z-index:40;width:100%;background:linear-gradient(to bottom,rgba(247,243,236,.55),rgba(247,243,236,0));padding:22px clamp(20px,4vw,48px) 34px">
+    <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="Preview Home.dc.html" aria-label="Amit and Alex — home" style="display:flex;align-items:center">
+        <img src="assets/monogram-gold.png" alt="" style="height:30px;width:auto;display:block">
+      </a>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 26px;border-radius:999px;background:rgba(247,243,236,.4);border:1px solid rgba(42,38,34,.45);color:#2A2622;font:600 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase">RSVP</a>
+    </div>
+    <nav style="max-width:1240px;margin:16px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 30px">
+      <a href="Preview Events.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2A2622">Events</a>
+      <a href="Preview Travel and Stay.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2A2622">Travel &amp; Stay</a>
+      <a href="Preview Newlywed Fund.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2A2622">Newlywed Fund</a>
+      <a href="Preview Gallery.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2A2622">Gallery</a>
+    </nav>
+  </header>
+</sc-if>
+<sc-if value="{{ solid }}" hint-placeholder-val="{{ true }}">
+  <header style="position:relative;width:100%;background:#F7F3EC;border-bottom:1px solid #DCD2C4;padding:16px clamp(20px,4vw,48px) 20px">
+    <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="Preview Home.dc.html" aria-label="Amit and Alex — home" style="display:flex;align-items:center">
+        <img src="assets/monogram-gold.png" alt="" style="height:28px;width:auto;display:block">
+      </a>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 26px;border-radius:999px;background:rgba(42,38,34,.05);border:1px solid #2A2622;color:#2A2622;font:600 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#2A2622;color:#F7F3EC">RSVP</a>
+    </div>
+    <nav style="max-width:1240px;margin:14px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 30px">
+      <a href="Preview Events.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5D5548">Events</a>
+      <a href="Preview Travel and Stay.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5D5548">Travel &amp; Stay</a>
+      <a href="Preview Newlywed Fund.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5D5548">Newlywed Fund</a>
+      <a href="Preview Gallery.dc.html" style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5D5548">Gallery</a>
+    </nav>
+  </header>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;solid&quot;,&quot;transparent&quot;],&quot;default&quot;:&quot;solid&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const transparent = (this.props.variant ?? 'solid') === 'transparent';
+    return { transparent, solid: !transparent };
+  }
+}
+</script>
+</body>
+</html>

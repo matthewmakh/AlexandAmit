@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Assistant:wght@300;400;500;600&family=Frank+Ruhl+Libre:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #F7F3EC; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #7A5F32; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: #2A2622; }
+  ::selection { background: #E6DED2; }
+</style>
+</helmet>
+
+<div style="background:#F7F3EC;min-height:100vh;padding:0 0 200px">
+<div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
+
+<header style="padding:clamp(64px,9vw,120px) 0 0">
+  <div style="display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">
+    <span>Phase 1</span>
+    <span style="color:#A4885E">Read-only audit &amp; proposal</span>
+    <span>30 July 2026</span>
+  </div>
+  <h1 style="font:400 clamp(52px,10vw,124px)/0.94 'EB Garamond',Georgia,serif;letter-spacing:-.025em;color:#2A2622;margin:36px 0 0">Amit &amp; Alex</h1>
+  <p style="font:400 clamp(19px,2.2vw,25px)/1.55 'EB Garamond',Georgia,serif;font-style:italic;color:#5D5548;margin:20px 0 0;max-width:34ch">An audit of timeless-vows-web, and what I would change before the invitations go out.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:10px 24px;margin:40px 0 0;padding:20px 0;border-top:1px solid #DCD2C4;border-bottom:1px solid #DCD2C4;font:400 12px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#6F6455">
+    <span style="color:#2A2622">11 October 2026</span>
+    <span>Kochav Hayam</span>
+    <span>Caesarea</span>
+    <span>Reply by 15 Sept</span>
+    <span>EN · עברית</span>
+  </div>
+  <p style="font:500 13px/1.6 Assistant,sans-serif;letter-spacing:.04em;color:#8A3A2E;margin:20px 0 0">Read-only. Nothing in your project has been edited, committed, synced, or deployed.</p>
+</header>
+
+<section style="margin-top:96px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">01 — Scope</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0;max-width:26ch">What I read, and what I could not.</h2>
+  <p style="font:400 17px/1.74 Assistant,sans-serif;color:#5D5548;margin:20px 0 0;max-width:64ch">I reviewed the published site page by page. I do not have the repository, so findings below come from the rendered pages and their markup — not from your components, styling config, or RSVP integration. Three pages and the entire Hebrew version remain unread; they are listed as open, not guessed at.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:#DCD2C4;margin-top:36px;border:1px solid #DCD2C4">
+    <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:14px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">Reviewed</div>
+      <div style="display:grid;gap:0">
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">Home</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">Wedding Weekend</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">Travel</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">Hotels</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">RSVP</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">FAQ</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0">Contact</div>
+      </div>
+    </div>
+    <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:14px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A3A2E">Not yet read</div>
+      <div style="display:grid;gap:0">
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">Our Story</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">Gallery</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;padding:7px 0;border-bottom:1px solid #E6DED2">Registry</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#2A2622;padding:7px 0;border-bottom:1px solid #E6DED2">The Hebrew version, all pages</div>
+        <div style="font:400 15px/1.6 Assistant,sans-serif;color:#2A2622;padding:7px 0">RSVP submission &amp; where replies land</div>
+      </div>
+      <p style="font:400 14px/1.65 Assistant,sans-serif;color:#6F6455;margin:0">The Hebrew review is the significant gap. It needs the repo or a walkthrough of the עברית pages.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:14px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Method</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Rendered content, heading structure, link inventory, image inventory, form-field inventory, and per-page metadata. No interaction testing, no breakpoint measurement, no contrast sweep — those need the live DOM or the source.</p>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Every wedding fact quoted in this document was taken from your site. I have added none.</p>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">02 — Executive summary</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0;max-width:32ch">This is not a generic template. It is a well-written site with four specific defects.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;margin-top:36px">
+    <div style="display:grid;gap:18px;align-content:start">
+      <p style="font:400 clamp(18px,1.9vw,20px)/1.7 Assistant,sans-serif;color:#5D5548;margin:0">The copywriting here is better than almost every wedding site I have read. "Nothing is compulsory — come to as much or as little as you like." "The part we have been rehearsing in the kitchen." "The aqueduct at sunset — go late." That voice is warm, formal, specific, and nothing like a template. It is the site's greatest asset and I would not change a word of it.</p>
+      <p style="font:400 17px/1.74 Assistant,sans-serif;color:#5D5548;margin:0">The structure beneath it is also sound. The wedding day already runs hour by hour from 17:00 to midnight. The travel page is organised the way a traveller thinks — arriving, transportation, good to know. The metadata is properly done, page by page.</p>
+      <p style="font:400 17px/1.74 Assistant,sans-serif;color:#5D5548;margin:0">So what follows is not a redesign. It is a repair, a subtraction, and a promotion: fix what is visibly broken, delete what is said three times, and give the dress code and the shuttles the prominence guests will actually go looking for.</p>
+      <p style="font:400 17px/1.74 Assistant,sans-serif;color:#5D5548;margin:0">One structural recommendation runs through everything: <span style="color:#2A2622">nine top-level pages is too many for a wedding.</span> Collapsing to five destinations is the largest single clarity gain available, and it costs no content — every word survives, in a more findable place.</p>
+    </div>
+    <div style="display:grid;gap:1px;background:#DCD2C4;border:1px solid #DCD2C4;align-content:start">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px">
+        <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">Defect 01</div>
+        <div style="font:400 21px/1.3 'EB Garamond',Georgia,serif;color:#2A2622">The monogram renders as "A AAA"</div>
+        <p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">On every page, several times per page — including as the clickable site logo. Screen readers announce your logo as "A AAA".</p>
+      </div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px">
+        <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">Defect 02</div>
+        <div style="font:400 21px/1.3 'EB Garamond',Georgia,serif;color:#2A2622">The same navigation, three times</div>
+        <p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">Nine links in the header, the same nine in the footer, and the same nine again as "The guide" 01–09 on the homepage.</p>
+      </div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px">
+        <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">Defect 03</div>
+        <div style="font:400 21px/1.3 'EB Garamond',Georgia,serif;color:#2A2622">A splash gate where RSVP should be</div>
+        <p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">The hero's only action is "Enter Website", which scrolls one section down. The most important button on the site is not in the first screen.</p>
+      </div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px">
+        <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">Defect 04</div>
+        <div style="font:400 21px/1.3 'EB Garamond',Georgia,serif;color:#2A2622">"You are invited", twice in a row</div>
+        <p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">The homepage carries the same heading and the same invitation wording in two consecutive sections, plus a live countdown between them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">03 — What should stay</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0;max-width:24ch">Preserve, untouched.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;background:#DCD2C4;margin-top:36px;border:1px solid #DCD2C4">
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">All copy, verbatim</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Every line on the site, in both the formal register ("request the pleasure of your company … at six o'clock in the evening") and the warm register ("An afternoon to do very little"). This is the voice. It moves, it does not get rewritten.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">The wedding-day timeline</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">17:00 reception, 18:00 ceremony, 18:45 cocktails, 19:45 dinner, 21:00 dancing, 00:00 late night. Correct structure, correct level of detail. Keep as is and give it more visual weight.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">Travel page architecture</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Arriving / Transportation / Good to know is exactly how a guest reasons about a trip. TLV 45 min, Haifa 40 min, Binyamina 10 min by taxi — concrete and useful. Keep the whole structure.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">"Our Caesarea"</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Named restaurants, named beaches, real opinions. The most luxurious thing on the site, because it could not have been generated. Keep every entry.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">RSVP field set &amp; logic</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Name, email, accept/decline, party size, meal preference, note. The right questions in the right order. I will not touch the form logic, the submission, or where replies land.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">Warm ivory ground</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Your theme colour is already <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">#F7F5F0</span>. The palette instinct is right — it needs codifying into a token set, not replacing.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">Per-page metadata</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Distinct titles, descriptions, og:type article/website, Twitter cards. Better than most professional builds. Leave it alone.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">Descriptive alt text</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">"Riding horses through the shallows at sunset", "Dan Caesarea gardens at dusk". Already written, already good. Keep and extend to any new image.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:10px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">Working links</div>
+      <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">The Dan Hotels booking URL, the Google Maps directions query, and the <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">tel:</span> link on Eden's number all resolve. Carried over character for character.</p>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">04 — High-impact improvements</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0">Nine changes, in priority order.</h2>
+  <p style="font:400 17px/1.74 Assistant,sans-serif;color:#5D5548;margin:20px 0 0;max-width:64ch">Each carries its own risk level and approval line, so you can approve them individually rather than as a block.</p>
+
+  <div style="border:1px solid #DCD2C4;margin-top:36px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H1</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Repair the monogram</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#3F6146;border:1px solid #3F6146;padding:6px 9px">Low risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Approval required</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">The AA monogram outputs the text "A AAA" — as the linked logo in the header, in the footer, and as a section ornament. It appears roughly six times on the homepage alone.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">It reads as a rendering fault on the most formal element of the site, and a screen reader announces the home link as "A AAA". Stray glyphs on a wedding invitation undo the impression everything else is working for.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Your own calligraphic A&amp;A artwork — the overlapping letterforms and long curved flourish, cut to a transparent PNG at true aspect ratio — used as one image asset across the site rather than typed text, wrapped in an <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">aria-label="Amit and Alex — home"</span>. A charcoal recolour (identical artwork, same alpha, no shape changes) is used over the pale hero sky where the original gold tested too low-contrast; the gold original is kept for ivory and darker sections further down the site.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Every guest, every page. Removes the one defect that currently makes the site look unfinished, and fixes the logo for assistive technology at the same time.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — none. Presentational component only; the home link's destination is unchanged.</div>
+  </div>
+
+  <div style="border:1px solid #DCD2C4;margin-top:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H2</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Nine pages become five</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Medium risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Approval required</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Home, Our Story, Wedding Weekend, Travel, Hotels, Registry, Gallery, FAQ, Contact — nine header links, the same nine repeated in the footer, and the same nine a third time as the "The guide" 01–09 index on the homepage.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Nine choices is a directory, not a wedding. On a phone the menu becomes a scrolling list; the guide section repeats it a third time without adding information. Travel and Hotels are one decision for a guest, split across two pages.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">The Wedding · The Weekend · Travel &amp; Stay · Questions · Gallery, plus RSVP as a button and EN/עב always visible. Travel and Hotels merge into one page with anchors. Registry, FAQ, and Contact become sections of Questions. Our Story moves under The Wedding. Delete "The guide" entirely. Old URLs redirect — no link a guest has already been sent should break.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">A guest planning the trip reads flights, hotel, and shuttle in one scroll instead of jumping pages. The mobile menu fits one screen with no scrolling. Nothing is removed — every word keeps a home.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — routing. Old paths must be redirected, and the language switcher must be verified on the merged pages. This is the one item where I would want to see the repo before touching anything.</div>
+  </div>
+
+  <div style="border:1px solid #DCD2C4;margin-top:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H3</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Remove the "Enter Website" gate</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#3F6146;border:1px solid #3F6146;padding:6px 9px">Low risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Approval required</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">The hero shows the names, the date, "Kochav Hayam · Caesarea, Israel", and a single button: "Enter Website", which jumps to <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">#invitation</span>. RSVP is in the header bar only.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">The most prominent action on the site accomplishes nothing but a scroll, and "Enter Website" is the language of a 2004 splash page — the one wrong note in otherwise beautiful copy. Meanwhile the reply deadline of 15 September never appears in the first screen.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Replace it with a single RSVP pill in the header — present on every screen. The desktop hero itself now carries only the names, date, and venue, so the first screen reads as an invitation rather than a form; the reply deadline moves to the second RSVP moment after Wedding Details, once a guest has read the key facts.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Names, date, venue, city, RSVP, and the deadline all in the first screen on the smallest phone. A guest in a hurry never scrolls or opens a menu.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — none. Adds a link to the existing <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">/rsvp</span> route; the form itself is untouched.</div>
+  </div>
+
+  <div style="border:1px solid #DCD2C4;margin-top:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H4</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Crop the hero for a portrait photograph</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#3F6146;border:1px solid #3F6146;padding:6px 9px">Low risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Approval required</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">One image — <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">hero-horses.png</span> — heads every page on the site and is also the social share card. It is a tall portrait frame: pale sky across the top half, the two of you on horseback in the lower third, teal water, a boat between you, and a third horse cropped at the right edge.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">A portrait image forced into a wide desktop hero must crop away either the sky or the two of you. And because you sit in the lower third, bottom-anchored hero text lands directly on top of you. The same photograph on all nine pages also spends its impact — by the third page it is wallpaper. It is a PNG, which is the wrong format for a photograph.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Two different treatments rather than one resize. Mobile: near-full portrait frame with the names set <span style="color:#2A2622">into the empty sky above you</span> in ink — no dark scrim needed, because the sky is already pale. Desktop: full-bleed to the very top of the page, an outpainted wide crop with the header overlaid transparently on the photo and the same type-in-the-sky treatment, just wider. Different photograph per page; WebP with a PNG fallback.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Your faces are never covered by type or cut by a crop, at any width. Contrast stops depending on an overlay. And the photograph keeps its power because it is not repeated nine times.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — none, but it needs your photo library. I have one image; per-page heroes need more. Format conversion is a build change, not a content change.</div>
+  </div>
+
+  <div style="border:1px solid #DCD2C4;margin-top:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H5</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Give the dress code its own home</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#3F6146;border:1px solid #3F6146;padding:6px 9px">Low risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Approval required</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">"Black tie" appears three times as a bare label — in Wedding details, in Travel's Good to know, and on the invitation. The genuinely useful guidance lives inside a collapsed FAQ answer: floor-length gowns, tuxedos or dark evening suits; outdoors on stone and grass; block heels are the kinder choice; dinner indoors.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Dress code is one of the top three things guests search a wedding site for, especially guests flying in and packing a case. Right now the answer requires finding the FAQ page and expanding the first accordion. Two of the three labels say "Black tie" and nothing more, which for a garden-and-stone venue is not enough to pack by.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">A short dress section on The Wedding page, using your existing FAQ wording verbatim, plus the per-event codes you already have — smart casual for Shabbat dinner, black tie for Sunday. No lookbook, no shopping grid, no mood board. Type and one photograph.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Guests packing from abroad get the answer without hunting, and the practical detail about stone and grass reaches the people it protects.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — none. Existing copy, repositioned. The FAQ entry stays where it is.</div>
+  </div>
+
+  <div style="border:1px solid #DCD2C4;margin-top:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H6</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Consolidate transportation — and flag what is missing</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#3F6146;border:1px solid #3F6146;padding:6px 9px">Low risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Approval required</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Shuttle information is spread across three pages: Travel says shuttles run between Dan Caesarea and the venue on the wedding day; Hotels repeats it as a bullet; the Weekend page says buses to the Namos party leave from Dan Caesarea and return after. The FAQ has a collapsed "Is transportation provided?" entry.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">No departure time appears anywhere, for any transfer. That is the single most-asked question of a destination wedding, and the absence reads as an omission rather than as "not yet decided". Guests deciding whether to hire a car cannot decide.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">One Transportation block on Travel &amp; Stay listing every transfer you have already confirmed — airport, Namos buses, wedding-day shuttle, parking — each with an explicit "Departure times to be confirmed" marker where the time is unknown. I will not invent a single time.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Guests see that transport exists and is handled, know what is still being finalised, and stop phoning Eden to ask. One place to update later instead of three.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — none. Needs your confirmed times when you have them; until then the placeholders stay visible and clearly marked.</div>
+  </div>
+
+  <div style="border:1px solid #DCD2C4;margin-top:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H7</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Make the room block bookable</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Medium risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#8A3A2E;border:1px solid #8A3A2E;padding:6px 9px">Approval required</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Dan Caesarea is the host hotel: five minutes from the venue, block rates until 1 September, shuttle on the wedding day. "Reserve a room" opens a Dan Hotels search page, and the instruction is to mention the Shushan–Farkas wedding at checkout. The three alternatives — Ramada Netanya, Elma Zichron Ya'akov, local apartments — have no links at all.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">A self-service booking engine has no checkout field for "mention the wedding", so guests will either pay rack rate or call. The 1 September deadline is a quiet bullet, not a warning — and it falls two weeks before the RSVP deadline, which nothing on the site points out. No rate figure is shown, so guests cannot budget.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Restructure as a scannable key–value card — nights, rate, book-by, code, shuttle, cancellation — with the deadline in oxblood, the strongest colour on the site. Add whatever booking mechanism Dan actually gave you: a group code, a dedicated link, or a phone number. Link the three alternatives to their own sites.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Guests actually get the rate you negotiated, and book before 1 September rather than after. Two hotels can be compared by reading down one column.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — external links. Flagged high for approval: I will not alter, shorten, or replace the Dan Hotels URL, and I need you to tell me the real group-rate mechanism rather than guessing. Rates and policies will not be invented.</div>
+  </div>
+
+  <div style="border:1px solid #DCD2C4;margin-top:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H8</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Cut the duplicate invitation and the countdown</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#3F6146;border:1px solid #3F6146;padding:6px 9px">Low risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#8A3A2E;border:1px solid #8A3A2E;padding:6px 9px">Approval required</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">The homepage runs: "You are invited" with the invitation in prose, then a live countdown in days / hours / minutes / seconds, then "Together with their families — You are invited" again with the same invitation set as a formal letterpress card.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">The same words twice reads as a build mistake, not as emphasis. The countdown ticks every second — the only continuously moving element on an otherwise still, formal site — and renders as em dashes until the script runs. It is the one element here that belongs on a party invitation rather than a black-tie one.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Keep the letterpress invitation card — it is the more beautiful of the two — and delete the prose duplicate. Remove the countdown; if you want the sense of time approaching, "Kindly reply by 15 September" carries it with more restraint. Both are your call: the countdown is the one item where I am overruling something you may love.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Roughly a screen and a half less scrolling on mobile to reach the weekend, one clear invitation moment instead of two competing ones, and no ticking.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — removes a timer component. Content deletion, so it needs explicit approval; I will not remove either section without it.</div>
+  </div>
+
+  <div style="border:1px solid #DCD2C4;margin-top:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:baseline;padding:22px 26px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+      <div style="display:flex;gap:16px;align-items:baseline;flex:1 1 300px"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">H9</span><span style="font:400 clamp(20px,2.2vw,26px)/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Audit the Hebrew version</span></div>
+      <sc-if value="{{ pillsOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#5D5548;border:1px solid #DCD2C4;padding:6px 9px">Both</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#8A3A2E;border:1px solid #8A3A2E;padding:6px 9px">Unknown risk</span>
+          <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:6px 9px">Blocked</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1px;background:#DCD2C4">
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6F6455">Current</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">An EN / עברית switcher is present on every page, twice in the markup — once for the desktop bar and once for the mobile bar. I could not read the Hebrew pages themselves.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3A2E">Problem</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Half your guests are Hebrew speakers, and this is the half of the site I know nothing about. Two parallel nav implementations also mean any label change has to be made twice or the languages drift apart.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A5F32">Proposed</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Before any Hebrew work: check untranslated strings, RTL mirroring, whether dates and phone numbers reverse, whether the Hebrew face is a real serif or a sans fallback, and whether switching language holds your place on the page. Section 08 sets out the typographic rules I would apply.</p></div>
+      <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:8px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#3F6146">Improvement</div><p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Israeli guests get a site that was designed rather than translated — the difference is immediately obvious to a native reader.</p></div>
+    </div>
+    <div style="padding:16px 26px;border-top:1px solid #DCD2C4;font:400 14px/1.6 Assistant,sans-serif;color:#6F6455">Functionality impact — potentially the language switcher itself, which is why I will not touch it before reading the code. Blocked pending repo access or a walkthrough.</div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">05 — Medium impact &amp; minor polish</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:44px;margin-top:24px">
+    <div>
+      <h2 style="font:400 clamp(26px,2.6vw,34px)/1.15 'EB Garamond',Georgia,serif;color:#2A2622;margin:0">Medium</h2>
+      <div style="margin-top:22px;border-top:1px solid #DCD2C4">
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">FAQ answers depend on JavaScript</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">Only the dress-code answer is present in the delivered markup; the other ten arrive empty. Render all answers in the markup and collapse them with CSS, so a slow connection still shows content.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">No email address anywhere</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">The RSVP form asks guests for an email, but Contact offers only Eden's phone number. Some guests — particularly older ones abroad — will want to write rather than call an international number. Your decision; I will not invent an address.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">RSVP confirmation state unverified</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">I cannot see what happens after "Send reply". Guests must get an unmistakable confirmation, and a clear error if it fails. Needs testing against the real integration — no changes to submission logic.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Reply deadline missing from the footer</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">The footer carries nine links but not the one date that has a deadline. Add "Kindly reply by 15 September 2026" and Eden's number beside the RSVP link.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">"Play music" is buried in the footer</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">Either move it somewhere discoverable or remove it. If it ever plays without a tap, that needs fixing first — audio on load is the fastest way to make a guest close the tab.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Hero PNG</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">A photograph delivered as PNG is several times larger than it needs to be, on the image every page loads first. Convert to WebP, add explicit dimensions to prevent layout shift, and lazy-load everything below the first screen.</p></div>
+        <div style="padding:14px 0"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">The Lovable badge is on the published site</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">An "Edit with" link sits in the corner of every page. Guests should not see the tooling. Removable in project settings.</p></div>
+      </div>
+    </div>
+    <div>
+      <h2 style="font:400 clamp(26px,2.6vw,34px)/1.15 'EB Garamond',Georgia,serif;color:#2A2622;margin:0">Minor</h2>
+      <div style="margin-top:22px;border-top:1px solid #DCD2C4">
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">"Amit&amp;Alex" in the hero</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">Set without spaces in the hero, but as "Amit &amp; Alex" everywhere else. Use a hair space either side of the ampersand and set it in the serif italic — a small detail that reads as care.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">"11 . 10 . 2026"</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">Spaced periods in the footer read as three separate numbers. Either "11.10.2026" with letter-spacing, or spell the date. Also ambiguous to American guests, for whom 11.10 reads as November.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Stray bullet in "Number attending"</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">A list marker renders beside the party-size options. Cosmetic, on the most important form on the site.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Block-rate deadline needs weight</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">"Block rates until 1 September" sits as the second of three bullets. It is a financial deadline; it should look like one.</p></div>
+        <div style="padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">One accent, because of the water</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">The hero's turquoise is the most saturated colour in the project. Gold ornament placed near it will fight it. Let the photograph carry the colour and keep the page ink-on-ivory — gold only as hairlines and the monogram dot.</p></div>
+        <div style="padding:14px 0"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Consistent separators</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:6px 0 0">The site mixes ·, —, and commas for the same job. One rule: middle dot between facts, em dash only inside sentences.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">06 — Information architecture</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0">Current, and proposed.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:#DCD2C4;margin-top:36px;border:1px solid #DCD2C4">
+    <div style="background:#F7F3EC;padding:30px 28px;display:grid;gap:18px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A3A2E">Current · 9 top-level pages</div>
+      <div style="display:grid;gap:0">
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">Home</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">hero · 2× invitation · countdown · details · weekend · guide · rsvp</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">Our Story</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">not reviewed</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">Wedding Weekend</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">Thu–Sun + wedding day</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">Travel</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">arriving · transport · good to know · our caesarea</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">Hotels</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">Dan Caesarea + 3 alternatives</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">Registry</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">not reviewed</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">Gallery</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">not reviewed</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">FAQ</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">11 accordions</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">Contact</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">Eden Shushan · phone</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0"><span style="font:400 15px/1.4 Assistant,sans-serif;color:#5D5548">RSVP</span><span style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">form · deadline 15 Sept</span></div>
+      </div>
+    </div>
+    <div style="background:#F7F3EC;padding:30px 28px;display:grid;gap:18px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#3F6146">Proposed · 5 destinations + RSVP</div>
+      <div style="display:grid;gap:0">
+        <div style="padding:11px 0;border-bottom:1px solid #E6DED2"><div style="font:400 17px/1.4 'EB Garamond',Georgia,serif;color:#2A2622">Home</div><div style="font:400 11px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">hero+rsvp · invitation card · details · weekend teaser · travel teaser · questions teaser · closing</div></div>
+        <div style="padding:11px 0;border-bottom:1px solid #E6DED2"><div style="font:400 17px/1.4 'EB Garamond',Georgia,serif;color:#2A2622">The Wedding</div><div style="font:400 11px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">details · dress code · venue · our story</div></div>
+        <div style="padding:11px 0;border-bottom:1px solid #E6DED2"><div style="font:400 17px/1.4 'EB Garamond',Georgia,serif;color:#2A2622">The Weekend</div><div style="font:400 11px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Thu–Sun · wedding day hour by hour · unchanged</div></div>
+        <div style="padding:11px 0;border-bottom:1px solid #E6DED2"><div style="font:400 17px/1.4 'EB Garamond',Georgia,serif;color:#2A2622">Travel &amp; Stay</div><div style="font:400 11px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">arriving · transportation · hotels · good to know · our caesarea</div></div>
+        <div style="padding:11px 0;border-bottom:1px solid #E6DED2"><div style="font:400 17px/1.4 'EB Garamond',Georgia,serif;color:#2A2622">Questions</div><div style="font:400 11px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">faq · registry · contact</div></div>
+        <div style="padding:11px 0;border-bottom:1px solid #E6DED2"><div style="font:400 17px/1.4 'EB Garamond',Georgia,serif;color:#2A2622">Gallery</div><div style="font:400 11px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">kept only if there are enough strong photographs</div></div>
+        <div style="padding:11px 0"><div style="font:400 17px/1.4 'EB Garamond',Georgia,serif;color:#2A2622">RSVP</div><div style="font:400 11px/1.6 ui-monospace,Menlo,monospace;color:#7A5F32">unchanged route, unchanged form · button in every header</div></div>
+      </div>
+      <div style="padding:16px 18px;background:#EFE8DD;border-left:2px solid #A4885E;font:400 14px/1.68 Assistant,sans-serif;color:#5D5548">Deleted: "The guide" 01–09 index only. Every other section survives — Registry, Gallery, FAQ, Contact, and Our Story all keep their content, and their old URLs redirect to the new anchors.</div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">07 — Mockups</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0">Your content, your photograph.</h2>
+  <p style="font:400 17px/1.74 Assistant,sans-serif;color:#5D5548;margin:20px 0 0;max-width:64ch">Mobile at 390, desktop at 1280. All copy, times, and facts below are taken from your site. Anything in brackets is a gap I will not fill on my own.</p>
+
+  <div style="margin-top:52px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 24px;align-items:baseline;padding-bottom:24px;border-bottom:1px solid #DCD2C4">
+      <div style="font:400 26px/1.2 'EB Garamond',Georgia,serif;color:#2A2622">7.1 · Hero</div>
+      <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6F6455">Type in the sky, not over the faces</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:36px;align-items:flex-start">
+      <div style="flex:0 0 auto;width:322px;padding:9px;border-radius:42px;background:#EFE8DD;border:1px solid #DCD2C4;box-shadow:0 30px 64px -34px rgba(42,38,34,.42)">
+        <div style="border-radius:34px;overflow:hidden;background:#F7F3EC;position:relative">
+          <div style="position:absolute;top:0;left:0;right:0;z-index:2">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 22px 5px;font:600 11px/1 Assistant,sans-serif;color:#2A2622"><span>9:41</span><span style="letter-spacing:.14em;color:#5D5548">▮▮▮</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 18px 12px">
+              <img src="assets/monogram-charcoal.png" alt="Amit and Alex monogram" style="height:25px;width:auto;display:block">
+              <div style="display:flex;align-items:center;gap:12px">
+                <span style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;color:#2A2622">EN</span>
+                <span style="width:1px;height:12px;background:#B8AC9B"></span>
+                <span style="font:500 11px/1 Assistant,sans-serif;color:#5D5548">עב</span>
+                <span style="display:flex;flex-direction:column;gap:5px;margin-left:4px"><span style="width:20px;height:1px;background:#2A2622"></span><span style="width:20px;height:1px;background:#2A2622"></span></span>
+              </div>
+            </div>
+          </div>
+          <div style="position:relative;height:496px;overflow:hidden">
+            <img src="uploads/Alex-11.jpg" alt="Amit and Alex riding horses through the shallows at sunset" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%">
+            <div style="position:absolute;left:0;right:0;top:0;padding:76px 22px 0;display:grid;gap:12px;justify-items:center;text-align:center">
+              <div style="font:500 48px/0.98 'Cormorant Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622">Amit<br><span style="font-size:30px;font-style:italic;font-weight:400;color:#5D5548">&amp;</span><br>Alex</div>
+              <div style="width:26px;height:1px;background:#8A7C69;margin-top:2px"></div>
+              <div style="font:500 12px/1.9 'Cormorant Garamond',Georgia,serif;letter-spacing:.2em;text-transform:uppercase;color:#2A2622">Sunday, 11 October 2026<br><span style="color:#5D5548">Kochav Hayam · Caesarea</span></div>
+            </div>
+          </div>
+          <div style="padding:20px 22px 24px;display:grid;gap:12px;background:#F7F3EC">
+            <button type="button" style="min-height:54px;width:100%;background:rgba(42,38,34,.05);color:#2A2622;border:1px solid #2A2622;border-radius:999px;font:500 14px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer">RSVP</button>
+            <div style="font:400 14px/1.5 Assistant,sans-serif;color:#5D5548;text-align:center">Kindly reply by 15 September 2026</div>
+            <div style="display:grid;gap:7px;justify-items:center;margin-top:6px"><div style="width:1px;height:22px;background:#DCD2C4"></div><div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#6F6455">The weekend</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1 1 620px;min-width:min(620px,100%);display:grid;gap:24px">
+        <div style="border:1px solid #DCD2C4;overflow:hidden;box-shadow:0 30px 64px -40px rgba(42,38,34,.36)">
+          <div style="display:flex;align-items:center;gap:7px;padding:11px 15px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+            <span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span><span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span><span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span>
+          </div>
+          <div style="position:relative;height:640px;overflow:hidden;background:#E3E0D9">
+            <img src="uploads/ChatGPT Image Jul 30, 2026, 03_56_51 PM.png" alt="Amit and Alex riding horses through the shallows at sunset, Caesarea" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%">
+            <div style="position:absolute;left:0;right:0;top:0;height:160px;background:linear-gradient(to bottom,rgba(247,243,236,.5),rgba(247,243,236,0));pointer-events:none"></div>
+            <div style="position:absolute;left:0;right:0;top:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 18px;padding:20px 30px">
+              <img src="assets/monogram-charcoal.png" alt="Amit and Alex monogram" style="height:32px;width:auto;display:block">
+              <div style="display:flex;flex-wrap:wrap;gap:8px 18px;font:500 11px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2A2622">
+                <span>The Wedding</span><span>The Weekend</span><span>Travel &amp; Stay</span><span>Questions</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;flex:0 0 auto">
+                <span style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.14em;color:#2A2622">EN</span>
+                <span style="width:1px;height:11px;background:rgba(42,38,34,.32)"></span>
+                <span style="font:500 11px/1 Assistant,sans-serif;color:#5D5548">עב</span>
+                <span style="min-height:34px;display:inline-flex;align-items:center;padding:0 24px;border-radius:999px;background:rgba(247,243,236,.34);border:1px solid rgba(42,38,34,.45);color:#2A2622;font:500 10px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase">RSVP</span>
+              </div>
+            </div>
+            <div style="position:absolute;left:0;right:0;top:230px;padding:0 clamp(24px,4vw,56px);display:grid;gap:16px;justify-items:center;text-align:center">
+              <div style="font:500 clamp(38px,5vw,58px)/0.98 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;color:#2A2622">Amit <span style="font-style:italic;font-weight:400;font-size:.62em;color:#5D5548">&amp;</span> Alex</div>
+              <div style="width:40px;height:1px;background:#A4885E"></div>
+              <div style="font:500 13px/1.9 'Cormorant Garamond',Georgia,serif;letter-spacing:.2em;text-transform:uppercase;color:#2A2622">Sunday, 11 October 2026<br><span style="color:#5D5548">Kochav Hayam · Caesarea, Israel</span></div>
+            </div>
+            <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font:400 9px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#F7F3EC;background:rgba(42,38,34,.55);padding:5px 9px;white-space:nowrap">Header transparent over hero, solid ivory on scroll</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:28px;border:1px solid #DCD2C4;overflow:hidden">
+      <div style="padding:9px 24px;background:#EFE8DD;border-bottom:1px solid #DCD2C4;font:500 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#6F6455">Next RSVP moment · appears after Wedding Details</div>
+      <div style="padding:40px 32px;background:#F7F3EC;display:grid;gap:16px;justify-items:center;text-align:center;max-width:480px;margin:0 auto">
+        <div style="font:400 15px/1.4 'EB Garamond',Georgia,serif;font-style:italic;color:#5D5548">Sunday, 11 October 2026 · Kochav Hayam, Caesarea</div>
+        <div style="width:32px;height:1px;background:#A4885E"></div>
+        <p style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548;margin:0">We would be honoured to have you with us.</p>
+        <span style="min-height:46px;display:inline-flex;align-items:center;padding:0 38px;border-radius:999px;background:rgba(42,38,34,.05);border:1px solid #2A2622;color:#2A2622;font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase">RSVP</span>
+        <div style="font:400 13px/1.5 Assistant,sans-serif;color:#6F6455">Kindly reply by 15 September 2026</div>
+      </div>
+    </div>
+    <sc-if value="{{ annotationsOn }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:#DCD2C4;margin-top:32px;border:1px solid #DCD2C4">
+        <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:10px;align-content:start">
+          <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">01 · The sky is the text box</div>
+          <p style="font:400 14px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Your photograph has an enormous pale sky above you and dark water below. Setting the names into that sky in ink needs no scrim at all — better contrast than white-on-photo, and the two of you are never covered.</p>
+        </div>
+        <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:10px;align-content:start">
+          <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">02 · Desktop mirrors mobile</div>
+          <p style="font:400 14px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Same composition at both widths: full-bleed photograph, type in the sky, couple anchored low. Reaching a wide frame without stretching or cropping them out required <span style="color:#2A2622">outpainting</span> — sky extended upward, water and horizon extended sideways, the couple and horses left untouched. The header then overlays that photograph transparently, so the page feels full-bleed from the very top.</p>
+        </div>
+        <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:10px;align-content:start">
+          <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#3F6146">Outpainted asset · received, in place above</div>
+          <div style="display:grid;gap:0;font:400 13px/1.6 Assistant,sans-serif;color:#5D5548">
+            <div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid #E6DED2"><span>Output</span><span style="color:#2A2622;font-family:ui-monospace,Menlo,monospace;font-size:12px">2400 × 1000</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid #E6DED2"><span>Original placement</span><span style="color:#2A2622">centred, bottom-aligned</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid #E6DED2"><span>Couple occupies</span><span style="color:#2A2622">lower 30–35%</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid #E6DED2"><span>Clear sky band</span><span style="color:#2A2622">top 55%</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0"><span>Horizon must stay</span><span style="color:#2A2622">level, continuous</span></div>
+          </div>
+          <p style="font:400 14px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">Generate sky and water only. No retouching of faces, bodies, clothing, horses, boat, shoreline, lighting, or waterline. Keep the portrait original as the mobile asset — two files, art-directed separately.</p>
+        </div>
+        <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:10px;align-content:start">
+          <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">03 · RSVP below the image on mobile</div>
+          <p style="font:400 14px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">A solid ink button on ivory, at the bottom of the first screen where a thumb rests — rather than a translucent button floating over water. The deadline sits directly beneath it.</p>
+        </div>
+        <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:10px;align-content:start">
+          <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">04 · Crop the third horse</div>
+          <p style="font:400 14px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">A horse enters at the right edge of the frame. On the mobile crop it reads as an accident; the focal point should sit slightly left so the composition ends on Alex.</p>
+        </div>
+        <div style="background:#F7F3EC;padding:22px 24px;display:grid;gap:10px;align-content:start">
+          <div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">05 · One RSVP, then a second later</div>
+          <p style="font:400 14px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">The hero now carries a single RSVP — the pill in the header — so the first screen reads as pure invitation: names, date, venue, nothing else. Text sits lower in the sky, closer to the water. The reply deadline and a second, more deliberate RSVP moment appear after Wedding Details, once a guest has read the key facts.</p>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="margin-top:80px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 24px;align-items:baseline;padding-bottom:24px;border-bottom:1px solid #DCD2C4">
+      <div style="font:400 26px/1.2 'EB Garamond',Georgia,serif;color:#2A2622">7.2 · The weekend</div>
+      <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6F6455">Your four days, unchanged content</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:36px;align-items:flex-start">
+      <div style="flex:0 0 auto;width:322px;padding:9px;border-radius:42px;background:#EFE8DD;border:1px solid #DCD2C4;box-shadow:0 30px 64px -34px rgba(42,38,34,.42)">
+        <div style="border-radius:34px;overflow:hidden;background:#F7F3EC">
+          <div style="padding:26px 22px 20px;border-bottom:1px solid #DCD2C4;display:grid;gap:10px">
+            <div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#6F6455">The weekend</div>
+            <div style="font:400 30px/1.12 'EB Garamond',Georgia,serif;color:#2A2622">Four days<br>by the sea</div>
+            <p style="font:400 15px/1.7 Assistant,sans-serif;color:#5D5548;margin:0">Nothing is compulsory — come to as much or as little as you like.</p>
+          </div>
+          <div style="padding:22px;display:grid;gap:0">
+            <div style="display:grid;gap:7px;padding:0 0 18px;border-bottom:1px solid #E6DED2">
+              <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Thursday · 8 October</div>
+              <div style="font:400 21px/1.3 'EB Garamond',Georgia,serif;color:#2A2622">Arrivals &amp; welcome party</div>
+              <div style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548">Check-in at Dan Caesarea, then the Namos welcome party in Tiberias. Buses leave from Dan Caesarea and return after.</div>
+              <div style="justify-self:start;font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:5px 7px;margin-top:3px">Bus times to be confirmed</div>
+            </div>
+            <div style="display:grid;gap:7px;padding:18px 0;border-bottom:1px solid #E6DED2">
+              <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Friday · 9 October · 18:30</div>
+              <div style="font:400 21px/1.3 'EB Garamond',Georgia,serif;color:#2A2622">Rest &amp; Shabbat dinner</div>
+              <div style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548">Beach, spa, or the Roman harbour. Candles, wine and a long table with both families. Smart casual.</div>
+            </div>
+            <div style="display:grid;gap:7px;padding:18px 0 0">
+              <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Saturday · 10 October · 09:30</div>
+              <div style="font:400 21px/1.3 'EB Garamond',Georgia,serif;color:#2A2622">Shabbat Chatan</div>
+              <div style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548">The traditional aufruf, followed by a kiddush for all guests. Then a resort day from 13:00.</div>
+            </div>
+          </div>
+          <div style="padding:28px 22px;background:#2A2622;display:grid;gap:12px">
+            <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#A4885E">Sunday · 11 October</div>
+            <div style="font:400 34px/1.05 'EB Garamond',Georgia,serif;color:#F7F3EC">The wedding day</div>
+            <div style="width:26px;height:1px;background:#A4885E"></div>
+            <div style="display:grid;gap:0;margin-top:4px">
+              <div style="display:grid;grid-template-columns:52px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">17:00</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#F7F3EC">Reception <span style="color:#C9BFAF">· outdoors</span></span></div>
+              <div style="display:grid;grid-template-columns:52px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">18:00</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#F7F3EC">Ceremony <span style="color:#C9BFAF">· golden hour</span></span></div>
+              <div style="display:grid;grid-template-columns:52px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">18:45</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#F7F3EC">Cocktail hour</span></div>
+              <div style="display:grid;grid-template-columns:52px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">19:45</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#F7F3EC">Dinner <span style="color:#C9BFAF">· indoors</span></span></div>
+              <div style="display:grid;grid-template-columns:52px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">21:00</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#F7F3EC">Dancing</span></div>
+              <div style="display:grid;grid-template-columns:52px 1fr;gap:12px;padding:9px 0"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">00:00</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#F7F3EC">Late night</span></div>
+            </div>
+            <div style="font:400 14px/1.7 Assistant,sans-serif;color:#C9BFAF;margin-top:6px">Kochav Hayam, Caesarea · Black tie<br>Shuttle from Dan Caesarea <span style="color:#A4885E">[time to be confirmed]</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px">
+              <span style="min-height:48px;display:inline-flex;align-items:center;padding:0 20px;background:#F7F3EC;color:#2A2622;font:500 12px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase">Directions</span>
+              <span style="min-height:48px;display:inline-flex;align-items:center;padding:0 20px;border:1px solid rgba(247,243,236,.5);color:#F7F3EC;font:500 12px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase">Dress code</span>
+            </div>
+          </div>
+          <div style="padding:22px;background:#EFE8DD;display:grid;gap:10px">
+            <button type="button" style="min-height:54px;width:100%;background:rgba(42,38,34,.05);color:#2A2622;border:1px solid #2A2622;border-radius:999px;font:500 14px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer">RSVP</button>
+            <div style="font:400 13px/1.5 Assistant,sans-serif;color:#5D5548;text-align:center">Kindly reply by 15 September 2026</div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1 1 450px;min-width:0;display:grid;gap:24px">
+        <sc-if value="{{ timelineOn }}" hint-placeholder-val="{{ true }}">
+          <div style="border:1px solid #DCD2C4;overflow:hidden;box-shadow:0 30px 64px -40px rgba(42,38,34,.36)">
+            <div style="display:flex;align-items:center;gap:7px;padding:11px 15px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+              <span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span><span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span><span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span>
+            </div>
+            <div style="background:#F7F3EC;padding:44px 46px 46px">
+              <div style="display:grid;gap:12px;padding-bottom:32px;border-bottom:1px solid #DCD2C4">
+                <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#6F6455">The weekend</div>
+                <div style="font:400 40px/1.1 'EB Garamond',Georgia,serif;color:#2A2622">Four days by the sea</div>
+              </div>
+              <div style="display:grid;grid-template-columns:118px 1px minmax(0,1fr);gap:0 26px;margin-top:32px">
+                <div style="display:grid;gap:4px;padding-bottom:30px"><span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Thursday</span><span style="font:400 23px/1 'EB Garamond',Georgia,serif;color:#2A2622">8 Oct</span></div>
+                <div style="background:#DCD2C4;position:relative"><span style="position:absolute;top:6px;left:-3px;width:7px;height:7px;border-radius:50%;background:#A4885E"></span></div>
+                <div style="display:grid;gap:7px;padding-bottom:30px;align-content:start"><span style="font:400 25px/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Arrivals &amp; welcome party</span><span style="font:400 16px/1.7 Assistant,sans-serif;color:#5D5548">Check-in at Dan Caesarea. Namos welcome party in Tiberias; buses leave from Dan Caesarea and return after.</span><span style="justify-self:start;font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:5px 7px">Bus times to be confirmed</span></div>
+                <div style="display:grid;gap:4px;padding-bottom:30px"><span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Friday</span><span style="font:400 23px/1 'EB Garamond',Georgia,serif;color:#2A2622">9 Oct</span><span style="font:400 12px/1.5 ui-monospace,Menlo,monospace;color:#5D5548">18:30</span></div>
+                <div style="background:#DCD2C4;position:relative"><span style="position:absolute;top:6px;left:-3px;width:7px;height:7px;border-radius:50%;background:#A4885E"></span></div>
+                <div style="display:grid;gap:7px;padding-bottom:30px;align-content:start"><span style="font:400 25px/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Rest &amp; Shabbat dinner</span><span style="font:400 16px/1.7 Assistant,sans-serif;color:#5D5548">Beach, spa, or the Roman harbour. Candles, wine and a long table with both families. Smart casual.</span></div>
+                <div style="display:grid;gap:4px;padding-bottom:30px"><span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Saturday</span><span style="font:400 23px/1 'EB Garamond',Georgia,serif;color:#2A2622">10 Oct</span><span style="font:400 12px/1.5 ui-monospace,Menlo,monospace;color:#5D5548">09:30</span></div>
+                <div style="background:#DCD2C4;position:relative"><span style="position:absolute;top:6px;left:-3px;width:7px;height:7px;border-radius:50%;background:#A4885E"></span></div>
+                <div style="display:grid;gap:7px;padding-bottom:30px;align-content:start"><span style="font:400 25px/1.25 'EB Garamond',Georgia,serif;color:#2A2622">Shabbat Chatan</span><span style="font:400 16px/1.7 Assistant,sans-serif;color:#5D5548">The traditional aufruf, followed by a kiddush for all guests. Resort day from 13:00 — pool, sea and quiet.</span></div>
+                <div style="display:grid;gap:4px;padding:30px 0;background:#2A2622;margin-left:-46px;padding-left:46px"><span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#A4885E">Sunday</span><span style="font:400 30px/1 'EB Garamond',Georgia,serif;color:#F7F3EC">11 Oct</span></div>
+                <div style="background:#2A2622;position:relative"><span style="position:absolute;top:36px;left:-3px;width:7px;height:7px;border-radius:50%;background:#A4885E"></span></div>
+                <div style="display:grid;gap:10px;padding:30px 46px 30px 0;background:#2A2622;margin-right:-46px;align-content:start">
+                  <span style="font:400 33px/1.1 'EB Garamond',Georgia,serif;color:#F7F3EC">The wedding day</span>
+                  <span style="display:grid;gap:0;margin-top:2px">
+                    <span style="display:grid;grid-template-columns:58px 1fr;gap:14px;padding:7px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">17:00</span><span style="font:400 16px/1.5 Assistant,sans-serif;color:#F7F3EC">Reception <span style="color:#C9BFAF">· outdoors, champagne and mezze</span></span></span>
+                    <span style="display:grid;grid-template-columns:58px 1fr;gap:14px;padding:7px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">18:00</span><span style="font:400 16px/1.5 Assistant,sans-serif;color:#F7F3EC">Ceremony <span style="color:#C9BFAF">· the chuppah, facing west</span></span></span>
+                    <span style="display:grid;grid-template-columns:58px 1fr;gap:14px;padding:7px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">18:45</span><span style="font:400 16px/1.5 Assistant,sans-serif;color:#F7F3EC">Cocktail hour</span></span>
+                    <span style="display:grid;grid-template-columns:58px 1fr;gap:14px;padding:7px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">19:45</span><span style="font:400 16px/1.5 Assistant,sans-serif;color:#F7F3EC">Dinner <span style="color:#C9BFAF">· seated, indoors</span></span></span>
+                    <span style="display:grid;grid-template-columns:58px 1fr;gap:14px;padding:7px 0;border-bottom:1px solid rgba(247,243,236,.14)"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">21:00</span><span style="font:400 16px/1.5 Assistant,sans-serif;color:#F7F3EC">Dancing</span></span>
+                    <span style="display:grid;grid-template-columns:58px 1fr;gap:14px;padding:7px 0"><span style="font:400 13px/1.5 ui-monospace,Menlo,monospace;color:#A4885E">00:00</span><span style="font:400 16px/1.5 Assistant,sans-serif;color:#F7F3EC">Late night <span style="color:#C9BFAF">· coffee, sweets, everyone who stayed</span></span></span>
+                  </span>
+                  <span style="font:400 15px/1.7 Assistant,sans-serif;color:#C9BFAF;margin-top:4px">Kochav Hayam, Caesarea · Black tie · Shuttle from Dan Caesarea <span style="color:#A4885E">[time to be confirmed]</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ cardsOn }}" hint-placeholder-val="{{ false }}">
+          <div style="border:1px solid #DCD2C4;overflow:hidden;box-shadow:0 30px 64px -40px rgba(42,38,34,.36)">
+            <div style="display:flex;align-items:center;gap:7px;padding:11px 15px;background:#EFE8DD;border-bottom:1px solid #DCD2C4">
+              <span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span><span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span><span style="width:9px;height:9px;border-radius:50%;background:#DCD2C4"></span>
+            </div>
+            <div style="background:#F7F3EC;padding:44px 46px 46px;display:grid;gap:0">
+              <div style="display:grid;gap:12px;padding-bottom:32px;border-bottom:1px solid #DCD2C4">
+                <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#6F6455">The weekend</div>
+                <div style="font:400 40px/1.1 'EB Garamond',Georgia,serif;color:#2A2622">Four days by the sea</div>
+              </div>
+              <div style="margin-top:32px;padding:36px 38px;background:#2A2622;display:grid;gap:10px">
+                <span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#A4885E">Sunday 11 October · 17:00</span>
+                <span style="font:400 38px/1.05 'EB Garamond',Georgia,serif;color:#F7F3EC">The wedding day</span>
+                <span style="width:28px;height:1px;background:#A4885E"></span>
+                <span style="font:400 16px/1.7 Assistant,sans-serif;color:#C9BFAF">Reception 17:00 · Ceremony 18:00 · Cocktails 18:45 · Dinner 19:45 · Dancing 21:00 · Late night 00:00</span>
+                <span style="font:400 16px/1.7 Assistant,sans-serif;color:#C9BFAF">Kochav Hayam, Caesarea · Black tie</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:#DCD2C4;border:1px solid #DCD2C4;border-top:0">
+                <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:7px;align-content:start"><span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Thursday 8 Oct</span><span style="font:400 24px/1.2 'EB Garamond',Georgia,serif;color:#2A2622">Arrivals &amp; welcome party</span><span style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548">Dan Caesarea check-in, then Namos in Tiberias.</span></div>
+                <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:7px;align-content:start"><span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Friday 9 Oct · 18:30</span><span style="font:400 24px/1.2 'EB Garamond',Georgia,serif;color:#2A2622">Shabbat dinner</span><span style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548">A long table with both families. Smart casual.</span></div>
+                <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:7px;align-content:start"><span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Saturday 10 Oct · 09:30</span><span style="font:400 24px/1.2 'EB Garamond',Georgia,serif;color:#2A2622">Shabbat Chatan</span><span style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548">The aufruf and a kiddush for all guests.</span></div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <div style="display:grid;gap:0;border-top:1px solid #DCD2C4">
+          <div style="display:grid;grid-template-columns:minmax(140px,1fr) minmax(0,1.8fr);gap:18px;padding:14px 0;border-bottom:1px solid #E6DED2"><span style="font:500 14px/1.4 Assistant,sans-serif;color:#2A2622">Two pages become one</span><span style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Your Weekend page currently lists Sunday twice — once in the four-day itinerary and again as "The wedding day". Merged here into one inverted block, so the day is stated once and clearly outranks the rest.</span></div>
+          <div style="display:grid;grid-template-columns:minmax(140px,1fr) minmax(0,1.8fr);gap:18px;padding:14px 0;border-bottom:1px solid #E6DED2"><span style="font:500 14px/1.4 Assistant,sans-serif;color:#2A2622">Ink ground</span><span style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">The only inverted panel on the site. It is what makes the wedding day visually distinct without adding a decorative element.</span></div>
+          <div style="display:grid;grid-template-columns:minmax(140px,1fr) minmax(0,1.8fr);gap:18px;padding:14px 0"><span style="font:500 14px/1.4 Assistant,sans-serif;color:#2A2622">Gaps marked, not hidden</span><span style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Bus and shuttle times carry a visible bronze marker. Guests read "being finalised" instead of assuming there is no transport.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:80px">
+    <div style="display:flex;flex-wrap:wrap;gap:14px 24px;align-items:baseline;padding-bottom:24px;border-bottom:1px solid #DCD2C4">
+      <div style="font:400 26px/1.2 'EB Garamond',Georgia,serif;color:#2A2622">7.3 · Where to stay</div>
+      <div style="font:400 12px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6F6455">Bracketed values are gaps you must fill</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:36px;align-items:flex-start">
+      <div style="flex:0 0 auto;width:322px;padding:9px;border-radius:42px;background:#EFE8DD;border:1px solid #DCD2C4;box-shadow:0 30px 64px -34px rgba(42,38,34,.42)">
+        <div style="border-radius:34px;overflow:hidden;background:#F7F3EC">
+          <div style="padding:26px 22px 18px;display:grid;gap:10px;border-bottom:1px solid #DCD2C4">
+            <div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#6F6455">Travel &amp; stay</div>
+            <div style="font:400 30px/1.12 'EB Garamond',Georgia,serif;color:#2A2622">Where to stay</div>
+            <p style="font:400 15px/1.7 Assistant,sans-serif;color:#5D5548;margin:0">We have reserved a block of rooms at Dan Caesarea, five minutes from the venue.</p>
+          </div>
+          <div style="position:relative;height:170px;background:repeating-linear-gradient(135deg,#E6DED2 0 1px,#EFE8DD 1px 9px)">
+            <div style="position:absolute;top:12px;left:12px;font:400 8px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:#5D5548;background:#F7F3EC;border:1px solid #DCD2C4;padding:4px 6px">hotel-1.jpg · gardens at dusk</div>
+          </div>
+          <div style="padding:22px;display:grid;gap:14px">
+            <div style="display:grid;gap:5px">
+              <div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6F6455">Host hotel</div>
+              <div style="font:400 25px/1.2 'EB Garamond',Georgia,serif;color:#2A2622">Dan Caesarea</div>
+            </div>
+            <div style="display:grid;gap:0;border-top:1px solid #E6DED2">
+              <div style="display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:500 13px/1.4 Assistant,sans-serif;color:#6F6455">From the venue</span><span style="font:400 15px/1.4 Assistant,sans-serif;color:#2A2622">5 minutes</span></div>
+              <div style="display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:500 13px/1.4 Assistant,sans-serif;color:#6F6455">Group rate</span><span style="font:400 15px/1.4 Assistant,sans-serif;color:#8A7C69">[rate]</span></div>
+              <div style="display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:500 13px/1.4 Assistant,sans-serif;color:#6F6455">Book by</span><span style="font:500 15px/1.4 Assistant,sans-serif;color:#8A3A2E">1 September 2026</span></div>
+              <div style="display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid #E6DED2"><span style="font:500 13px/1.4 Assistant,sans-serif;color:#6F6455">Group code</span><span style="font:400 14px/1.4 ui-monospace,Menlo,monospace;color:#8A7C69">[code]</span></div>
+              <div style="display:flex;justify-content:space-between;gap:14px;padding:11px 0"><span style="font:500 13px/1.4 Assistant,sans-serif;color:#6F6455">Wedding shuttle</span><span style="font:400 15px/1.4 Assistant,sans-serif;color:#2A2622">Yes</span></div>
+            </div>
+            <button type="button" style="min-height:54px;width:100%;background:#2A2622;color:#F7F3EC;border:0;font:500 14px/1 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer">Reserve a room</button>
+            <div style="font:400 13px/1.65 Assistant,sans-serif;color:#6F6455">Opens the Dan Hotels booking page. Mention the Shushan–Farkas wedding at checkout for the group rate.</div>
+          </div>
+          <div style="padding:22px;background:#EFE8DD;display:grid;gap:0;border-top:1px solid #DCD2C4">
+            <div style="font:500 10px/1 Assistant,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6F6455;padding-bottom:12px">Nearby</div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid #DCD2C4"><span style="font:400 16px/1.35 'EB Garamond',Georgia,serif;color:#2A2622">Ramada Netanya</span><span style="font:400 13px/1.5 Assistant,sans-serif;color:#5D5548">20 min south</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid #DCD2C4"><span style="font:400 16px/1.35 'EB Garamond',Georgia,serif;color:#2A2622">Elma, Zichron Ya'akov</span><span style="font:400 13px/1.5 Assistant,sans-serif;color:#5D5548">25 min north</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid #DCD2C4"><span style="font:400 16px/1.35 'EB Garamond',Georgia,serif;color:#2A2622">Local apartments</span><span style="font:400 13px/1.5 Assistant,sans-serif;color:#5D5548">Caesarea, Or Akiva</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1 1 450px;min-width:0;display:grid;gap:24px">
+        <div style="display:grid;gap:0;border-top:1px solid #DCD2C4">
+          <div style="display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.8fr);gap:18px;padding:14px 0;border-bottom:1px solid #E6DED2"><span style="font:500 14px/1.4 Assistant,sans-serif;color:#2A2622">Nine facts, one column</span><span style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Distance, rate, deadline, code, shuttle, cancellation. Currently these are prose and bullets; as rows they can be compared and acted on in seconds.</span></div>
+          <div style="display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.8fr);gap:18px;padding:14px 0;border-bottom:1px solid #E6DED2"><span style="font:500 14px/1.4 Assistant,sans-serif;color:#2A2622">1 September in oxblood</span><span style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">The only warning colour on the site. It is two weeks before the RSVP deadline, and it costs money to miss — so it should not look like the second of three bullets.</span></div>
+          <div style="display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.8fr);gap:18px;padding:14px 0;border-bottom:1px solid #E6DED2"><span style="font:500 14px/1.4 Assistant,sans-serif;color:#2A2622">Two gaps to fill</span><span style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">The rate and the group code. I have left them bracketed. If Dan gave you a dedicated booking link rather than a code, that replaces the "mention at checkout" instruction entirely — it is more reliable.</span></div>
+          <div style="display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.8fr);gap:18px;padding:14px 0;border-bottom:1px solid #E6DED2"><span style="font:500 14px/1.4 Assistant,sans-serif;color:#2A2622">Alternatives get links</span><span style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Ramada, Elma, and the apartments are currently names with drive times and no way to book. As a hairline list with links they stay understated but become usable.</span></div>
+          <div style="display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.8fr);gap:18px;padding:14px 0"><span style="font:500 14px/1.4 Assistant,sans-serif;color:#2A2622">Untouched</span><span style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">The Dan Hotels URL exactly as it is, and the "mention the Shushan–Farkas wedding" instruction verbatim until you tell me otherwise.</span></div>
+        </div>
+        <div style="padding:20px 22px;background:#EFE8DD;border-left:2px solid #8A3A2E;display:grid;gap:8px">
+          <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A3A2E">Flagged</div>
+          <p style="font:400 15px/1.68 Assistant,sans-serif;color:#5D5548;margin:0">This section touches external booking links and money. I will not modify, shorten, or re-route the Dan Hotels URL, and I will not publish a rate or a code you have not given me.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">08 — Visual system</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0;max-width:30ch">Codify what you already have.</h2>
+  <p style="font:400 17px/1.74 Assistant,sans-serif;color:#5D5548;margin:20px 0 0;max-width:64ch">Your theme colour is already <span style="font-family:ui-monospace,Menlo,monospace;font-size:15px">#F7F5F0</span>, so the palette instinct is right. What follows turns it into tokens, with contrast ratios measured against the ivory ground.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:1px;background:#DCD2C4;margin-top:32px;border:1px solid #DCD2C4">
+    <div style="background:#F7F3EC"><div style="height:70px;background:#F7F3EC;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Ivory</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#F7F3EC</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Primary ground</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#EFE8DD;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Sand</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#EFE8DD</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Alternate sections</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#E6DED2;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Linen</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#E6DED2</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Image mat</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#DCD2C4;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Rule</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#DCD2C4</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Hairlines</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#2A2622;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Ink</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#2A2622 · 13.7:1</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Headings, body</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#5D5548;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Taupe</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#5D5548 · 6.6:1</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Secondary text</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#6F6455;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Umber</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#6F6455 · 5.2:1</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Captions — the palest text allowed</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#A4885E;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Antique gold</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#A4885E · 3.0:1</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#8A3A2E">Rules and marks only</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#7A5F32;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Bronze</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#7A5F32 · 5.5:1</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Links, focus ring</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#423C34;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Ink hover</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#423C34</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Button hover</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#8A3A2E;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Oxblood</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#8A3A2E · 7.0:1</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Errors, deadlines</div></div></div>
+    <div style="background:#F7F3EC"><div style="height:70px;background:#3F6146;border-bottom:1px solid #DCD2C4"></div><div style="padding:13px 15px;display:grid;gap:4px"><div style="font:500 13px/1.3 Assistant,sans-serif;color:#2A2622">Olive</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#6F6455">#3F6146 · 6.4:1</div><div style="font:400 12px/1.5 Assistant,sans-serif;color:#6F6455">Confirmation</div></div></div>
+  </div>
+  <p style="font:400 15px/1.7 Assistant,sans-serif;color:#6F6455;margin:18px 0 0;max-width:70ch">No pure white, no pure black, no second metallic. Gold is a hairline, or the monogram itself where contrast allows — never a fill, gradient, or body text. Because the hero's turquoise is the most saturated colour in the project, the pages stay ink-on-ivory and let the photograph carry all the colour.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:#DCD2C4;margin-top:44px;border:1px solid #DCD2C4">
+    <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:12px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">English display</div>
+      <div style="font:400 42px/1 'EB Garamond',Georgia,serif;color:#2A2622">EB Garamond</div>
+      <p style="font:400 14px/1.65 Assistant,sans-serif;color:#6F6455;margin:0">Old-style serif, high legibility at display size, none of the wedding-template associations of the usual choices. Weights 400 / 500 plus italic.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:12px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Hebrew display</div>
+      <div style="font:400 42px/1.15 'Frank Ruhl Libre',serif;color:#2A2622" dir="rtl">עמית ואלכס</div>
+      <p style="font:400 14px/1.65 Assistant,sans-serif;color:#6F6455;margin:0">Frank Ruhl Libre — a true Hebrew serif of equal editorial weight. Garamond has no Hebrew, and a sans fallback there breaks the tone.</p>
+    </div>
+    <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:12px;align-content:start">
+      <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Body · both languages</div>
+      <div style="font:400 36px/1.1 Assistant,sans-serif;color:#2A2622">Assistant</div>
+      <p style="font:400 14px/1.65 Assistant,sans-serif;color:#6F6455;margin:0">One humanist sans covering Latin and Hebrew, so body, nav, and buttons keep identical structure across languages. Weights 300–600.</p>
+    </div>
+  </div>
+  <div style="margin-top:32px;border-top:1px solid #DCD2C4">
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Hero title</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Garamond 400 · 62/0.96 · −0.025em · mobile 46/0.96</div></div>
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Page title</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Garamond 400 · 40/1.1 · −0.015em · mobile 30/1.12</div></div>
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Event title</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Garamond 400 · 25/1.25 · 0 · mobile 21/1.3</div></div>
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Date &amp; place meta</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Assistant 500 · 12/2 · 0.2em · uppercase · Latin only</div></div>
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Body</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Assistant 400 · 17/1.7 · 0 · never below 17 · max 66ch</div></div>
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Times &amp; codes</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Monospace 13 · tabular · always dir="ltr"</div></div>
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Navigation</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Assistant 500 · 11/1 · 0.16em · uppercase · mobile menu 22 sentence case</div></div>
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #E6DED2"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Buttons</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">Assistant 500 · 13/1 · 0.16em · uppercase · min-height 52 touch</div></div>
+    <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:20px;padding:14px 0;border-bottom:1px solid #DCD2C4"><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Hebrew overrides</div><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#6F6455">letter-spacing 0 · line-height +0.1 · no text-transform</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:1px;background:#DCD2C4;margin-top:44px;border:1px solid #DCD2C4">
+    <div style="background:#F7F3EC;padding:24px 22px;display:grid;gap:12px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Space · 4px base</div><div style="font:400 13px/1.9 ui-monospace,Menlo,monospace;color:#5D5548">4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128</div><p style="font:400 14px/1.6 Assistant,sans-serif;color:#6F6455;margin:0">Section rhythm 128 desktop / 72 mobile. No value off the scale.</p></div>
+    <div style="background:#F7F3EC;padding:24px 22px;display:grid;gap:12px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Containers</div><div style="font:400 13px/1.9 ui-monospace,Menlo,monospace;color:#5D5548">page 1240 · content 1080 · text 66ch</div><p style="font:400 14px/1.6 Assistant,sans-serif;color:#6F6455;margin:0">Padding 56 / 40 / 20. Images may go full-bleed; text never does.</p></div>
+    <div style="background:#F7F3EC;padding:24px 22px;display:grid;gap:12px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Breakpoints</div><div style="font:400 13px/1.9 ui-monospace,Menlo,monospace;color:#5D5548">360 · 390 · 430 · 768 · 1024 · 1280</div><p style="font:400 14px/1.6 Assistant,sans-serif;color:#6F6455;margin:0">Designed at 390 first. 360 is the guard rail — nothing may overflow it.</p></div>
+    <div style="background:#F7F3EC;padding:24px 22px;display:grid;gap:12px;align-content:start"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Motion</div><div style="font:400 13px/1.9 ui-monospace,Menlo,monospace;color:#5D5548">fade+8px · 500ms · once</div><p style="font:400 14px/1.6 Assistant,sans-serif;color:#6F6455;margin:0">Menu 240ms, hover 180ms, image settle 1.02→1. Opacity-only under reduced-motion. No parallax, no counters, no ticking.</p></div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">09 — Implementation checklist</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0">Approve by number.</h2>
+  <p style="font:400 17px/1.74 Assistant,sans-serif;color:#5D5548;margin:20px 0 0;max-width:64ch">Reply with "approve all", or name the numbers you want. Items 19–24 touch forms, links, or content deletion and need approval on their own even if you approve everything else.</p>
+  <div style="margin-top:32px;border:1px solid #DCD2C4">
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:14px 22px;background:#EFE8DD;border-bottom:1px solid #DCD2C4;font:500 11px/1.4 Assistant,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2A2622"><div>#</div><div>Change</div><div>Risk</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">01</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Rebuild the monogram as one component; fix the "A AAA" output and label the home link</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">02</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Replace "Enter Website" with a header RSVP pill; desktop hero shows only names, date, and venue; add a second pill RSVP with the reply deadline after Wedding Details</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">03</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Re-crop the hero: portrait frame on mobile with type in the sky; full-bleed outpainted wide crop on desktop, transparent header overlaid, same type-in-the-sky treatment, refined ghost RSVP</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">04</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Set names as "Amit &amp; Alex" consistently; fix hero spacing and the footer date format</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">05</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Publish the colour, type, and spacing tokens in section 08 as the single source of styling</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">06</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">One button system: primary, secondary, text link — with visible focus rings throughout</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">07</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Raise all body text to 17px minimum; remove any text below WCAG AA on ivory</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">08</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Raise every tap target to 52px and space controls on mobile</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">09</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Merge the Weekend page's duplicated Sunday into one inverted wedding-day block</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">10</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Add a dress-code section to The Wedding using the existing FAQ wording verbatim</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">11</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Build one Transportation block with "to be confirmed" markers where times are unknown</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">12</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Restructure the hotel block as a key–value card with 1 September in oxblood</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">13</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Add the reply deadline and Eden's number to the footer</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">14</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Render all FAQ answers in the markup; collapse with CSS and proper disclosure semantics</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">15</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Convert the hero to WebP, add dimensions, lazy-load below-fold images</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">16</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Fix the stray list marker beside "Number attending" on the RSVP form</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">17</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Rebuild the mobile menu: 56px rows, no nesting, RSVP and phone pinned, focus trapped</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">18</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#5D5548">Remove the Lovable "Edit with" badge from the published site</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#3F6146">Low</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline;background:#FBF7F0"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">19</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#2A2622">Delete the duplicate "You are invited" section — content removal</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#7A5F32">Medium</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline;background:#FBF7F0"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">20</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#2A2622">Remove the countdown timer — content removal, and you may disagree</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#7A5F32">Medium</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline;background:#FBF7F0"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">21</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#2A2622">Delete "The guide" 01–09 index from the homepage</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#7A5F32">Medium</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline;background:#FBF7F0"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">22</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#2A2622">Collapse nine pages to five destinations, with redirects from every old URL</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#7A5F32">Medium</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;border-bottom:1px solid #E6DED2;align-items:baseline;background:#FBF7F0"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">23</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#2A2622">Add the real Dan group-rate mechanism and link the three alternative hotels</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#8A3A2E">High</div></div>
+    <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 108px;gap:16px;padding:12px 22px;align-items:baseline;background:#FBF7F0"><div style="font:400 12px/1.6 ui-monospace,Menlo,monospace;color:#8A3A2E">24</div><div style="font:400 15px/1.6 Assistant,sans-serif;color:#2A2622">Hebrew and RTL work of any kind, and any change near the RSVP form or language switcher</div><div style="font:400 11px/1.5 ui-monospace,Menlo,monospace;color:#8A3A2E">High</div></div>
+  </div>
+</section>
+
+<section style="margin-top:104px;border-top:1px solid #DCD2C4;padding-top:44px">
+  <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#6F6455">10 — What I need from you</div>
+  <h2 style="font:400 clamp(30px,3.6vw,46px)/1.1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;color:#2A2622;margin:22px 0 0">Six answers and one connection.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;background:#DCD2C4;margin-top:36px;border:1px solid #DCD2C4">
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:9px;align-content:start"><div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">01</div><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">The GitHub repo</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">Lovable → GitHub → Connect. Without it I cannot audit the Hebrew version, the RSVP integration, or the styling architecture — and I will not touch any of the three blind.</p></div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:9px;align-content:start"><div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">02</div><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">More photographs</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">I have one. Per-page heroes need five or six more, ideally with room around the subjects for type.</p></div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:9px;align-content:start"><div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">03</div><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">The Dan group rate</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">The rate, and how guests actually claim it — a code, a dedicated link, or a phone number. "Mention it at checkout" will not survive a self-service booking engine.</p></div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:9px;align-content:start"><div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">04</div><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">Transfer times</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">Namos buses, wedding-day shuttle, airport transfers. If they are undecided, say so and they stay marked "to be confirmed".</p></div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:9px;align-content:start"><div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">05</div><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">An email address?</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">Contact currently offers Eden's phone only. Guests abroad may prefer to write. Your call — I will not invent one.</p></div>
+    <div style="background:#F7F3EC;padding:26px 24px;display:grid;gap:9px;align-content:start"><div style="font:400 13px/1.6 ui-monospace,Menlo,monospace;color:#A4885E">06</div><div style="font:500 15px/1.4 Assistant,sans-serif;color:#2A2622">The countdown</div><p style="font:400 15px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">I recommend removing it. It is the one item where taste may reasonably differ, so it stays until you say otherwise.</p></div>
+  </div>
+  <div style="margin-top:36px;padding:28px 30px;background:#2A2622;display:grid;gap:12px">
+    <div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#A4885E">Still Phase 1</div>
+    <p style="font:400 clamp(17px,1.8vw,19px)/1.7 Assistant,sans-serif;color:#F7F3EC;margin:0;max-width:70ch">Nothing has been implemented. No file in your project has been edited, no commit made, nothing synced or published. When you are ready, reply "approve all" or name the numbers from section 09 — and if you want the Hebrew and RSVP items included, connect the repo first so I can read what I would be changing.</p>
+  </div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAnnotations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Review controls&quot;},&quot;showRiskPills&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Review controls&quot;},&quot;scheduleLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Timeline&quot;,&quot;Cards&quot;],&quot;default&quot;:&quot;Timeline&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Design options&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const layout = this.props.scheduleLayout ?? 'Timeline';
+    return {
+      annotationsOn: this.props.showAnnotations ?? true,
+      pillsOn: this.props.showRiskPills ?? true,
+      timelineOn: layout === 'Timeline',
+      cardsOn: layout === 'Cards'
+    };
+  }
+}
+</script>
+</body>
+</html>
