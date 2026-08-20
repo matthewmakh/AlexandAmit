@@ -1,0 +1,12 @@
+{
+  "name": "alexandamit-wedding-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Amit & Alex wedding website — 11 October 2026, Kochav Hayam, Caesarea",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
