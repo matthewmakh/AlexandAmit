@@ -45,7 +45,7 @@ RSVP is handled entirely by **Paperless Post**. Every RSVP control on the site â
 | `PORT` | set by Railway | Port to listen on (default `3000`) |
 | `RSVP_URL` | no | Invitation to forward to (default `https://pp.events/b4nMxdj7`) |
 
-To point the site at a different invitation, change `RSVP_URL` in Railway rather than editing the pages â€” the redirect and the links both read from it.
+The RSVP controls link to the invitation directly and open in a new tab, so guests keep the site behind them. `RSVP_URL` governs the `/rsvp` redirect only; to move to a different invitation, update the `href` in the five pages under `public/` as well.
 
 ## Images
 
