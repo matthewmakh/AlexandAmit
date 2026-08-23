@@ -5,12 +5,10 @@ const path = require('node:path');
 const PORT = process.env.PORT || 3000;
 const ROOT = path.join(__dirname, 'public');
 
-// Where replies are appended. Point this at a mounted Railway volume to keep
-// them across deploys; every reply is also written to the log as a safety net.
-const DATA_DIR = process.env.RSVP_DATA_DIR || path.join(__dirname, 'data');
-const RSVP_FILE = path.join(DATA_DIR, 'rsvps.jsonl');
-// Optional: mirror each reply to a Zapier/Make/Sheets endpoint.
-const WEBHOOK = process.env.RSVP_WEBHOOK_URL || '';
+// RSVP is handled by Paperless Post. Every RSVP control on the site links
+// straight there, and /rsvp stays alive as a redirect so any link already
+// shared with guests keeps working.
+const RSVP_URL = process.env.RSVP_URL || 'https://pp.events/b4nMxdj7';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -37,7 +35,6 @@ const ROUTES = {
   '/events': 'events.html',
   '/gallery': 'gallery.html',
   '/newlywed-fund': 'newlywed-fund.html',
-  '/rsvp': 'rsvp.html',
 };
 
 const WEBP_SWAPPABLE = new Set(['.jpg', '.jpeg', '.png']);
@@ -71,105 +68,7 @@ function notFound(res) {
   res.end('Not found');
 }
 
-function json(res, status, payload) {
-  const body = JSON.stringify(payload);
-  res.writeHead(status, {
-    'Content-Type': 'application/json; charset=utf-8',
-    'Content-Length': Buffer.byteLength(body),
-  });
-  res.end(body);
-}
-
-function readBody(req, limit = 64 * 1024) {
-  return new Promise((resolve, reject) => {
-    let size = 0;
-    const chunks = [];
-    req.on('data', (c) => {
-      size += c.length;
-      if (size > limit) {
-        reject(new Error('too large'));
-        req.destroy();
-        return;
-      }
-      chunks.push(c);
-    });
-    req.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-    req.on('error', reject);
-  });
-}
-
-function parseBody(raw, contentType = '') {
-  if (contentType.includes('application/json')) return JSON.parse(raw);
-  const params = new URLSearchParams(raw);
-  return Object.fromEntries(params.entries());
-}
-
-const clean = (v, max) => String(v == null ? '' : v).trim().slice(0, max);
-
-function validate(input) {
-  const body = input && typeof input === 'object' ? input : {};
-  const reply = {
-    name: clean(body.name, 120),
-    email: clean(body.email, 160),
-    attending: clean(body.attending, 20),
-    guests: clean(body.guests, 12),
-    meal: clean(body.meal, 400),
-    note: clean(body.note, 2000),
-  };
-  const errors = [];
-  if (!reply.name) errors.push('Please tell us your name.');
-  if (!reply.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(reply.email)) errors.push('Please enter a valid email address.');
-  if (reply.attending !== 'yes' && reply.attending !== 'no') errors.push('Please let us know whether you can join us.');
-  if (reply.attending === 'yes' && !reply.guests) errors.push('Please choose how many will attend.');
-  if (reply.attending === 'no') reply.guests = '0';
-  return { reply, errors };
-}
-
-async function recordRsvp(reply) {
-  const entry = { ...reply, receivedAt: new Date().toISOString() };
-  // The log line is the durable record when no volume is mounted.
-  console.log('RSVP ' + JSON.stringify(entry));
-  try {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-    fs.appendFileSync(RSVP_FILE, JSON.stringify(entry) + '\n');
-  } catch (err) {
-    console.error('RSVP could not be written to ' + RSVP_FILE + ':', err.message);
-  }
-  if (WEBHOOK) {
-    try {
-      await fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(entry),
-      });
-    } catch (err) {
-      console.error('RSVP webhook failed:', err.message);
-    }
-  }
-}
-
-async function handleRsvp(req, res) {
-  let body;
-  try {
-    body = parseBody(await readBody(req), req.headers['content-type'] || '');
-  } catch {
-    return json(res, 400, { ok: false, errors: ['We could not read that reply. Please try again.'] });
-  }
-
-  const { reply, errors } = validate(body);
-  if (errors.length) return json(res, 422, { ok: false, errors });
-
-  await recordRsvp(reply);
-
-  // Browsers posting the form without JavaScript get a redirect they can see.
-  if (!(req.headers['content-type'] || '').includes('application/json')) {
-    res.writeHead(303, { Location: '/rsvp?sent=1' });
-    return res.end();
-  }
-  return json(res, 200, { ok: true });
-}
-
-// Public pages, in nav order. RSVP is deliberately excluded — it is noindex.
+// Public pages, in nav order. RSVP is off-site, so it is not listed.
 const INDEXED = ['/', '/events', '/travel', '/newlywed-fund', '/gallery'];
 
 function siteOrigin(req) {
@@ -190,7 +89,7 @@ function sitemap(req, res) {
 }
 
 function robots(req, res) {
-  const body = `User-agent: *\nAllow: /\nDisallow: /rsvp\nDisallow: /api/\n\nSitemap: ${siteOrigin(req)}/sitemap.xml\n`;
+  const body = `User-agent: *\nAllow: /\nDisallow: /rsvp\n\nSitemap: ${siteOrigin(req)}/sitemap.xml\n`;
   res.writeHead(200, { 'Content-Type': MIME['.txt'], 'Cache-Control': 'public, max-age=3600' });
   res.end(body);
 }
@@ -208,15 +107,10 @@ http.createServer((req, res) => {
   if (pathname === '/sitemap.xml') return sitemap(req, res);
   if (pathname === '/robots.txt') return robots(req, res);
 
-  if (pathname === '/api/rsvp') {
-    if (req.method !== 'POST') {
-      res.writeHead(405, { Allow: 'POST', 'Content-Type': 'text/plain; charset=utf-8' });
-      return res.end('Method not allowed');
-    }
-    return handleRsvp(req, res).catch((err) => {
-      console.error('RSVP failed:', err);
-      json(res, 500, { ok: false, errors: ['Something went wrong on our end. Please try again, or message us on WhatsApp.'] });
-    });
+  // Anyone landing on the old RSVP page goes to the Paperless Post invitation.
+  if (pathname === '/rsvp') {
+    res.writeHead(302, { Location: RSVP_URL, 'Cache-Control': 'no-store' });
+    return res.end();
   }
 
   const relative = ROUTES[pathname] || pathname.slice(1);
