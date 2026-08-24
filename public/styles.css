@@ -145,3 +145,20 @@ textarea:focus-visible {
   margin-bottom: 16px;
   break-inside: avoid;
 }
+
+/* Language switch — EN | עברית, sits beside the RSVP pill */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 500 11px/1 Assistant, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.lang-switch a { color: var(--muted); transition: color .18s ease; }
+.lang-switch a:hover { color: var(--gold); }
+.lang-switch .lang-on { color: var(--gold); }
+.lang-switch .lang-sep { color: var(--border); }
+/* Hebrew is not an uppercase script and letter-spacing pulls it apart */
+.lang-switch [lang="he"] { letter-spacing: 0; text-transform: none; font-size: 12.5px; }
