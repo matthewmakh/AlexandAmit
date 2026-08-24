@@ -120,7 +120,7 @@ function build(page) {
   s = s.replace(
     /<div class="lang-switch">[\s\S]*?<\/div>/,
     `<div class="lang-switch"><a href="${enHref}" lang="en" hreflang="en">EN</a>` +
-      `<span class="lang-sep">|</span>` +
+      `<span class="lang-sep" aria-hidden="true"></span>` +
       `<span class="lang-on" lang="he">${HEBREW_LABEL}</span></div>`
   );
 

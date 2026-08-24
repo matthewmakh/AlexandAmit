@@ -146,19 +146,42 @@ textarea:focus-visible {
   break-inside: avoid;
 }
 
-/* Language switch — EN | עברית, sits beside the RSVP pill */
+/* Language switch - EN | Hebrew, sits beside the RSVP pill */
 .lang-switch {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 11px;
+  line-height: 1;
+}
+.lang-switch a,
+.lang-switch .lang-on {
   font: 500 11px/1 Assistant, sans-serif;
   letter-spacing: .16em;
   text-transform: uppercase;
-  white-space: nowrap;
+  color: var(--muted);
+  transition: color .2s ease;
 }
-.lang-switch a { color: var(--muted); transition: color .18s ease; }
 .lang-switch a:hover { color: var(--gold); }
 .lang-switch .lang-on { color: var(--gold); }
-.lang-switch .lang-sep { color: var(--border); }
-/* Hebrew is not an uppercase script and letter-spacing pulls it apart */
-.lang-switch [lang="he"] { letter-spacing: 0; text-transform: none; font-size: 12.5px; }
+
+/* A drawn hairline reads quieter than a typed pipe, and matches the rules
+   used elsewhere in the header. */
+.lang-switch .lang-sep {
+  flex: none;
+  width: 1px;
+  height: 12px;
+  background: var(--border);
+}
+
+/* Hebrew has no uppercase, and Latin tracking pulls its words apart. Set a
+   size that matches the optical weight of the Assistant caps beside it. */
+.lang-switch [lang="he"] {
+  /* Hebrew has a tall x-height and no caps, so at a matched pixel size it
+     reads heavier than the Latin. Lighter weight evens the two out. */
+  font-weight: 400;
+  font-size: 12.5px;
+  letter-spacing: 0;
+  text-transform: none;
+  position: relative;
+  top: .5px;
+}

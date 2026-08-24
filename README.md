@@ -62,6 +62,10 @@ That reads each page in `public/`, applies `tools/translations.he.json`, rewrite
 
 After editing an English page, re-run it. Any string without a Hebrew entry is listed by name and the command exits non-zero, so a missed translation is visible rather than silently shipping in English. To change wording, edit `translations.he.json` — never `public/he/` directly, since it is overwritten.
 
+## Stylesheet cache
+
+`styles.css` is served with `max-age=86400`, so returning visitors hold it for a day. The pages link it as `/styles.css?v=2` — **bump that number whenever the stylesheet changes**, or a returning guest gets new markup against a day-old stylesheet.
+
 ## Images
 
 Photographs ship in two formats. `server.js` checks the browser's `Accept` header and serves the `.webp` twin when supported, falling back to the `.jpg`/`.png` the markup names — so the HTML stays simple and every visitor gets the smallest file their browser understands. Every `<img>` carries intrinsic `width`/`height` to prevent layout shift, and everything below the first screen is lazy-loaded.
