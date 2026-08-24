@@ -11,7 +11,7 @@ Built from the Claude Design project in `Phase 1 wedding site proposal/`. Those 
 | `/` | Home — hero, live countdown, invitation, section cards |
 | `/events` | Events — the wedding weekend schedule |
 | `/travel` | Travel & Stay — arrival, transfers, and the three hotels |
-| `/gallery` | Gallery — 21 engagement photographs |
+| `/gallery` | Gallery — 20 engagement photographs |
 | `/newlywed-fund` | Newlywed Fund — Zelle details with copy-to-clipboard |
 | `/rsvp` | Redirects to the Paperless Post invitation (`noindex`) |
 | `/sitemap.xml`, `/robots.txt` | Generated from the request host, so they are correct on any domain |
