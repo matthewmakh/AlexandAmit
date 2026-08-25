@@ -145,3 +145,77 @@ textarea:focus-visible {
   margin-bottom: 16px;
   break-inside: avoid;
 }
+
+/* Language switch - EN | Hebrew, sits beside the RSVP pill */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  line-height: 1;
+}
+.lang-switch a,
+.lang-switch .lang-on {
+  font: 500 11px/1 Assistant, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .2s ease;
+}
+.lang-switch a:hover { color: var(--gold); }
+.lang-switch .lang-on { color: var(--gold); }
+
+/* A drawn hairline reads quieter than a typed pipe, and matches the rules
+   used elsewhere in the header. */
+.lang-switch .lang-sep {
+  flex: none;
+  width: 1px;
+  height: 12px;
+  background: var(--border);
+}
+
+/* Hebrew has no uppercase, and Latin tracking pulls its words apart. Set a
+   size that matches the optical weight of the Assistant caps beside it. */
+.lang-switch [lang="he"] {
+  /* Hebrew has a tall x-height and no caps, so at a matched pixel size it
+     reads heavier than the Latin. Lighter weight evens the two out. */
+  font-weight: 400;
+  font-size: 12.5px;
+  letter-spacing: 0;
+  text-transform: none;
+  position: relative;
+  top: .5px;
+}
+
+/* Hotel cards. Laid out as a flex column rather than a grid: grid shares any
+   spare height out across its rows, so the card with the least copy ended up
+   with the tallest button. Here the button keeps its own height and margin-top
+   auto pins it to the foot of every card. */
+.hotel-card {
+  flex: 1 1 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  background: var(--ivory);
+  border: 1px solid var(--border);
+}
+.hotel-card > :first-child { flex: none; }
+
+/* Deep gold rather than ink: warmer against the cream, and unlike the lighter
+   gold it clears AA contrast for 12px uppercase (5.4:1). */
+.btn-hotel {
+  margin: auto 26px 26px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--gold-deep);
+  color: var(--ivory);
+  font: 500 12px/1.3 Assistant, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: background .2s ease;
+}
+.btn-hotel:hover { background: #634C28; color: var(--ivory); }

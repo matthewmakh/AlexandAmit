@@ -11,9 +11,10 @@ Built from the Claude Design project in `Phase 1 wedding site proposal/`. Those 
 | `/` | Home — hero, live countdown, invitation, section cards |
 | `/events` | Events — the wedding weekend schedule |
 | `/travel` | Travel & Stay — arrival, transfers, and the three hotels |
-| `/gallery` | Gallery — 21 engagement photographs |
+| `/gallery` | Gallery — 20 engagement photographs |
 | `/newlywed-fund` | Newlywed Fund — Zelle details with copy-to-clipboard |
 | `/rsvp` | Redirects to the Paperless Post invitation (`noindex`) |
+| `/he`, `/he/events`, `/he/travel`, `/he/gallery`, `/he/newlywed-fund` | Hebrew mirror of every page, right-to-left |
 | `/sitemap.xml`, `/robots.txt` | Generated from the request host, so they are correct on any domain |
 
 Anything else renders the styled 404 page.
@@ -47,6 +48,24 @@ RSVP is handled entirely by **Paperless Post**. Every RSVP control on the site �
 
 The RSVP controls link to the invitation directly and open in a new tab, so guests keep the site behind them. `RSVP_URL` governs the `/rsvp` redirect only; to move to a different invitation, update the `href` in the five pages under `public/` as well.
 
+## Hebrew
+
+Every page has a Hebrew counterpart under `/he`, and a switch beside the RSVP pill moves between them. The Hebrew pages are `dir="rtl"`, set in Frank Ruhl Libre (the display faces carry no Hebrew glyphs), and drop the wide letter-spacing, which is a Latin small-caps device that pulls Hebrew words apart.
+
+**The English pages are the single source of truth.** `public/he/` is generated, not hand-written:
+
+```bash
+node tools/build-hebrew.mjs
+```
+
+That reads each page in `public/`, applies `tools/translations.he.json`, rewrites the internal links and the language switch, and writes `public/he/`. The output is committed, so nothing runs at deploy time.
+
+After editing an English page, re-run it. Any string without a Hebrew entry is listed by name and the command exits non-zero, so a missed translation is visible rather than silently shipping in English. To change wording, edit `translations.he.json` — never `public/he/` directly, since it is overwritten.
+
+## Stylesheet cache
+
+`styles.css` is served with `max-age=86400`, so returning visitors hold it for a day. The pages link it as `/styles.css?v=2` — **bump that number whenever the stylesheet changes**, or a returning guest gets new markup against a day-old stylesheet.
+
 ## Images
 
 Photographs ship in two formats. `server.js` checks the browser's `Accept` header and serves the `.webp` twin when supported, falling back to the `.jpg`/`.png` the markup names — so the HTML stays simple and every visitor gets the smallest file their browser understands. Every `<img>` carries intrinsic `width`/`height` to prevent layout shift, and everything below the first screen is lazy-loaded.
@@ -57,11 +76,13 @@ The originals live in `Phase 1 wedding site proposal/`; `public/assets/` holds t
 
 ```
 server.js        static server: routes, WebP negotiation, RSVP redirect, sitemap, 404
+tools/           build-hebrew.mjs + translations.he.json (generates public/he/)
 railway.json     Railway start command
 public/
   home.html  events.html  travel.html  gallery.html  newlywed-fund.html
   404.html
-  styles.css     design tokens, buttons, countdown
+  he/            generated Hebrew pages - do not edit by hand
+  styles.css     design tokens, buttons, countdown, language switch
   assets/        images, each as .jpg/.png + .webp
 Phase 1 wedding site proposal/   original Claude Design export
 ```
