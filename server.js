@@ -44,6 +44,17 @@ const ROUTES = {
   '/he/newlywed-fund': 'he/newlywed-fund.html',
 };
 
+// A decoded path holding a NUL or other control character can never name a real
+// file, and fs.stat/createReadStream throw synchronously on it instead of
+// reporting through the callback. Credential-scanning bots probe with these
+// constantly ("/%00.aws/%00config"), so reject them before touching the disk.
+const CONTROL_CHARS = /[\u0000-\u001f\u007f]/;
+
+function badRequest(res) {
+  res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+  res.end('Bad request');
+}
+
 const WEBP_SWAPPABLE = new Set(['.jpg', '.jpeg', '.png']);
 
 // Every photo ships as both .jpg/.png and .webp. Browsers that advertise WebP
@@ -65,7 +76,12 @@ function send(res, status, filePath, req) {
   };
   if (WEBP_SWAPPABLE.has(path.extname(filePath).toLowerCase())) headers.Vary = 'Accept';
   res.writeHead(status, headers);
-  fs.createReadStream(served).pipe(res);
+  const stream = fs.createReadStream(served);
+  stream.on('error', (err) => {
+    console.error('Could not read ' + served + ':', err.message);
+    res.destroy();
+  });
+  stream.pipe(res);
 }
 
 function notFound(res, pathname = '') {
@@ -103,14 +119,14 @@ function robots(req, res) {
   res.end(body);
 }
 
-http.createServer((req, res) => {
+function handle(req, res) {
   let pathname;
   try {
     pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
   } catch {
-    res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
-    return res.end('Bad request');
+    return badRequest(res);
   }
+  if (CONTROL_CHARS.test(pathname)) return badRequest(res);
   if (pathname.length > 1 && pathname.endsWith('/')) pathname = pathname.slice(0, -1);
 
   if (pathname === '/sitemap.xml') return sitemap(req, res);
@@ -135,6 +151,30 @@ http.createServer((req, res) => {
       notFound(res, pathname);
     });
   });
+}
+
+http.createServer((req, res) => {
+  // One malformed request must never take the site down for everyone else.
+  try {
+    handle(req, res);
+  } catch (err) {
+    console.error('Request failed:', req.method, req.url, err && err.message);
+    if (!res.headersSent) {
+      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('Something went wrong');
+    } else {
+      res.destroy();
+    }
+  }
 }).listen(PORT, () => {
   console.log(`Amit & Alex wedding site listening on port ${PORT}`);
+});
+
+// Last resort. This process serves static files and keeps no state, so staying
+// up with a logged error always serves guests better than a restart loop.
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception, server kept alive:', err);
+});
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled rejection, server kept alive:', err);
 });

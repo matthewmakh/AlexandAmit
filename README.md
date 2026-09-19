@@ -91,6 +91,6 @@ Phase 1 wedding site proposal/   original Claude Design export
 
 These are content decisions, deliberately left rather than invented — the design brief is explicit that times, rates, and links must not be made up:
 
-- **Transfer times** — the wedding-day shuttle and the Nammos buses both read "to be confirmed" on Travel & Stay and Events.
+- **Transfer times** — the wedding-day shuttle and the Henna party buses both read "to be confirmed" on Travel & Stay and Events.
 - **Dan Caesarea group rate and booking code** — the card explains rooms are held for immediate family; no rate or code is published.
 - **Hebrew version** — the design only calls for Hebrew glyphs on the home invitation card, which are in place. A full bilingual site with a language switcher was scoped but not designed.
