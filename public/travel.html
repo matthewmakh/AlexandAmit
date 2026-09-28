@@ -14,9 +14,28 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Assistant:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="en" href="/travel">
 <link rel="alternate" hreflang="he" href="/he/travel">
-<link rel="stylesheet" href="/styles.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=4">
 </head>
 <body>
+<aside class="update-banner" id="update-banner" aria-label="Latest update">
+  <div class="update-banner-inner">
+    <p><span class="new-dot" aria-hidden="true"></span> <strong>Updated 28 September</strong> Our hotel is now the King Solomon Tiberias Hotel, and all buses leave from there. Sunday's reception now starts at 16:30.</p>
+    <span class="update-links"><a href="/travel#main-hotel">New hotel</a><a href="/events#wedding-day">New times</a></span>
+    <button type="button" class="update-close" aria-label="Dismiss">×</button>
+  </div>
+</aside>
+<script>
+(function () {
+  // Dismissal is remembered per update, so the next change shows again.
+  var KEY = 'update-dismissed', ID = '2026-09-28';
+  var banner = document.getElementById('update-banner');
+  try { if (localStorage.getItem(KEY) === ID) { banner.hidden = true; return; } } catch (e) {}
+  banner.querySelector('.update-close').addEventListener('click', function () {
+    banner.hidden = true;
+    try { localStorage.setItem(KEY, ID); } catch (e) {}
+  });
+})();
+</script>
 <div style="background:#F7F3EC">
   <header style="position:relative;width:100%;background:#F7F3EC;border-bottom:1px solid #DCD2C4;padding:16px clamp(20px,4vw,48px) 20px">
     <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">
@@ -45,8 +64,8 @@
   <section style="background:#EFE8DD;border-top:1px solid #DCD2C4;border-bottom:1px solid #DCD2C4;padding:72px clamp(20px,4vw,56px)">
     <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:#DCD2C4;border:1px solid #DCD2C4">
       <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Arriving</div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">The nearest airport is Ben Gurion Airport (TLV), around 45 minutes' drive from Caesarea.</p></div>
-      <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Wedding-day shuttle</div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">Running from Jacob Resort Hadera to Kochav Hayam and back. <span style="color:#A4885E">Departure time to be confirmed.</span></p></div>
-      <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Henna party buses</div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">Round-trip from Jacob Resort Hadera to Cambio Garden in Tiberias. <span style="color:#A4885E">Schedule to be confirmed.</span></p></div>
+      <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Wedding-day shuttle <span class="new-mark"><span class="new-dot" aria-hidden="true"></span>Updated</span></div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">Running from King Solomon Tiberias Hotel to Kochav Hayam and back. <span style="color:#A4885E">Departure time to be confirmed.</span></p></div>
+      <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#6F6455">Henna party buses <span class="new-mark"><span class="new-dot" aria-hidden="true"></span>Updated</span></div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">Round-trip from King Solomon Tiberias Hotel to Cambio Garden. <span style="color:#A4885E">Schedule to be confirmed.</span></p></div>
     </div>
   </section>
 
@@ -70,17 +89,18 @@
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:center">
 
-        <div class="hotel-card">
+        <div class="hotel-card" id="main-hotel">
           <div style="position:relative;height:180px">
-            <img width="900" height="512" loading="lazy" src="/assets/jacob-hotel-2.jpg" alt="Jacob Resort Hadera aerial view" style="width:100%;height:100%;object-fit:cover;display:block">
+            <img width="648" height="480" loading="lazy" src="/assets/king-solomon.jpg" alt="King Solomon Tiberias Hotel" style="width:100%;height:100%;object-fit:cover;object-position:50% 80%;display:block">
+            <span class="photo-mark"><span class="new-mark"><span class="new-dot" aria-hidden="true"></span>Updated</span></span>
           </div>
           <div style="padding:0 26px;display:flex;justify-content:space-between;align-items:baseline;gap:12px">
-            <div style="font:400 24px/1.2 'EB Garamond',Georgia,serif;color:#A4885E">Jacob Resort Hadera</div>
+            <div style="font:400 24px/1.2 'EB Garamond',Georgia,serif;color:#A4885E">King Solomon Tiberias Hotel</div>
             <span style="font:600 10px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6F6455;border:1px solid #DCD2C4;padding:4px 8px;white-space:nowrap">Our main hotel</span>
           </div>
-          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">Located in Hadera, about 15 minutes from Kochav Hayam. Our Shabbat dinner takes place here.</div>
-          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">Buses to the Henna party leave from here. <span style="color:#6F6455">Departure time to be confirmed.</span></div>
-          <a class="btn-hotel" href="https://jacobhotels.com/en/hotels/resort-hadera/">Book this hotel</a>
+          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">HaShomer St 23, Tiberias. Our Shabbat dinner takes place here.</div>
+          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">Buses to the Henna party and the wedding leave from here. <span style="color:#6F6455">Departure time to be confirmed.</span></div>
+          <a class="btn-hotel" href="https://www.google.com/maps/search/?api=1&amp;query=King+Solomon+Hotel+HaShomer+23+Tiberias" target="_blank" rel="noopener noreferrer">View on map</a>
         </div>
 
         <div class="hotel-card">
@@ -92,7 +112,7 @@
             <span style="font:600 10px/1 Assistant,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A3A2E;border:1px solid #8A3A2E;padding:4px 8px;white-space:nowrap">Adults only</span>
           </div>
           <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">Located in Zichron Ya'akov, about 25 minutes from Kochav Hayam.</div>
-          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">Buses will leave from <span style="color:#A4885E">Jacob Resort Hadera</span> to bring guests to the Henna party. <span style="color:#6F6455">Departure time to be confirmed.</span></div>
+          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548"><span class="new-mark"><span class="new-dot" aria-hidden="true"></span>Updated</span> Buses will leave from <span style="color:#A4885E">King Solomon Tiberias Hotel</span> to bring guests to the Henna party. <span style="color:#6F6455">Departure time to be confirmed.</span></div>
           <a class="btn-hotel" href="https://gordoniahotels.com/en/elmahotel/">Book this hotel</a>
         </div>
 

@@ -15,9 +15,28 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Assistant:wght@300;400;500;600&family=Pinyon+Script&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="en" href="/he">
 <link rel="alternate" hreflang="he" href="/he">
-<link rel="stylesheet" href="/styles.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=4">
 </head>
 <body>
+<aside class="update-banner" id="update-banner" aria-label="עדכון אחרון">
+  <div class="update-banner-inner">
+    <p><span class="new-dot" aria-hidden="true"></span> <strong>עודכן ב-28 בספטמבר</strong> המלון שלנו הוא כעת מלון המלך שלמה טבריה, וכל ההסעות יוצאות משם. קבלת הפנים ביום ראשון מתחילה עכשיו ב-16:30.</p>
+    <span class="update-links"><a href="/he/travel#main-hotel">המלון החדש</a><a href="/he/events#wedding-day">השעות החדשות</a></span>
+    <button type="button" class="update-close" aria-label="סגירה">×</button>
+  </div>
+</aside>
+<script>
+(function () {
+  // Dismissal is remembered per update, so the next change shows again.
+  var KEY = 'update-dismissed', ID = '2026-09-28';
+  var banner = document.getElementById('update-banner');
+  try { if (localStorage.getItem(KEY) === ID) { banner.hidden = true; return; } } catch (e) {}
+  banner.querySelector('.update-close').addEventListener('click', function () {
+    banner.hidden = true;
+    try { localStorage.setItem(KEY, ID); } catch (e) {}
+  });
+})();
+</script>
 <div style="background:#F7F3EC">
 
   <div style="position:relative;min-height:100vh;overflow:hidden">
@@ -108,7 +127,7 @@
       <div style="display:grid;gap:6px;margin-bottom:24px">
         <div style="font:italic 400 18px/1.5 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">ביום ראשון, האחד עשר באוקטובר</div>
         <div style="font:italic 400 17px/1.5 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">אלפיים עשרים ושש</div>
-        <div style="font:italic 400 17px/1.5 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">בשעה חמש</div>
+        <div style="font:italic 400 17px/1.5 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">בשעה ארבע וחצי</div>
       </div>
       <div style="display:grid;gap:4px;margin-bottom:26px">
         <div style="font:400 clamp(30px,4.5vw,42px)/1.15 'Frank Ruhl Libre',Georgia,serif;color:#A4885E">כוכב הים</div>
@@ -176,8 +195,8 @@
 
 <script>
 (function () {
-  // Reception begins 17:00 Israel time on the wedding day.
-  var wedding = new Date('2026-10-11T17:00:00+03:00').getTime();
+  // Reception begins 16:30 Israel time on the wedding day.
+  var wedding = new Date('2026-10-11T16:30:00+03:00').getTime();
   var fields = [
     { el: document.getElementById('cd-days'), last: null },
     { el: document.getElementById('cd-hours'), last: null },

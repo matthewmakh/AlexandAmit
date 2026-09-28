@@ -117,7 +117,9 @@ textarea:focus-visible {
   header nav a,
   footer nav a,
   header a[aria-label],
-  footer a[href^="https://wa.me"] {
+  footer a[href^="https://wa.me"],
+  .lang-switch a,
+  .update-links a {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
@@ -219,3 +221,98 @@ textarea:focus-visible {
   transition: background .2s ease;
 }
 .btn-hotel:hover { background: #634C28; color: var(--ivory); }
+
+/* ---- Update banner: sits above the header on every page ---- */
+.update-banner { background: var(--ink); color: var(--ivory); }
+.update-banner-inner {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 52px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 18px;
+  text-align: center;
+  font: 400 14px/1.55 Assistant, sans-serif;
+}
+.update-banner p { margin: 0; }
+.update-banner strong { font-weight: 600; color: #E9CFA0; margin-inline: 4px 6px; }
+.update-links { display: inline-flex; gap: 18px; white-space: nowrap; }
+.update-links a {
+  color: var(--ivory);
+  font-weight: 600;
+  /* An underline rather than a border, so the tap area below can grow on
+     touch screens without pulling the line away from the words. */
+  text-decoration: underline;
+  text-decoration-color: #C9A874;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.update-links a:hover { color: #E9CFA0; }
+.update-close {
+  position: absolute;
+  inset-inline-end: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 44px;
+  min-height: 44px;
+  background: none;
+  border: 0;
+  color: var(--ivory);
+  opacity: .7;
+  font: 300 24px/1 Assistant, sans-serif;
+  cursor: pointer;
+}
+.update-close:hover { opacity: 1; }
+.update-banner a:focus-visible,
+.update-close:focus-visible { outline-color: #E9CFA0; }
+
+/* ---- "Updated" marker beside anything that changed ---- */
+@keyframes newPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201, 168, 116, .6); }
+  70%  { box-shadow: 0 0 0 7px rgba(201, 168, 116, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 168, 116, 0); }
+}
+.new-dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C9A874;
+  vertical-align: middle;
+  animation: newPulse 2.4s ease-out infinite;
+}
+.new-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-inline-start: 4px;
+  vertical-align: middle;
+  white-space: nowrap;
+  font: 600 10px/1 Assistant, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.new-mark .new-dot { background: #B8924F; }
+
+/* On the hotel photo, the marker sits on a small ivory tab so it reads */
+.photo-mark {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  padding: 7px 10px;
+  background: rgba(247, 243, 236, .94);
+  line-height: 1;
+}
+.photo-mark .new-mark { margin: 0; }
+
+/* Hebrew has no capitals, and Latin tracking pulls its letters apart */
+html[dir="rtl"] .new-mark { letter-spacing: 0; font-size: 11px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .new-dot { animation: none; }
+}

@@ -14,9 +14,28 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Assistant:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="en" href="/gallery">
 <link rel="alternate" hreflang="he" href="/he/gallery">
-<link rel="stylesheet" href="/styles.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=4">
 </head>
 <body>
+<aside class="update-banner" id="update-banner" aria-label="Latest update">
+  <div class="update-banner-inner">
+    <p><span class="new-dot" aria-hidden="true"></span> <strong>Updated 28 September</strong> Our hotel is now the King Solomon Tiberias Hotel, and all buses leave from there. Sunday's reception now starts at 16:30.</p>
+    <span class="update-links"><a href="/travel#main-hotel">New hotel</a><a href="/events#wedding-day">New times</a></span>
+    <button type="button" class="update-close" aria-label="Dismiss">×</button>
+  </div>
+</aside>
+<script>
+(function () {
+  // Dismissal is remembered per update, so the next change shows again.
+  var KEY = 'update-dismissed', ID = '2026-09-28';
+  var banner = document.getElementById('update-banner');
+  try { if (localStorage.getItem(KEY) === ID) { banner.hidden = true; return; } } catch (e) {}
+  banner.querySelector('.update-close').addEventListener('click', function () {
+    banner.hidden = true;
+    try { localStorage.setItem(KEY, ID); } catch (e) {}
+  });
+})();
+</script>
 <div style="background:#F7F3EC">
   <header style="position:relative;width:100%;background:#F7F3EC;border-bottom:1px solid #DCD2C4;padding:16px clamp(20px,4vw,48px) 20px">
     <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">

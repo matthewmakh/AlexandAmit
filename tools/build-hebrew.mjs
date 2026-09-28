@@ -85,6 +85,10 @@ function build(page) {
     return ` @@SCRIPT${scripts.length - 1}@@ `;
   });
 
+  // --- English labels carry a Hebrew gloss ("Reception · קבלת פנים"). Once the
+  //     label itself is translated the gloss only repeats it, so drop it. ---
+  s = s.replace(/<span class="he-gloss">[^<]*<span lang="he"[^>]*>[^<]*<\/span><\/span>/g, '');
+
   // --- text nodes ---
   s = s.replace(/>([^<>]+)</g, (m, inner) => {
     const he = translate(inner);
@@ -122,7 +126,9 @@ function build(page) {
   s = s.replace(/translateX\(-10px\)/g, 'translateX(10px)');
 
   // --- internal links point at the Hebrew side ---
-  s = s.replace(/href="(\/[^"]*)"/g, (m, href) => (ROUTES[href] ? `href="${ROUTES[href]}"` : m));
+  // An #anchor rides along, so /travel#main-hotel becomes /he/travel#main-hotel.
+  s = s.replace(/href="(\/[^"#]*)(#[^"]*)?"/g, (m, href, hash = '') =>
+    (ROUTES[href] ? `href="${ROUTES[href]}${hash}"` : m));
 
   // --- the switch now offers English ---
   const enHref = page === 'home' ? '/' : `/${page}`;

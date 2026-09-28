@@ -64,7 +64,7 @@ After editing an English page, re-run it. Any string without a Hebrew entry is l
 
 ## Stylesheet cache
 
-`styles.css` is served with `max-age=86400`, so returning visitors hold it for a day. The pages link it as `/styles.css?v=2` — **bump that number whenever the stylesheet changes**, or a returning guest gets new markup against a day-old stylesheet.
+`styles.css` is served with `max-age=86400`, so returning visitors hold it for a day. The pages link it as `/styles.css?v=N` (currently `v=4`) — **bump that number on every English page whenever the stylesheet changes**, then rebuild the Hebrew pages, or a returning guest gets new markup against a day-old stylesheet.
 
 ## Images
 
@@ -92,5 +92,13 @@ Phase 1 wedding site proposal/   original Claude Design export
 These are content decisions, deliberately left rather than invented — the design brief is explicit that times, rates, and links must not be made up:
 
 - **Transfer times** — the wedding-day shuttle and the Henna party buses both read "to be confirmed" on Travel & Stay and Events.
-- **Dan Caesarea group rate and booking code** — the card explains rooms are held for immediate family; no rate or code is published.
-- **Hebrew version** — the design only calls for Hebrew glyphs on the home invitation card, which are in place. A full bilingual site with a language switcher was scoped but not designed.
+- **King Solomon booking link** — the main-hotel card links to Google Maps for directions until the hotel's own booking page is confirmed.
+- **Group rates and booking codes** — none are published for any hotel.
+
+## Update banner
+
+When plans change, every page (except the 404) carries a dark banner above the header summarising the change, with links straight to it; each changed item on the site is marked with a pulsing gold dot and the word "Updated".
+
+- The banner markup and its script sit at the top of `<body>` in the five English pages. Its dismiss button remembers the choice in `localStorage` under `update-dismissed`, keyed to the update's date (`ID` in the script) — **change that ID for a new update** so guests who closed the old banner see the new one.
+- Markers are `<span class="new-mark">…Updated</span>`. Remove them, and the banner, once the change is old news.
+- Both are translated by the Hebrew build like any other text.

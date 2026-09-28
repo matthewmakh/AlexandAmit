@@ -14,9 +14,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Assistant:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="en" href="/he/events">
 <link rel="alternate" hreflang="he" href="/he/events">
-<link rel="stylesheet" href="/styles.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=4">
 </head>
 <body>
+<aside class="update-banner" id="update-banner" aria-label="עדכון אחרון">
+  <div class="update-banner-inner">
+    <p><span class="new-dot" aria-hidden="true"></span> <strong>עודכן ב-28 בספטמבר</strong> המלון שלנו הוא כעת מלון המלך שלמה טבריה, וכל ההסעות יוצאות משם. קבלת הפנים ביום ראשון מתחילה עכשיו ב-16:30.</p>
+    <span class="update-links"><a href="/he/travel#main-hotel">המלון החדש</a><a href="/he/events#wedding-day">השעות החדשות</a></span>
+    <button type="button" class="update-close" aria-label="סגירה">×</button>
+  </div>
+</aside>
+<script>
+(function () {
+  // Dismissal is remembered per update, so the next change shows again.
+  var KEY = 'update-dismissed', ID = '2026-09-28';
+  var banner = document.getElementById('update-banner');
+  try { if (localStorage.getItem(KEY) === ID) { banner.hidden = true; return; } } catch (e) {}
+  banner.querySelector('.update-close').addEventListener('click', function () {
+    banner.hidden = true;
+    try { localStorage.setItem(KEY, ID); } catch (e) {}
+  });
+})();
+</script>
 <div style="background:#F7F3EC">
   <header style="position:relative;width:100%;background:#F7F3EC;border-bottom:1px solid #DCD2C4;padding:16px clamp(20px,4vw,48px) 20px">
     <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">
@@ -53,9 +72,9 @@
               <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">שעה</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">16:00</span></div>
               <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">מיקום</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">קמביו גארדן<br>שדרות אליעזר קפלן 1, טבריה 1420931</span></div>
               <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">קוד לבוש</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">קוקטייל ים תיכוני</span></div>
-              <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">הסעות</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">הלוך ושוב מג'ייקוב ריזורט חדרה לקמביו גארדן <span style="color:#A4885E">— שעות ההסעות והפרטים יימסרו סמוך לאירוע</span></span></div>
+              <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">הסעות <span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span></span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">הלוך ושוב ממלון המלך שלמה טבריה לקמביו גארדן <span style="color:#A4885E">— שעות ההסעות והפרטים יימסרו סמוך לאירוע</span></span></div>
             </div>
-            <p style="font:400 14px/1.7 Assistant,sans-serif;color:#8A7A5E;margin:0">לינה: אפשר ללון בטבריה, או להתארגן בג'ייקוב ריזורט חדרה ולהשתמש בהסעות המאורגנות אל מסיבת החינה וחזרה.</p>
+            <p style="font:400 14px/1.7 Assistant,sans-serif;color:#8A7A5E;margin:0"><span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span> לינה: המלון המרכזי שלנו הוא כעת מלון המלך שלמה טבריה, וההסעות הלוך ושוב אל מסיבת החינה יוצאות משם.</p>
           </div>
         </div>
 
@@ -66,32 +85,32 @@
               <h3 style="font:400 30px/1.15 'Frank Ruhl Libre',Georgia,serif;color:#A4885E;margin:0">ארוחת שבת</h3>
               <span style="font:600 10px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#7A5F32;border:1px solid #A4885E;padding:4px 7px">משפחה וחברים קרובים</span>
             </div>
-            <p style="font:400 16px/1.65 Assistant,sans-serif;color:#5D5548;margin:0;max-width:50ch">שולחן ארוך עם שתי המשפחות בג'ייקוב ריזורט חדרה, שמור למשפחה הקרובה והמורחבת.</p>
+            <p style="font:400 16px/1.65 Assistant,sans-serif;color:#5D5548;margin:0;max-width:50ch">שולחן ארוך עם שתי המשפחות במלון המלך שלמה טבריה, שמור למשפחה הקרובה והמורחבת.</p>
             <div style="display:flex;flex-wrap:wrap;gap:22px 44px;padding-top:18px;border-top:1px solid #DCD2C4">
               <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">שעה</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">19:00</span></div>
-              <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">מיקום</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">ג'ייקוב ריזורט חדרה</span></div>
+              <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">מיקום <span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span></span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">מלון המלך שלמה טבריה<br>רחוב השומר 23, טבריה</span></div>
               <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">קוד לבוש</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">הכול בלבן</span></div>
             </div>
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:150px 1fr;gap:28px;padding:40px 0">
+        <div id="wedding-day" style="display:grid;grid-template-columns:150px 1fr;gap:28px;padding:40px 0">
           <span style="font:500 11px/1.5 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6F6455">יום ראשון<br>11 באוקטובר</span>
           <div style="display:grid;gap:16px">
             <h3 style="font:400 32px/1.15 'Frank Ruhl Libre',Georgia,serif;color:#A4885E;margin:0">יום החתונה</h3>
             <p style="font:400 16px/1.65 Assistant,sans-serif;color:#5D5548;margin:0;max-width:50ch">חופה בשעת הזהב, ואחריה קוקטייל, ארוחת ערב וריקודים עד הלילה.</p>
             <div style="display:grid;gap:6px">
-              <span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">שעה</span>
+              <span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">שעה <span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span></span>
               <div style="display:flex;flex-wrap:wrap;gap:18px 32px;margin-top:2px">
-                <div style="display:grid;gap:2px"><span style="font:400 19px/1 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">17:00</span><span style="font:400 13px/1.4 Assistant,sans-serif;color:#5D5548">קבלת פנים · <span lang="he" style="color:#A4885E">קבלת פנים</span></span></div>
-                <div style="display:grid;gap:2px"><span style="font:400 19px/1 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">18:00</span><span style="font:400 13px/1.4 Assistant,sans-serif;color:#5D5548">חופה · <span lang="he" style="color:#A4885E">חופה</span></span></div>
+                <div style="display:grid;gap:2px"><span style="font:400 19px/1 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">16:30</span><span style="font:400 13px/1.4 Assistant,sans-serif;color:#5D5548">קבלת פנים</span></div>
+                <div style="display:grid;gap:2px"><span style="font:400 19px/1 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">18:00 בדיוק</span><span style="font:400 13px/1.4 Assistant,sans-serif;color:#5D5548">חופה בשקיעה</span></div>
                 <div style="display:grid;gap:2px"><span style="font:400 19px/1 'Frank Ruhl Libre',Georgia,serif;color:#2A2622">החל מ-19:00</span><span style="font:400 13px/1.4 Assistant,sans-serif;color:#5D5548">ארוחה וריקודים</span></div>
               </div>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:22px 44px;padding-top:18px;border-top:1px solid #DCD2C4">
               <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">מיקום</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">כוכב הים, קיסריה<br>קיבוץ שדות ים, ד.נ. מנשה</span></div>
               <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">קוד לבוש</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">בלאק טאי</span></div>
-              <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">הסעות</span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">הסעה מג'ייקוב ריזורט חדרה <span style="color:#A4885E">— השעות יימסרו סמוך לאירוע</span></span></div>
+              <div style="display:grid;gap:5px"><span style="font:500 9.5px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A7A5E">הסעות <span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span></span><span style="font:400 15px/1.5 Assistant,sans-serif;color:#2A2622">הסעה ממלון המלך שלמה טבריה <span style="color:#A4885E">— השעות יימסרו סמוך לאירוע</span></span></div>
             </div>
             <p style="font:400 14px/1.7 Assistant,sans-serif;color:#8A7A5E;margin:0">הערה על הלבוש: שמלות ארוכות או חליפות מחויטות, טוקסידו או חליפה כהה. החופה וקבלת הפנים מתקיימות בחוץ; הארוחה והריקודים עוברים פנימה עם רדת החשכה.</p>
           </div>

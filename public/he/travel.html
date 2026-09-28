@@ -14,9 +14,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Assistant:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="en" href="/he/travel">
 <link rel="alternate" hreflang="he" href="/he/travel">
-<link rel="stylesheet" href="/styles.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=4">
 </head>
 <body>
+<aside class="update-banner" id="update-banner" aria-label="עדכון אחרון">
+  <div class="update-banner-inner">
+    <p><span class="new-dot" aria-hidden="true"></span> <strong>עודכן ב-28 בספטמבר</strong> המלון שלנו הוא כעת מלון המלך שלמה טבריה, וכל ההסעות יוצאות משם. קבלת הפנים ביום ראשון מתחילה עכשיו ב-16:30.</p>
+    <span class="update-links"><a href="/he/travel#main-hotel">המלון החדש</a><a href="/he/events#wedding-day">השעות החדשות</a></span>
+    <button type="button" class="update-close" aria-label="סגירה">×</button>
+  </div>
+</aside>
+<script>
+(function () {
+  // Dismissal is remembered per update, so the next change shows again.
+  var KEY = 'update-dismissed', ID = '2026-09-28';
+  var banner = document.getElementById('update-banner');
+  try { if (localStorage.getItem(KEY) === ID) { banner.hidden = true; return; } } catch (e) {}
+  banner.querySelector('.update-close').addEventListener('click', function () {
+    banner.hidden = true;
+    try { localStorage.setItem(KEY, ID); } catch (e) {}
+  });
+})();
+</script>
 <div style="background:#F7F3EC">
   <header style="position:relative;width:100%;background:#F7F3EC;border-bottom:1px solid #DCD2C4;padding:16px clamp(20px,4vw,48px) 20px">
     <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">
@@ -45,8 +64,8 @@
   <section style="background:#EFE8DD;border-top:1px solid #DCD2C4;border-bottom:1px solid #DCD2C4;padding:72px clamp(20px,4vw,56px)">
     <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:#DCD2C4;border:1px solid #DCD2C4">
       <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6F6455">איך מגיעים</div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">שדה התעופה הקרוב הוא נמל התעופה בן גוריון (TLV), כ-45 דקות נסיעה מקיסריה.</p></div>
-      <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6F6455">הסעות ביום החתונה</div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">יוצאות מג'ייקוב ריזורט חדרה לכוכב הים וחזרה. <span style="color:#A4885E">שעת היציאה תיקבע בהמשך.</span></p></div>
-      <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6F6455">הסעות למסיבת החינה</div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">הלוך ושוב מג'ייקוב ריזורט חדרה לקמביו גארדן בטבריה. <span style="color:#A4885E">לוח הזמנים ייקבע בהמשך.</span></p></div>
+      <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6F6455">הסעות ביום החתונה <span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span></div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">יוצאות ממלון המלך שלמה טבריה לכוכב הים וחזרה. <span style="color:#A4885E">שעת היציאה תיקבע בהמשך.</span></p></div>
+      <div style="background:#F7F3EC;padding:28px 26px;display:grid;gap:8px"><div style="font:500 11px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6F6455">הסעות למסיבת החינה <span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span></div><p style="font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548;margin:0">הלוך ושוב ממלון המלך שלמה טבריה לקמביו גארדן. <span style="color:#A4885E">לוח הזמנים ייקבע בהמשך.</span></p></div>
     </div>
   </section>
 
@@ -70,17 +89,18 @@
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:center">
 
-        <div class="hotel-card">
+        <div class="hotel-card" id="main-hotel">
           <div style="position:relative;height:180px">
-            <img width="900" height="512" loading="lazy" src="/assets/jacob-hotel-2.jpg" alt="מבט אווירי על ג'ייקוב ריזורט חדרה" style="width:100%;height:100%;object-fit:cover;display:block">
+            <img width="648" height="480" loading="lazy" src="/assets/king-solomon.jpg" alt="מלון המלך שלמה טבריה" style="width:100%;height:100%;object-fit:cover;object-position:50% 80%;display:block">
+            <span class="photo-mark"><span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span></span>
           </div>
           <div style="padding:0 26px;display:flex;justify-content:space-between;align-items:baseline;gap:12px">
-            <div style="font:400 24px/1.2 'Frank Ruhl Libre',Georgia,serif;color:#A4885E">ג'ייקוב ריזורט חדרה</div>
+            <div style="font:400 24px/1.2 'Frank Ruhl Libre',Georgia,serif;color:#A4885E">מלון המלך שלמה טבריה</div>
             <span style="font:600 10px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6F6455;border:1px solid #DCD2C4;padding:4px 8px;white-space:nowrap">המלון המרכזי שלנו</span>
           </div>
-          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">ממוקם בחדרה, כ-15 דקות מכוכב הים. ארוחת השבת שלנו מתקיימת כאן.</div>
-          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">ההסעות למסיבת החינה יוצאות מכאן. <span style="color:#6F6455">שעת היציאה תיקבע בהמשך.</span></div>
-          <a class="btn-hotel" href="https://jacobhotels.com/en/hotels/resort-hadera/">להזמנת חדר</a>
+          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">רחוב השומר 23, טבריה. ארוחת השבת שלנו מתקיימת כאן.</div>
+          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">ההסעות למסיבת החינה ולחתונה יוצאות מכאן. <span style="color:#6F6455">שעת היציאה תיקבע בהמשך.</span></div>
+          <a class="btn-hotel" href="https://www.google.com/maps/search/?api=1&amp;query=King+Solomon+Hotel+HaShomer+23+Tiberias" target="_blank" rel="noopener noreferrer">לצפייה במפה</a>
         </div>
 
         <div class="hotel-card">
@@ -92,7 +112,7 @@
             <span style="font:600 10px/1 Assistant,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#8A3A2E;border:1px solid #8A3A2E;padding:4px 8px;white-space:nowrap">מבוגרים בלבד</span>
           </div>
           <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">ממוקם בזכרון יעקב, כ-25 דקות מכוכב הים.</div>
-          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548">ההסעות יוצאות מתוך <span style="color:#A4885E">ג'ייקוב ריזורט חדרה</span> אל מסיבת החינה. <span style="color:#6F6455">שעת היציאה תיקבע בהמשך.</span></div>
+          <div style="padding:0 26px;font:400 15.5px/1.65 Assistant,sans-serif;color:#5D5548"><span class="new-mark"><span class="new-dot" aria-hidden="true"></span>עודכן</span> ההסעות יוצאות מתוך <span style="color:#A4885E">מלון המלך שלמה טבריה</span> אל מסיבת החינה. <span style="color:#6F6455">שעת היציאה תיקבע בהמשך.</span></div>
           <a class="btn-hotel" href="https://gordoniahotels.com/en/elmahotel/">להזמנת חדר</a>
         </div>
 
