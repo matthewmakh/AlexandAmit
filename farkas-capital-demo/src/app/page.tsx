@@ -8,7 +8,9 @@ import { FarkasLogo, FarkasMark } from "@/components/brand/FarkasMark";
 import { LumenMark } from "@/components/brand/LumenMark";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Eyebrow, SectionTitle } from "@/components/ui/Card";
-import { ImageSlot } from "@/components/ui/ImageSlot";
+import { Photo } from "@/components/ui/Photo";
+import { PlatformDiagram } from "@/components/diagrams/PlatformDiagram";
+import { ArchitectureDiagram } from "@/components/diagrams/ArchitectureDiagram";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal, Stagger, StaggerItem } from "@/components/marketing/Reveal";
 import { HeroPhone } from "@/components/pitch/HeroPhone";
@@ -105,28 +107,28 @@ export default async function PitchPage() {
               d: "Investment checkout and a private investor dashboard on the issuer's own website. Investors open it from their Wallet pass for detailed shareholder information.",
               href: "/lumen/invest",
               cta: "Try the checkout",
-              img: "Screenshot: checkout step 1 inside the Lumen website on iPhone",
-              brief: "Phone-frame screenshot of the amount step with Lumen branding, generous white space.",
+              img: "/images/screens/checkout-phone-mock.jpg",
+              alt: "The checkout amount step inside the Lumen website on an iPhone",
             },
             {
               t: "Issuer dashboard",
               d: "The company's control centre for its raise, investors, payments, marketing results and shareholder communications. Every headline number opens the records behind it.",
               href: "/issuer",
               cta: "Open the dashboard",
-              img: "Screenshot: issuer dashboard raise overview on a MacBook",
-              brief: "Angled laptop mock showing the KPI tiles and the daily trend chart.",
+              img: "/images/screens/issuer-laptop-mock.jpg",
+              alt: "The issuer dashboard raise overview on a laptop",
             },
             {
               t: "Wallet investment passes",
               d: "A separate branded pass for each investment, updated by the server as the investment moves to issuance. Wallet is the familiar place for passes from different companies.",
               href: "/wallet/pass_jordan_1",
               cta: "See the pass",
-              img: "Photo: a hand holding an iPhone with the Lumen pass in Wallet",
-              brief: "Real-world lifestyle shot, soft daylight, the pass clearly readable.",
+              img: "/images/lumen/phone-pass.jpg",
+              alt: "A hand holding an iPhone showing the Lumen Robotics pass in Wallet",
             },
           ].map((c) => (
             <StaggerItem key={c.t} className="card flex flex-col overflow-hidden p-0">
-              <ImageSlot label={c.img} brief={c.brief} aspect="4/3" rounded="rounded-none" />
+              <Photo src={c.img} alt={c.alt} aspect="4/3" rounded="rounded-none" sizes="(min-width: 1024px) 33vw, 100vw" />
               <div className="flex flex-1 flex-col p-7">
                 <h3 className="text-[19px] font-semibold tracking-[-0.01em]">{c.t}</h3>
                 <p className="mt-2 flex-1 text-[14px] leading-relaxed text-ink-3">{c.d}</p>
@@ -228,7 +230,7 @@ export default async function PitchPage() {
         </Reveal>
         <Reveal className="mt-12">
           <Link href="/issuer" className="block">
-            <ImageSlot label="Screenshot: issuer dashboard raise overview, desktop" brief="Full-width capture of /issuer with the KPI tiles, stacked funds bar and the cumulative trend chart. Use the live page or a device mock." aspect="16/9" />
+            <Photo src="/images/screens/issuer-overview.png" alt="Issuer dashboard raise overview" aspect="16/10" className="shadow-lift ring-hair" sizes="(min-width: 1152px) 1152px, 100vw" />
           </Link>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -283,7 +285,7 @@ export default async function PitchPage() {
                 ))}
               </ul>
             </div>
-            <ImageSlot label="Diagram: one platform, many branded surfaces" brief="Three company websites with different colours (Lumen blue, Harbor terracotta, Verdant green), each with its own Invest button and pass, sitting on one shared platform layer labelled with the compliance role of Farkas Capital." aspect="4/3" />
+            <div className="card p-6 sm:p-8"><PlatformDiagram /></div>
           </Reveal>
         </div>
       </section>
@@ -294,7 +296,7 @@ export default async function PitchPage() {
           <SectionTitle eyebrow="Build the experience. Connect the rails." title="Our interface on top of regulated infrastructure." lede="React and Next.js with TypeScript, PostgreSQL, encrypted document storage and a background job queue. Providers do what they are licensed to do; we own the experience." />
         </Reveal>
         <Reveal className="mt-12">
-          <ImageSlot label="Diagram: architecture and funds flow" brief="Investor → issuer website (checkout) → platform API → North Capital (KYC/AML, escrow, ACH/wire) → escrow account → release to issuer; Kore transfer agent for issuance; Docusign embedded signing; Apple/Google Wallet pass service with APNs; webhooks back into the platform with reconciliation job. Clean line diagram, blue accents." aspect="21/9" />
+          <div className="card overflow-x-auto p-4 sm:p-8"><div className="min-w-[900px]"><ArchitectureDiagram /></div></div>
         </Reveal>
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {[

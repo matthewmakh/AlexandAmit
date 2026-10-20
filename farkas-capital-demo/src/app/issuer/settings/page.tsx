@@ -6,7 +6,6 @@ import { Badge, type Tone } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Avatar } from "@/components/ui/Avatar";
-import { ImageSlot } from "@/components/ui/ImageSlot";
 import { LumenTile } from "@/components/brand/LumenMark";
 import { Table, Th, Td } from "@/components/dashboard/Table";
 
@@ -88,7 +87,7 @@ export default function SettingsPage() {
                 <div key={k} className="rounded-xl bg-canvas p-2.5"><div className="mb-1.5 h-7 rounded-md ring-hair" style={{ background: c }} />{k}<div className="tabular text-ink-4">{c}</div></div>
               ))}
             </div>
-            <ImageSlot className="mt-4" aspect="3/1" label="Logo upload: SVG and PNG, light and dark variants" brief="Drop the approved logo files; the pass template needs icon.png at 29/58/87px and logo.png at 160×50pt." rounded="rounded-2xl" />
+            <div className="mt-4 rounded-2xl border border-dashed border-line bg-canvas p-5 text-center text-[13px] text-ink-3"><div className="font-medium text-ink-2">Drop logo files here</div>SVG and PNG, light and dark variants. The pass template needs icon.png at 29/58/87px and logo.png at 160×50pt.</div>
           </Card>
           <Card>
             <CardHeader title="Domain and email" />

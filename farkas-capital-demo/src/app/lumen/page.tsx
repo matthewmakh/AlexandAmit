@@ -1,5 +1,5 @@
 import { LumenNav, LumenFooter } from "@/components/lumen/LumenChrome";
-import { ImageSlot } from "@/components/ui/ImageSlot";
+import { Photo } from "@/components/ui/Photo";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Reveal, Stagger, StaggerItem } from "@/components/marketing/Reveal";
 import { Eyebrow } from "@/components/ui/Card";
@@ -33,12 +33,7 @@ export default function LumenHome() {
           </Reveal>
         </div>
         <Reveal delay={0.15} className="mx-auto max-w-6xl px-5 pb-20">
-          <ImageSlot
-            tone="light"
-            aspect="21/9"
-            label="Hero: Lumen picking robot on a warehouse floor"
-            brief="Wide cinematic shot of a single robot gliding between racking, soft overhead light, shallow depth of field. Blue accent lights on the robot. Feels like an Apple product film still."
-          />
+          <Photo src="/images/lumen/hero.jpg" alt="A Lumen picking robot carrying a tote between warehouse racking" aspect="21/9" priority sizes="(min-width: 1152px) 1152px, 100vw" />
         </Reveal>
       </section>
 
@@ -70,13 +65,13 @@ export default function LumenHome() {
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
-              { t: "Pick", d: "Collaborative picking that follows the order, not the aisle. Two to three times the lines per labour hour.", img: "Product: robot picking alongside an associate", brief: "Associate and robot at a pick face, eye-level, natural light. Robot tote half full." },
-              { t: "Move", d: "Autonomous tote transport between zones, with no floor tape and no fixed conveyors.", img: "Product: robots moving totes through a cross-aisle", brief: "Three robots in a line crossing a wide aisle, motion blur on the far one, clean floor." },
-              { t: "Manage", d: "Fleet software that learns each site and rebalances the fleet by the hour.", img: "Product: fleet management dashboard on a laptop", brief: "Over-the-shoulder shot of a laptop showing a fleet map with blue dots; warehouse out of focus behind." },
+              { t: "Pick", d: "Collaborative picking that follows the order, not the aisle. Two to three times the lines per labour hour.", img: "/images/lumen/pick.jpg", alt: "An associate placing an item into a tote on a Lumen robot" },
+              { t: "Move", d: "Autonomous tote transport between zones, with no floor tape and no fixed conveyors.", img: "/images/lumen/move.jpg", alt: "Three Lumen robots carrying totes across a warehouse aisle" },
+              { t: "Manage", d: "Fleet software that learns each site and rebalances the fleet by the hour.", img: "/images/lumen/manage.jpg", alt: "Fleet management map on a laptop in a warehouse office" },
             ].map((c, i) => (
               <Reveal key={c.t} delay={i * 0.08}>
                 <div className="card overflow-hidden p-0">
-                  <ImageSlot label={c.img} brief={c.brief} aspect="4/3" rounded="rounded-none" />
+                  <Photo src={c.img} alt={c.alt} aspect="4/3" rounded="rounded-none" sizes="(min-width: 768px) 33vw, 100vw" />
                   <div className="p-7">
                     <div className="flex items-center gap-2 text-[17px] font-semibold">
                       <LumenMark size={18} color="var(--color-lumen)" /> {c.t}
@@ -108,13 +103,13 @@ export default function LumenHome() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex items-center gap-6 text-[13px] text-ink-4">
-                {["Customer logo 1", "Customer logo 2", "Customer logo 3", "Customer logo 4"].map((l) => (
-                  <ImageSlot key={l} label={l} aspect="3/1" className="w-28" rounded="rounded-lg" />
+              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+                {["Bluebonnet Beverage", "Rio Grande Supply", "Pecan Street Foods", "Hill Country Parts"].map((l) => (
+                  <span key={l} className="font-display text-[15px] font-semibold tracking-[-0.01em] text-ink-4">{l}</span>
                 ))}
               </div>
             </div>
-            <ImageSlot label="Customer story: Dallas distribution centre at dusk" brief="Exterior-to-interior, warm evening light through dock doors, robots visible inside. Documentary feel." aspect="4/5" />
+            <Photo src="/images/lumen/dallas.jpg" alt="The Dallas distribution centre at dusk with Lumen robots visible through the dock doors" aspect="4/5" />
           </Reveal>
         </div>
       </section>
@@ -123,7 +118,7 @@ export default function LumenHome() {
       <section id="company" className="bg-canvas">
         <div className="mx-auto max-w-6xl px-5 py-24">
           <Reveal className="grid items-center gap-12 lg:grid-cols-2">
-            <ImageSlot label="Company: founders in the Austin lab" brief="Two founders beside a half-assembled robot on a bench, candid, black and white or muted colour." aspect="4/3" />
+            <Photo src="/images/lumen/founders.jpg" alt="The two Lumen founders beside a half-assembled robot in the Austin lab" aspect="4/3" />
             <div>
               <Eyebrow tone="lumen">Company</Eyebrow>
               <h2 className="text-display-md mt-3 text-balance">Built in Austin since 2021.</h2>

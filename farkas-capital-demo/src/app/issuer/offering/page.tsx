@@ -9,7 +9,7 @@ import { Card, CardHeader } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { ImageSlot } from "@/components/ui/ImageSlot";
+import { Photo } from "@/components/ui/Photo";
 import { Table, Th, Td } from "@/components/dashboard/Table";
 
 export const dynamic = "force-dynamic";
@@ -110,7 +110,7 @@ export default async function OfferingControlsPage() {
           </Card>
           <Card>
             <CardHeader title="Website branding preview" subtitle="invest.lumenrobotics.com" />
-            <ImageSlot label="Screenshot: offering page as investors see it" brief="Auto-captured preview of /lumen/invest with Lumen branding, used to confirm colours and logo before publishing." aspect="4/3" />
+            <Photo src="/images/screens/offering-desktop.png" alt="The offering page as investors see it" aspect="4/3" objectPosition="top" className="ring-hair" rounded="rounded-2xl" />
             <div className="mt-4 grid grid-cols-3 gap-2 text-[12px]">
               <div className="rounded-xl bg-canvas p-3"><div className="mb-1.5 h-6 rounded-md" style={{ background: "#2B5CFF" }} />Primary #2B5CFF</div>
               <div className="rounded-xl bg-canvas p-3"><div className="mb-1.5 h-6 rounded-md" style={{ background: "#0B2A8A" }} />Deep #0B2A8A</div>

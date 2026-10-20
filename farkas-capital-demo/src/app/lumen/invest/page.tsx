@@ -6,7 +6,7 @@ import { money, number, date, pct } from "@/lib/data/format";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Card";
 import { Reveal } from "@/components/marketing/Reveal";
-import { ImageSlot } from "@/components/ui/ImageSlot";
+import { Photo } from "@/components/ui/Photo";
 import { Icon } from "@/components/ui/Icon";
 import { BarRows } from "@/components/charts/Bars";
 
@@ -75,7 +75,7 @@ export default function OfferingPage() {
 
       <section className="mx-auto max-w-6xl px-5 py-24">
         <Reveal className="grid items-center gap-12 lg:grid-cols-2">
-          <ImageSlot label="Offering: the Lumen fleet at scale" brief="Dozens of robots parked in neat rows at a charging bank, overhead symmetrical shot. Confident, orderly, blue accents." aspect="4/3" />
+          <Photo src="/images/lumen/fleet.jpg" alt="Dozens of Lumen robots parked in rows at a charging bank" aspect="4/3" />
           <div>
             <Eyebrow tone="lumen">Why now</Eyebrow>
             <h2 className="text-display-md mt-3 text-balance">Forty-one facilities. A fleet that pays for itself in under a year.</h2>

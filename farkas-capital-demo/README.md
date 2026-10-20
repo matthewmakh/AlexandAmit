@@ -72,12 +72,20 @@ pass page advance the order the way provider webhooks would and bump the pass ve
 
 Regenerate the pass image assets with `python3 scripts/make-pass-assets.py` (Pillow).
 
+## Imagery
+
+Photographs of the fictional Lumen Robotics fleet, team and sites were generated with Higgsfield
+(GPT Image 2.5) and live in `public/images/lumen/`. The lifestyle shot of the pass in Wallet is a
+generated photo with the real on-screen pass warped onto the phone. Device mock-ups in
+`public/images/screens/` are real captures of this app. The architecture, funds-flow, event-flow
+and brand diagrams are SVG components in `src/components/diagrams/`, so their labels stay crisp
+and editable. `<ImageSlot>` remains available for any future placeholder.
+
 ## What is simulated
 
 Provider integrations (North Capital, Kore, Docusign), the email code, KYC/AML/accreditation
 results, e-signature, payment rails and Google Wallet are simulated with the states the real
-providers return. Image placeholders (`<ImageSlot>`) mark where photography, renders and diagrams
-go, with a brief for each.
+providers return.
 
 ## Structure
 

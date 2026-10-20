@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Eyebrow } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/Icon";
-import { ImageSlot } from "@/components/ui/ImageSlot";
+import { FundsFlowDiagram } from "@/components/diagrams/FundsFlowDiagram";
+import { EventFlowDiagram } from "@/components/diagrams/EventFlowDiagram";
 import { Reveal } from "@/components/marketing/Reveal";
 
 export const metadata: Metadata = { title: "Build plan" };
@@ -182,17 +183,8 @@ export default function BuildPlanPage() {
 
         {/* Diagrams */}
         <Section n="03" title="Funds and data flow" lede="Money moves through contracted financial providers to the designated escrow or issuer account. The platform never holds investor money.">
-          <ImageSlot
-            label="Diagram: funds flow"
-            brief="Left to right: Investor → payment rail (ACH / wire / stablecoin via settlement provider) → North Capital escrow → closing → release to Lumen operating account; fee lines branching to Farkas Capital. Show refund path back to investor and 'returned payment' loop. Flat, two-colour, Apple-keynote style."
-            aspect="16/9"
-          />
-          <ImageSlot
-            className="mt-5"
-            label="Diagram: event and reconciliation flow"
-            brief="Verified provider event → signature check → idempotency → update internal records → reconcile payment / transfer-agent data → queue wallet update + approved notification → APNs. Side lane: daily reconciliation job and ops alert on failure. Mark the three sources of truth: payment provider (money), transfer agent (ownership), approved issuer records (valuation)."
-            aspect="16/9"
-          />
+          <div className="card overflow-x-auto p-4 sm:p-6"><div className="min-w-[760px]"><FundsFlowDiagram /></div></div>
+          <div className="card mt-5 overflow-x-auto p-4 sm:p-6"><div className="min-w-[760px]"><EventFlowDiagram /></div></div>
         </Section>
 
         {/* 04 Vendors */}
