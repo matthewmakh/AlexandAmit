@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# builds
+.next/
+out/
+dist/
+build/
+.turbo/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# environment and secrets: never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.key
+*.cer
+
+# os and editors
+.DS_Store
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Note: avoid broad directory rules such as `data/`. One silently excluded
+# source code from the demo's commits. Check `git ls-files` after adding rules.
